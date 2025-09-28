@@ -192,7 +192,7 @@
             const chartKehadiranSiswa = {
                 labels: [
                     <?php
-                    foreach ($dateRange as  $value) {
+                    foreach ($dateRange as $value) {
                         echo "'$value',";
                     }
                     ?>
@@ -234,7 +234,7 @@
             const chartKehadiranGuru = {
                 labels: [
                     <?php
-                    foreach ($dateRange as  $value) {
+                    foreach ($dateRange as $value) {
                         echo "'$value',";
                     }
                     ?>

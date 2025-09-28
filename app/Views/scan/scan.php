@@ -1,4 +1,4 @@
- <?= $this->extend('templates/starting_page_layout'); ?>
+<?= $this->extend('templates/starting_page_layout'); ?>
 
  <?= $this->section('navaction') ?>
  <a href="<?= base_url('/admin'); ?> " class="btn btn-primary pull-right pl-3">
@@ -9,10 +9,10 @@
 
  <?= $this->section('content'); ?>
  <?php
-   $oppBtn = '';
+$oppBtn = '';
 
-   $waktu == 'Masuk' ? $oppBtn = 'pulang' : $oppBtn = 'masuk';
-   ?>
+$waktu == 'Masuk' ? $oppBtn = 'pulang' : $oppBtn = 'masuk';
+?>
  <div class="main-panel">
     <div class="content">
        <div class="container-fluid">
