@@ -47,8 +47,8 @@ class GuruSeeder extends Seeder
             $uniqueCode = $this->generateUniqueCode();
 
             // Generate realistic teacher names
-            $firstName = $gender === 'Laki-laki' ? $this->faker->firstNameMale : $this->faker->firstNameFemale;
-            $lastName = $this->faker->lastName;
+            $firstName = $gender === 'Laki-laki' ? $this->faker->firstNameMale() : $this->faker->firstNameFemale();
+            $lastName = $this->faker->lastName();
             $title = $this->faker->randomElement(['', 'S.Pd', 'S.Pd.', 'M.Pd', 'M.Pd.', 'Drs.', 'Dra.']);
 
             $namaLengkap = $firstName . ' ' . $lastName;
@@ -67,7 +67,7 @@ class GuruSeeder extends Seeder
                 'nuptk' => $nuptk,
                 'nama_lengkap' => $namaLengkap,
                 'jenis_kelamin' => $gender,
-                'alamat' => $this->faker->address,
+                'alamat' => $this->faker->address(),
                 'no_hp' => $this->generatePhoneNumber(),
                 'foto' => null,  // Foto akan diupload nanti melalui interface admin
                 'unique_code' => $uniqueCode,
