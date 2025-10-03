@@ -87,11 +87,33 @@
                         <div class="col-md-4">
                            <div class="form-group mt-4">
                               <label for="tahun_ajaran">Tahun Ajaran</label>
-                              <input type="text" id="tahun_ajaran" class="form-control <?= $validation->getError('tahun_ajaran') ? 'is-invalid' : ''; ?>" name="tahun_ajaran" placeholder="2024/2025" value="<?= old('tahun_ajaran') ?>" required>
+                              <select id="tahun_ajaran" class="form-control <?= $validation->getError('tahun_ajaran') ? 'is-invalid' : ''; ?>" name="tahun_ajaran" required>
+                                 <option value="">Pilih Tahun Ajaran</option>
+                                 <?php 
+                                    $currentYear = date('Y');
+                                    $oldValue = old('tahun_ajaran');
+                                    
+                                    // Generate tahun ajaran dari 2 tahun kebelakang sampai 2 tahun kedepan
+                                    for ($i = -2; $i <= 2; $i++) {
+                                       $startYear = $currentYear + $i;
+                                       $endYear = $startYear + 1;
+                                       $tahunAjaran = $startYear . '/' . $endYear;
+                                       $selected = '';
+                                       
+                                       // Set default ke tahun ajaran saat ini jika tidak ada old value
+                                       if (empty($oldValue) && $i == 0) {
+                                          $selected = 'selected';
+                                       } elseif ($oldValue == $tahunAjaran) {
+                                          $selected = 'selected';
+                                       }
+                                 ?>
+                                    <option value="<?= $tahunAjaran; ?>" <?= $selected; ?>><?= $tahunAjaran; ?></option>
+                                 <?php } ?>
+                              </select>
                               <div class="invalid-feedback">
                                  <?= $validation->getError('tahun_ajaran'); ?>
                               </div>
-                              <small class="form-text text-muted">Format: YYYY/YYYY</small>
+                              <small class="form-text text-muted">Pilih tahun ajaran yang sesuai</small>
                            </div>
                         </div>
                      </div>

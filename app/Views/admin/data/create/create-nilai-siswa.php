@@ -28,7 +28,7 @@
                   <div class="row mb-4">
                      <div class="col-md-4">
                         <div class="card shadow-sm" style="border-radius: 15px; overflow: hidden;">
-                           <div class="card-body p-3 text-center" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                           <div class="card-body p-3 text-center" style="background: <?= $siswa['jenis_kelamin'] == 'Perempuan' ? 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)' : 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' ?>;">
                               <div class="photo-container mb-3" style="position: relative; display: inline-block;">
                                  <?php if (!empty($siswa['foto']) && file_exists(FCPATH . 'uploads/siswa/' . $siswa['foto'])): ?>
                                     <img src="<?= base_url('uploads/siswa/' . $siswa['foto']); ?>" 
@@ -58,7 +58,9 @@
                                  <div class="col-sm-6">
                                     <p class="mb-2"><strong>NIS:</strong><br><span class="text-muted"><?= $siswa['nis'] ?: '-' ?></span></p>
                                     <p class="mb-2"><strong>Kelas:</strong><br><span class="text-muted"><?= $siswa['kelas'] ?: '-' ?> <?= $siswa['jurusan'] ?: '' ?></span></p>
-                                    <p class="mb-2"><strong>Jenis Kelamin:</strong><br><span class="text-muted"><?= $siswa['jenis_kelamin'] == 'L' ? 'Laki-laki' : ($siswa['jenis_kelamin'] == 'P' ? 'Perempuan' : '-') ?></span></p>
+                                    <?php if (!empty($siswa['alamat'])): ?>
+                                       <p class="mb-0"><strong>Alamat:</strong><br><span class="text-muted"><?= $siswa['alamat'] ?></span></p>
+                                    <?php endif; ?>
                                  </div>
                                  <div class="col-sm-6">
                                     <p class="mb-2"><strong>No HP:</strong><br><span class="text-muted"><?= $siswa['no_hp'] ?: '-' ?></span></p>
@@ -66,9 +68,7 @@
                                     <p class="mb-2"><strong>Tahun Masuk:</strong><br><span class="text-muted"><?= $siswa['tahun_masuk'] ?: '-' ?></span></p>
                                  </div>
                               </div>
-                              <?php if (!empty($siswa['alamat'])): ?>
-                                 <p class="mb-0"><strong>Alamat:</strong><br><span class="text-muted"><?= $siswa['alamat'] ?></span></p>
-                              <?php endif; ?>
+                              
                            </div>
                         </div>
                      </div>
@@ -170,7 +170,29 @@
                                     <div class="col-md-6">
                                        <div class="form-group">
                                           <label class="bmd-label-floating">Tahun Ajaran</label>
-                                          <input type="text" class="form-control" name="tahun_ajaran" placeholder="Contoh: 2023/2024" value="<?= old('tahun_ajaran'); ?>" required>
+                                          <select class="form-control" name="tahun_ajaran" required>
+                                             <option value="">Pilih Tahun Ajaran</option>
+                                             <?php 
+                                                $currentYear = date('Y');
+                                                $oldValue = old('tahun_ajaran');
+                                                
+                                                // Generate tahun ajaran dari 2 tahun kebelakang sampai 2 tahun kedepan
+                                                for ($i = -2; $i <= 2; $i++) {
+                                                   $startYear = $currentYear + $i;
+                                                   $endYear = $startYear + 1;
+                                                   $tahunAjaran = $startYear . '/' . $endYear;
+                                                   $selected = '';
+                                                   
+                                                   // Set default ke tahun ajaran saat ini jika tidak ada old value
+                                                   if (empty($oldValue) && $i == 0) {
+                                                      $selected = 'selected';
+                                                   } elseif ($oldValue == $tahunAjaran) {
+                                                      $selected = 'selected';
+                                                   }
+                                             ?>
+                                                <option value="<?= $tahunAjaran; ?>" <?= $selected; ?>><?= $tahunAjaran; ?></option>
+                                             <?php } ?>
+                                          </select>
                                           <?php if ($validation->hasError('tahun_ajaran')): ?>
                                              <div class="text-danger">
                                                 <small><?= $validation->getError('tahun_ajaran'); ?></small>
@@ -191,7 +213,7 @@
                               <button type="submit" class="btn btn-success btn-round btn-lg">
                                  <i class="material-icons">save</i> Simpan Nilai
                               </button>
-                              <a href="<?= base_url('admin/nilai/kelas/' . $siswa['id_kelas']); ?>" class="btn btn-secondary btn-round btn-lg ml-3">
+                              <a href="<?= base_url('admin/nilai/kelas/' . $siswa['id_kelas']); ?>" class="btn btn-warning btn-round btn-lg ml-3">
                                  <i class="material-icons">arrow_back</i> Kembali
                               </a>
                            </div>

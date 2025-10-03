@@ -179,6 +179,8 @@ $routes->group('admin', function (RouteCollection $routes) {
     $routes->get('nilai/kelas/(:any)', 'Admin\DataNilai::siswaByKelas/$1');
     // admin tambah nilai untuk siswa tertentu
     $routes->get('nilai/tambah-nilai-siswa/(:any)', 'Admin\DataNilai::formTambahNilaiSiswa/$1');
+    // admin lihat nilai siswa
+    $routes->get('nilai/lihat-nilai-siswa/(:any)', 'Admin\DataNilai::lihatNilaiSiswa/$1');
 
     // Settings
     $routes->group('general-settings', ['namespace' => 'App\Controllers\Admin'], function ($routes) {

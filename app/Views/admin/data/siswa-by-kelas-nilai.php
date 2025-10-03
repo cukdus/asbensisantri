@@ -39,9 +39,7 @@
                            <th><b>No</b></th>
                            <th><b>NIS</b></th>
                            <th><b>Nama Siswa</b></th>
-                           <th><b>Jenis Kelamin</b></th>
-                           <th><b>No HP</b></th>
-                           <th><b>Status Kelulusan</b></th>
+                           <th><b>Kelas</b></th>
                            <th width="1%"><b>Aksi</b></th>
                         </thead>
                         <tbody>
@@ -51,13 +49,7 @@
                                  <td><?= $i; ?></td>
                                  <td><?= $siswa['nis']; ?></td>
                                  <td><b><?= $siswa['nama_siswa']; ?></b></td>
-                                 <td><?= $siswa['jenis_kelamin']; ?></td>
-                                 <td><?= $siswa['no_hp']; ?></td>
-                                 <td>
-                                    <span class="badge badge-<?= $siswa['is_graduated'] == 1 ? 'success' : 'warning'; ?>">
-                                       <?= $siswa['is_graduated'] == 1 ? 'Lulus' : 'Belum Lulus'; ?>
-                                    </span>
-                                 </td>
+                                 <td><?= $siswa['kelas']; ?> - <?= $siswa['jurusan']; ?></td>
                                  <td>
                                     <div class="d-flex justify-content-center">
                                        <a href="<?= base_url('admin/nilai/tambah-nilai-siswa/' . $siswa['id_siswa']); ?>" 

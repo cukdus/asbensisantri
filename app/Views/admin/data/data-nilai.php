@@ -60,7 +60,19 @@
                               <div class="col-md-2">
                                  <div class="form-group">
                                     <label for="filter_tahun">Tahun Ajaran</label>
-                                    <input type="text" id="filter_tahun" class="form-control" name="tahun_ajaran" placeholder="2024/2025">
+                                    <select id="filter_tahun" class="form-control" name="tahun_ajaran">
+                                       <option value="">Semua Tahun</option>
+                                       <?php 
+                                          $currentYear = date('Y');
+                                          // Generate tahun ajaran dari 2 tahun kebelakang sampai 2 tahun kedepan
+                                          for ($i = -2; $i <= 2; $i++) {
+                                             $startYear = $currentYear + $i;
+                                             $endYear = $startYear + 1;
+                                             $tahunAjaran = $startYear . '/' . $endYear;
+                                       ?>
+                                          <option value="<?= $tahunAjaran; ?>"><?= $tahunAjaran; ?></option>
+                                       <?php } ?>
+                                    </select>
                                  </div>
                               </div>
                               <div class="col-md-2">

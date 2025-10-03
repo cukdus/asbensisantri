@@ -10,9 +10,9 @@
                </div>
                <div class="card-body mx-5 my-3">
 
-                  <?php if (session()->getFlashdata('msg')) : ?>
+                  <?php if (session()->getFlashdata('msg')): ?>
                      <div class="pb-2">
-                        <div class="alert alert-<?= session()->getFlashdata('error') == true ? 'danger' : 'success'  ?> ">
+                        <div class="alert alert-<?= session()->getFlashdata('error') == true ? 'danger' : 'success' ?> ">
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                               <i class="material-icons">close</i>
                            </button>
@@ -21,10 +21,9 @@
                      </div>
                   <?php endif; ?>
 
-                  <form action="<?= base_url('admin/nilai/update'); ?>" method="post">
+                  <form action="<?= base_url('admin/nilai/edit'); ?>" method="post">
                      <?= csrf_field() ?>
-                     <input type="hidden" name="_method" value="PUT">
-                     <input type="hidden" name="id_nilai" value="<?= $data['id_nilai']; ?>">
+                     <input type="hidden" name="id_nilai" value="<?= $nilai['id_nilai']; ?>">
                      <?php $validation = \Config\Services::validation(); ?>
 
                      <div class="row">
@@ -34,7 +33,7 @@
                               <select id="id_siswa" class="form-control <?= $validation->getError('id_siswa') ? 'is-invalid' : ''; ?>" name="id_siswa" required>
                                  <option value="">-- Pilih Siswa --</option>
                                  <?php foreach ($siswaList as $s): ?>
-                                    <option value="<?= $s['id_siswa']; ?>" <?= (old('id_siswa') ?? $data['id_siswa']) == $s['id_siswa'] ? 'selected' : ''; ?>>
+                                    <option value="<?= $s['id_siswa']; ?>" <?= (old('id_siswa') ?? $nilai['id_siswa']) == $s['id_siswa'] ? 'selected' : ''; ?>>
                                        <?= $s['nama_siswa']; ?> (<?= $s['nis']; ?>)
                                     </option>
                                  <?php endforeach; ?>
@@ -50,7 +49,7 @@
                               <select id="id_mapel" class="form-control <?= $validation->getError('id_mapel') ? 'is-invalid' : ''; ?>" name="id_mapel" required>
                                  <option value="">-- Pilih Mata Pelajaran --</option>
                                  <?php foreach ($mapelList as $m): ?>
-                                    <option value="<?= $m['id_mapel']; ?>" <?= (old('id_mapel') ?? $data['id_mapel']) == $m['id_mapel'] ? 'selected' : ''; ?>>
+                                    <option value="<?= $m['id_mapel']; ?>" <?= (old('id_mapel') ?? $nilai['id_mapel']) == $m['id_mapel'] ? 'selected' : ''; ?>>
                                        <?= $m['nama_mapel']; ?>
                                     </option>
                                  <?php endforeach; ?>
@@ -66,7 +65,7 @@
                         <div class="col-md-4">
                            <div class="form-group mt-4">
                               <label for="nilai">Nilai</label>
-                              <input type="number" id="nilai" class="form-control <?= $validation->getError('nilai') ? 'is-invalid' : ''; ?>" name="nilai" placeholder="0-100" min="0" max="100" step="0.01" value="<?= old('nilai') ?? $data['nilai']; ?>" required>
+                              <input type="number" id="nilai" class="form-control <?= $validation->getError('nilai') ? 'is-invalid' : ''; ?>" name="nilai" placeholder="0-100" min="0" max="100" step="1" value="<?= old('nilai') ?? $nilai['nilai']; ?>" required>
                               <div class="invalid-feedback">
                                  <?= $validation->getError('nilai'); ?>
                               </div>
@@ -78,8 +77,13 @@
                               <label for="semester">Semester</label>
                               <select id="semester" class="form-control <?= $validation->getError('semester') ? 'is-invalid' : ''; ?>" name="semester" required>
                                  <option value="">-- Pilih Semester --</option>
-                                 <option value="1" <?= (old('semester') ?? $data['semester']) == '1' ? 'selected' : ''; ?>>Semester 1</option>
-                                 <option value="2" <?= (old('semester') ?? $data['semester']) == '2' ? 'selected' : ''; ?>>Semester 2</option>
+                                 <?php
+$currentSemester = old('semester') ?? $nilai['semester'];
+// Debug: uncomment line below to see the actual value
+// echo "<!-- Debug: Current semester = '$currentSemester', Type: " . gettype($currentSemester) . " -->";
+?>
+                                 <option value="1" <?= ($currentSemester == '1' || $currentSemester == 1 || $currentSemester === 1) ? 'selected' : ''; ?>>Semester 1</option>
+                                 <option value="2" <?= ($currentSemester == '2' || $currentSemester == 2 || $currentSemester === 2) ? 'selected' : ''; ?>>Semester 2</option>
                               </select>
                               <div class="invalid-feedback">
                                  <?= $validation->getError('semester'); ?>
@@ -89,11 +93,31 @@
                         <div class="col-md-4">
                            <div class="form-group mt-4">
                               <label for="tahun_ajaran">Tahun Ajaran</label>
-                              <input type="text" id="tahun_ajaran" class="form-control <?= $validation->getError('tahun_ajaran') ? 'is-invalid' : ''; ?>" name="tahun_ajaran" placeholder="2024/2025" value="<?= old('tahun_ajaran') ?? $data['tahun_ajaran']; ?>" required>
+                              <select id="tahun_ajaran" class="form-control <?= $validation->getError('tahun_ajaran') ? 'is-invalid' : ''; ?>" name="tahun_ajaran" required>
+                                 <option value="">Pilih Tahun Ajaran</option>
+                                 <?php
+$currentYear = date('Y');
+$oldValue = old('tahun_ajaran') ?? $nilai['tahun_ajaran'];
+
+// Generate tahun ajaran dari 2 tahun kebelakang sampai 2 tahun kedepan
+for ($i = -2; $i <= 2; $i++) {
+    $startYear = $currentYear + $i;
+    $endYear = $startYear + 1;
+    $tahunAjaran = $startYear . '/' . $endYear;
+    $selected = '';
+
+    // Set selected berdasarkan data yang ada atau old value
+    if ($oldValue == $tahunAjaran) {
+        $selected = 'selected';
+    }
+    ?>
+                                    <option value="<?= $tahunAjaran; ?>" <?= $selected; ?>><?= $tahunAjaran; ?></option>
+                                 <?php } ?>
+                              </select>
                               <div class="invalid-feedback">
                                  <?= $validation->getError('tahun_ajaran'); ?>
                               </div>
-                              <small class="form-text text-muted">Format: YYYY/YYYY</small>
+                              <small class="form-text text-muted">Pilih tahun ajaran yang sesuai</small>
                            </div>
                         </div>
                      </div>

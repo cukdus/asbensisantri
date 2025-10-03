@@ -438,4 +438,25 @@ class DataNilai extends BaseController
 
         return view('admin/data/create/create-nilai-siswa', $data);
     }
+
+    public function lihatNilaiSiswa($id_siswa)
+    {
+        // Get student information
+        $siswa = $this->siswaModel->getSiswaById($id_siswa);
+        if (empty($siswa)) {
+            throw new PageNotFoundException('Siswa tidak ditemukan');
+        }
+
+        // Get all grades for this student
+        $nilaiList = $this->nilaiModel->getNilaiBySiswaId($id_siswa);
+
+        $data = [
+            'title' => 'Lihat Nilai - ' . $siswa['nama_siswa'],
+            'ctx' => 'nilai',
+            'siswa' => $siswa,
+            'nilaiList' => $nilaiList
+        ];
+
+        return view('admin/data/view/view-nilai-siswa', $data);
+    }
 }
