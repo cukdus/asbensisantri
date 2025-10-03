@@ -8,6 +8,19 @@ class Auth extends MythAuthConfig
 {
     /**
      * --------------------------------------------------------------------
+     * Valid Login Fields
+     * --------------------------------------------------------------------
+     *
+     * Valid fields that can be used to login with. Default is 'email'.
+     * You may use any combination of 'email' and 'username'.
+     * In most cases, you'll want to use both.
+     *
+     * @var array
+     */
+    public $validFields = ['email', 'username'];
+
+    /**
+     * --------------------------------------------------------------------
      * Require Confirmation Registration via Email
      * --------------------------------------------------------------------
      *

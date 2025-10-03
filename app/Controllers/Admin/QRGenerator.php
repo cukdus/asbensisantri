@@ -148,7 +148,7 @@ class QRGenerator extends BaseController
          ->saveToFile(
             path: $this->qrCodeFilePath . $filename
          );
-
+         
       return $this->qrCodeFilePath . $filename;
    }
 
@@ -191,8 +191,8 @@ class QRGenerator extends BaseController
 
    public function downloadQrGuru($idGuru = null)
    {
-      $guru = (new GuruModel)->find($idGuru);
-      if (!$guru) {
+      $user = (new \App\Models\UserModel)->getUserById($idGuru);
+      if (!$user) {
          session()->setFlashdata([
             'msg' => 'Data tidak ditemukan',
             'error' => true
@@ -211,9 +211,9 @@ class QRGenerator extends BaseController
 
          return $this->response->download(
             $this->generate(
-               nama: $guru['nama_guru'],
-               nomor: $guru['nuptk'],
-               unique_code: $guru['unique_code'],
+               nama: $user->nama_lengkap,
+               nomor: $user->nuptk ?? '',
+               unique_code: $user->unique_code,
             ),
             null,
             true,

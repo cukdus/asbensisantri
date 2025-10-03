@@ -3,27 +3,31 @@
 namespace App\Controllers;
 
 use App\Libraries\enums\TipeUser;
+use App\Libraries\WhatsappSettingsService;
 use App\Models\GuruModel;
 use App\Models\PresensiGuruModel;
 use App\Models\PresensiSiswaModel;
 use App\Models\SiswaModel;
+use App\Models\UserModel;
 use CodeIgniter\I18n\Time;
 
 class Scan extends BaseController
 {
     private bool $WANotificationEnabled;
+    private WhatsappSettingsService $whatsappService;
 
     protected SiswaModel $siswaModel;
-    protected GuruModel $guruModel;
+    protected UserModel $userModel;
     protected PresensiSiswaModel $presensiSiswaModel;
     protected PresensiGuruModel $presensiGuruModel;
 
     public function __construct()
     {
         $this->WANotificationEnabled = getenv('WA_NOTIFICATION') === 'true' ? true : false;
+        $this->whatsappService = new WhatsappSettingsService();
 
         $this->siswaModel = new SiswaModel();
-        $this->guruModel = new GuruModel();
+        $this->userModel = new UserModel();
         $this->presensiSiswaModel = new PresensiSiswaModel();
         $this->presensiGuruModel = new PresensiGuruModel();
     }
@@ -48,7 +52,7 @@ class Scan extends BaseController
 
         if (empty($result)) {
             // jika cek siswa gagal, cek data guru
-            $result = $this->guruModel->cekGuru($uniqueCode);
+            $result = $this->userModel->cekGuru($uniqueCode);
 
             if (!empty($result)) {
                 $status = true;
@@ -101,13 +105,40 @@ class Scan extends BaseController
                 $sudahAbsen = $this->presensiGuruModel->cekAbsen($idGuru, $date);
 
                 if ($sudahAbsen) {
-                    $data['presensi'] = $this->presensiGuruModel->getPresensiById($sudahAbsen);
+                    // Extract id_presensi from the array returned by cekAbsen
+                    $idPresensi = $sudahAbsen['id_presensi'];
+                    $data['presensi'] = $this->presensiGuruModel->getPresensiById($idPresensi);
                     return $this->showErrorView('Anda sudah absen hari ini', $data);
                 }
 
-                $this->presensiGuruModel->absenMasuk($idGuru, $date, $time);
-                $messageString = $result['nama_guru'] . ' dengan NIP ' . $result['nuptk'] . $messageString;
-                $data['presensi'] = $this->presensiGuruModel->getPresensiByIdGuruTanggal($idGuru, $date);
+                try {
+                    $this->presensiGuruModel->absenMasuk($idGuru, $date, $time);
+                    $data['presensi'] = $this->presensiGuruModel->getPresensiByIdGuruTanggal($idGuru, $date);
+
+                    // Prepare WhatsApp message using template from database
+                    if ($this->WANotificationEnabled && !empty($result['no_hp'])) {
+                        $templateData = [
+                            'nama_guru' => $result['nama_guru'],
+                            'tanggal' => date('d/m/Y', strtotime($date)),
+                            'jam_masuk' => $time
+                        ];
+                        $messageString = $this->whatsappService->getTemplateGuruMasuk($templateData);
+
+                        $message = [
+                            'destination' => $result['no_hp'],
+                            'message' => $messageString,
+                            'delay' => 0
+                        ];
+                        try {
+                            $this->sendNotification($message);
+                        } catch (\Exception $e) {
+                            log_message('error', 'Error sending notification: ' . $e->getMessage());
+                        }
+                    }
+                } catch (\Exception $e) {
+                    log_message('error', 'Error saat absen masuk guru: ' . $e->getMessage());
+                    return $this->showErrorView('Terjadi kesalahan saat mencatat presensi', $data);
+                }
 
                 break;
 
@@ -124,27 +155,33 @@ class Scan extends BaseController
                 }
 
                 $this->presensiSiswaModel->absenMasuk($idSiswa, $date, $time, $idKelas);
-                $messageString = 'Siswa ' . $result['nama_siswa'] . ' dengan NIS ' . $result['nis'] . $messageString;
                 $data['presensi'] = $this->presensiSiswaModel->getPresensiByIdSiswaTanggal($idSiswa, $date);
+
+                // Prepare WhatsApp message using template from database
+                if ($this->WANotificationEnabled && !empty($result['no_hp'])) {
+                    $templateData = [
+                        'nama_siswa' => $result['nama_siswa'],
+                        'tanggal' => date('d/m/Y', strtotime($date)),
+                        'jam_masuk' => $time
+                    ];
+                    $messageString = $this->whatsappService->getTemplateMasuk($templateData);
+
+                    $message = [
+                        'destination' => $result['no_hp'],
+                        'message' => $messageString,
+                        'delay' => 0
+                    ];
+                    try {
+                        $this->sendNotification($message);
+                    } catch (\Exception $e) {
+                        log_message('error', 'Error sending notification: ' . $e->getMessage());
+                    }
+                }
 
                 break;
 
             default:
                 return $this->showErrorView('Tipe tidak valid');
-        }
-
-        // kirim notifikasi ke whatsapp
-        if ($this->WANotificationEnabled && !empty($result['no_hp'])) {
-            $message = [
-                'destination' => $result['no_hp'],
-                'message' => $messageString,
-                'delay' => 0
-            ];
-            try {
-                $this->sendNotification($message);
-            } catch (\Exception $e) {
-                log_message('error', 'Error sending notification: ' . $e->getMessage());
-            }
         }
         return view('scan/scan-result', $data);
     }
@@ -158,6 +195,7 @@ class Scan extends BaseController
         $date = Time::today()->toDateString();
         $time = Time::now()->toTimeString();
         $messageString = " sudah absen pulang pada tanggal $date jam $time";
+        $sendWhatsApp = false;  // Flag untuk menentukan apakah perlu kirim WhatsApp
 
         // absen pulang
         switch ($type) {
@@ -171,9 +209,44 @@ class Scan extends BaseController
                     return $this->showErrorView('Anda belum absen hari ini', $data);
                 }
 
-                $this->presensiGuruModel->absenKeluar($sudahAbsen, $time);
-                $messageString = $result['nama_guru'] . ' dengan NIP ' . $result['nuptk'] . $messageString;
-                $data['presensi'] = $this->presensiGuruModel->getPresensiById($sudahAbsen);
+                // Extract id_presensi from the array returned by cekAbsen
+                $idPresensi = $sudahAbsen['id_presensi'];
+
+                // Cek apakah sudah absen pulang
+                $presensiData = $this->presensiGuruModel->getPresensiById($idPresensi);
+                if (!empty($presensiData['jam_keluar'])) {
+                    $data['presensi'] = $presensiData;
+                    return $this->showErrorView('Anda sudah absen pulang hari ini', $data);
+                }
+
+                try {
+                    $this->presensiGuruModel->absenKeluar($idPresensi, $time);
+                    $data['presensi'] = $this->presensiGuruModel->getPresensiById($idPresensi);
+
+                    // Prepare WhatsApp message using template from database
+                    if ($this->WANotificationEnabled && !empty($result['no_hp'])) {
+                        $templateData = [
+                            'nama_guru' => $result['nama_guru'],
+                            'tanggal' => date('d/m/Y', strtotime($date)),
+                            'jam_pulang' => $time
+                        ];
+                        $messageString = $this->whatsappService->getTemplateGuruPulang($templateData);
+
+                        $message = [
+                            'destination' => $result['no_hp'],
+                            'message' => $messageString,
+                            'delay' => 0
+                        ];
+                        try {
+                            $this->sendNotification($message);
+                        } catch (\Exception $e) {
+                            log_message('error', 'Error sending notification: ' . $e->getMessage());
+                        }
+                    }
+                } catch (\Exception $e) {
+                    log_message('error', 'Error saat absen pulang guru: ' . $e->getMessage());
+                    return $this->showErrorView('Terjadi kesalahan saat mencatat presensi pulang', $data);
+                }
 
                 break;
 
@@ -187,27 +260,40 @@ class Scan extends BaseController
                     return $this->showErrorView('Anda belum absen hari ini', $data);
                 }
 
+                // Cek apakah sudah absen pulang
+                $presensiData = $this->presensiSiswaModel->getPresensiById($sudahAbsen);
+                if (!empty($presensiData['jam_keluar'])) {
+                    $data['presensi'] = $presensiData;
+                    return $this->showErrorView('Anda sudah absen pulang hari ini', $data);
+                }
+
                 $this->presensiSiswaModel->absenKeluar($sudahAbsen, $time);
-                $messageString = 'Siswa ' . $result['nama_siswa'] . ' dengan NIS ' . $result['nis'] . $messageString;
                 $data['presensi'] = $this->presensiSiswaModel->getPresensiById($sudahAbsen);
+
+                // Prepare WhatsApp message using template from database
+                if ($this->WANotificationEnabled && !empty($result['no_hp'])) {
+                    $templateData = [
+                        'nama_siswa' => $result['nama_siswa'],
+                        'tanggal' => date('d/m/Y', strtotime($date)),
+                        'jam_pulang' => $time
+                    ];
+                    $messageString = $this->whatsappService->getTemplatePulang($templateData);
+
+                    $message = [
+                        'destination' => $result['no_hp'],
+                        'message' => $messageString,
+                        'delay' => 0
+                    ];
+                    try {
+                        $this->sendNotification($message);
+                    } catch (\Exception $e) {
+                        log_message('error', 'Error sending notification: ' . $e->getMessage());
+                    }
+                }
 
                 break;
             default:
                 return $this->showErrorView('Tipe tidak valid');
-        }
-
-        // kirim notifikasi ke whatsapp
-        if ($this->WANotificationEnabled && !empty($result['no_hp'])) {
-            $message = [
-                'destination' => $result['no_hp'],
-                'message' => $messageString,
-                'delay' => 0
-            ];
-            try {
-                $this->sendNotification($message);
-            } catch (\Exception $e) {
-                log_message('error', 'Error sending notification: ' . $e->getMessage());
-            }
         }
 
         return view('scan/scan-result', $data);

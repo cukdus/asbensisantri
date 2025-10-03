@@ -24,6 +24,20 @@ class GeneralSettingsModel extends BaseModel
       ];
    }
 
+   //input values for WhatsApp settings
+   public function inputWhatsAppValues()
+   {
+      return [
+         'waha_api_url' => inputPost('waha_api_url'),
+         'waha_api_key' => inputPost('waha_api_key'),
+         'waha_x_api_key' => inputPost('waha_x_api_key'),
+         'wa_template_masuk' => inputPost('wa_template_masuk'),
+         'wa_template_pulang' => inputPost('wa_template_pulang'),
+         'wa_template_guru_masuk' => inputPost('wa_template_guru_masuk'),
+         'wa_template_guru_pulang' => inputPost('wa_template_guru_pulang'),
+      ];
+   }
+
    public function updateSettings()
    {
       $data = $this->inputValues();
@@ -39,6 +53,12 @@ class GeneralSettingsModel extends BaseModel
         }
       }
 
+      return $this->builder->where('id', 1)->update($data);
+   }
+
+   public function updateWhatsAppSettings()
+   {
+      $data = $this->inputWhatsAppValues();
       return $this->builder->where('id', 1)->update($data);
    }
 }

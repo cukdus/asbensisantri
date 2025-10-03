@@ -73,17 +73,7 @@ class CreateDB extends Migration
                 ('XII', 4);");
         }
 
-        if (!$this->db->tableExists('tb_guru')) {
-            $this->forge->getConnection()->query("CREATE TABLE tb_guru (
-                id_guru int(11) NOT NULL,
-                nuptk varchar(24) NOT NULL,
-                nama_guru varchar(255) NOT NULL,
-                jenis_kelamin ENUM('Laki-laki','Perempuan') NOT NULL,
-                alamat text NOT NULL,
-                no_hp varchar(32) NOT NULL,
-                unique_code varchar(64) NOT NULL
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
-        }
+
 
         if (!$this->db->tableExists('tb_presensi_guru')) {
             $this->forge->getConnection()->query("CREATE TABLE tb_presensi_guru (
@@ -124,13 +114,7 @@ class CreateDB extends Migration
         }
 
         // Tambahkan primary key dan constraint hanya jika belum ada
-        try {
-            $this->forge->getConnection()->query("ALTER TABLE tb_guru
-                ADD PRIMARY KEY (id_guru),
-                ADD UNIQUE KEY unique_code (unique_code);");
-        } catch (\Exception $e) {
-            // Primary key mungkin sudah ada, abaikan error
-        }
+
 
         try {
             $this->forge->getConnection()->query("ALTER TABLE tb_kehadiran
@@ -167,12 +151,7 @@ class CreateDB extends Migration
             // Primary key mungkin sudah ada, abaikan error
         }
 
-        try {
-            $this->forge->getConnection()->query("ALTER TABLE tb_guru
-                MODIFY id_guru int(11) NOT NULL AUTO_INCREMENT;");
-        } catch (\Exception $e) {
-            // Abaikan error
-        }
+
 
         try {
             $this->forge->getConnection()->query("ALTER TABLE tb_kehadiran
@@ -205,7 +184,7 @@ class CreateDB extends Migration
         try {
             $this->forge->getConnection()->query("ALTER TABLE tb_presensi_guru
                 ADD CONSTRAINT tb_presensi_guru_ibfk_2 FOREIGN KEY (id_kehadiran) REFERENCES tb_kehadiran (id_kehadiran),
-                ADD CONSTRAINT tb_presensi_guru_ibfk_3 FOREIGN KEY (id_guru) REFERENCES tb_guru (id_guru) ON DELETE SET NULL;");
+                ADD CONSTRAINT tb_presensi_guru_ibfk_3 FOREIGN KEY (id_guru) REFERENCES users (id) ON DELETE SET NULL;");
         } catch (\Exception $e) {
             // Abaikan error foreign key yang mungkin sudah ada
         }
@@ -233,7 +212,6 @@ class CreateDB extends Migration
             'tb_presensi_siswa',
             'tb_presensi_guru',
             'tb_siswa',
-            'tb_guru',
             'tb_kehadiran',
         ];
 

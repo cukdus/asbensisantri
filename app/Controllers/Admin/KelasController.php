@@ -2,9 +2,9 @@
 
 namespace App\Controllers\Admin;
 
+use App\Controllers\BaseController;
 use App\Models\JurusanModel;
 use App\Models\KelasModel;
-use App\Controllers\BaseController;
 
 class KelasController extends BaseController
 {

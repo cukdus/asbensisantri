@@ -42,4 +42,28 @@ class GeneralSettings extends BaseController
         }
         return redirect()->to('admin/general-settings');
     }
+
+    public function updateWhatsapp()
+    {
+        $val = \Config\Services::validation();
+        $val->setRule('waha_api_url', 'URL WAHA API', 'valid_url|max_length[255]');
+        $val->setRule('waha_api_key', 'API Key', 'max_length[255]');
+        $val->setRule('waha_x_api_key', 'X-API-Key', 'max_length[255]');
+        $val->setRule('wa_template_masuk', 'Template Pesan Masuk', 'max_length[1000]');
+        $val->setRule('wa_template_pulang', 'Template Pesan Pulang', 'max_length[1000]');
+        $val->setRule('wa_template_guru_masuk', 'Template Pesan Masuk Guru', 'max_length[1000]');
+        $val->setRule('wa_template_guru_pulang', 'Template Pesan Pulang Guru', 'max_length[1000]');
+
+        if (!$this->validate(getValRules($val))) {
+            $this->session->setFlashdata('errors', $val->getErrors());
+            return redirect()->to('admin/general-settings')->withInput();
+        } else {
+            if ($this->generalSettingsModel->updateWhatsAppSettings()) {
+                $this->session->setFlashdata('success', 'Pengaturan WhatsApp berhasil diubah');
+            } else {
+                $this->session->setFlashdata('error', 'Error saat menyimpan pengaturan WhatsApp!');
+            }
+        }
+        return redirect()->to('admin/general-settings');
+    }
 }

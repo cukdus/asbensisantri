@@ -210,9 +210,9 @@
   const dataGuru = [
     <?php foreach ($guru as $value) {
       echo "{
-              'nama' : `$value[nama_guru]`,
-              'unique_code' : `$value[unique_code]`,
-              'nomor' : `$value[nuptk]`
+              'nama' : `$value->nama_lengkap`,
+              'unique_code' : `$value->unique_code`,
+              'nomor' : `$value->nuptk`
             },";
     }; ?>
   ];

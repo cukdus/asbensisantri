@@ -4,9 +4,9 @@
    <div class="container-fluid">
       <div class="row">
          <div class="col-lg-12 col-md-12">
-            <?php if (session()->getFlashdata('msg')) : ?>
+            <?php if (session()->getFlashdata('msg')): ?>
                <div class="pb-2 px-3">
-                  <div class="alert alert-<?= session()->getFlashdata('error') == true ? 'danger' : 'success'  ?> ">
+                  <div class="alert alert-<?= session()->getFlashdata('error') == true ? 'danger' : 'success' ?> ">
                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <i class="material-icons">close</i>
                      </button>
@@ -40,9 +40,10 @@
                                     </a>
                                  </li>
                                  <?php
-                                 $tempKelas = [];
-                                 foreach ($kelas as $value) : ?>
-                                    <?php if (!in_array($value['kelas'], $tempKelas)) : ?>
+$tempKelas = [];
+foreach ($kelas as $value):
+?>
+                                    <?php if (!in_array($value['kelas'], $tempKelas)): ?>
                                        <li class="nav-item">
                                           <a class="nav-link" onclick="kelas = '<?= $value['kelas']; ?>'; trig()" href="#" data-toggle="tab">
                                              <i class="material-icons">school</i> <?= $value['kelas']; ?>
@@ -55,7 +56,7 @@
                               </ul>
                            </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                            <div class="nav-tabs-wrapper">
                               <span class="nav-tabs-title">Jurusan:</span>
                               <ul class="nav nav-tabs" data-tabs="tabs">
@@ -65,17 +66,17 @@
                                        <div class="ripple-container"></div>
                                     </a>
                                  </li>
-                                 <?php foreach ($jurusan as $value) : ?>
+                                 <php foreach ($jurusan as $value) : ?>
                                     <li class="nav-item">
                                        <a class="nav-link" onclick="jurusan = '<?= $value['jurusan']; ?>'; trig();" href="#" data-toggle="tab">
                                           <i class="material-icons">work</i> <?= $value['jurusan']; ?>
                                           <div class="ripple-container"></div>
                                        </a>
                                     </li>
-                                 <?php endforeach; ?>
+                                 <php endforeach; ?>
                               </ul>
                            </div>
-                        </div>
+                        </div> -->
                      </div>
                   </div>
                </div>
@@ -126,5 +127,51 @@
          $('input:checkbox').not(this).prop('checked', this.checked);
       });
    });
+
+   function toggleGraduationStatus(idSiswa) {
+      if (confirm('Apakah Anda yakin ingin mengubah status kelulusan siswa ini?')) {
+         jQuery.ajax({
+            url: "<?= base_url('/admin/siswa/toggle-graduation'); ?>",
+            type: 'post',
+            data: {
+               'id_siswa': idSiswa,
+               '<?= csrf_token() ?>': '<?= csrf_hash() ?>'
+            },
+            dataType: 'json',
+            success: function(response) {
+               if (response.success) {
+                  // Update badge
+                  const badge = document.getElementById('status-badge-' + idSiswa);
+                  const toggleBtn = document.getElementById('toggle-btn-' + idSiswa);
+                  
+                  if (response.new_status == 1) {
+                     // Student is now graduated
+                     badge.className = 'badge badge-success';
+                     badge.textContent = 'Lulus';
+                     toggleBtn.className = 'btn btn-warning p-2';
+                     toggleBtn.querySelector('i').textContent = 'school';
+                     toggleBtn.title = 'Toggle Status Kelulusan';
+                  } else {
+                     // Student is now not graduated
+                     badge.className = 'badge badge-warning';
+                     badge.textContent = 'Belum Lulus';
+                     toggleBtn.className = 'btn btn-success p-2';
+                     toggleBtn.querySelector('i').textContent = 'graduation_cap';
+                     toggleBtn.title = 'Toggle Status Kelulusan';
+                  }
+                  
+                  // Show success message
+                  alert(response.message);
+               } else {
+                  alert('Error: ' + response.message);
+               }
+            },
+            error: function(xhr, status, thrown) {
+               console.log(thrown);
+               alert('Terjadi kesalahan saat mengubah status kelulusan.');
+            }
+         });
+      }
+   }
 </script>
 <?= $this->endSection() ?>

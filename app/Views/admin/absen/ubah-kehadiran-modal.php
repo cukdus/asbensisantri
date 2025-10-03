@@ -8,7 +8,7 @@
 
          <label for="kehadiran">Kehadiran</label>
          <div class="form-check" id="kehadiran">
-            <?php foreach ($listKehadiran as $value2) : ?>
+            <?php foreach ($listKehadiran as $value2): ?>
                <?php $kehadiran = kehadiran($value2['id_kehadiran']); ?>
                <div class="row">
                   <div class="col-auto pr-1 pt-1">
@@ -45,32 +45,32 @@
 <?php
 function kehadiran($kehadiran): array
 {
-   $text = '';
-   $color = '';
-   switch ($kehadiran) {
-      case 1:
-         $color = 'success';
-         $text = 'Hadir';
-         break;
-      case 2:
-         $color = 'warning';
-         $text = 'Sakit';
-         break;
-      case 3:
-         $color = 'info';
-         $text = 'Izin';
-         break;
-      case 4:
-         $color = 'danger';
-         $text = 'Tanpa keterangan';
-         break;
-      case 5:
-      default:
-         $color = 'disabled';
-         $text = 'Belum tersedia';
-         break;
-   }
+    $text = '';
+    $color = '';
+    switch ($kehadiran) {
+        case 1:
+            $color = 'success';
+            $text = 'Hadir';
+            break;
+        case 2:
+            $color = 'warning';
+            $text = 'Sakit';
+            break;
+        case 3:
+            $color = 'info';
+            $text = 'Izin';
+            break;
+        case 4:
+            $color = 'danger';
+            $text = 'Tanpa keterangan';
+            break;
+        case 5:
+        default:
+            $color = 'disabled';
+            $text = 'Belum tersedia';
+            break;
+    }
 
-   return ['color' => $color, 'text' => $text];
+    return ['color' => $color, 'text' => $text];
 }
 ?>

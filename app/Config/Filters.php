@@ -13,8 +13,8 @@ use CodeIgniter\Filters\PageCache;
 use CodeIgniter\Filters\PerformanceMetrics;
 use CodeIgniter\Filters\SecureHeaders;
 use Myth\Auth\Filters\LoginFilter;
-use Myth\Auth\Filters\RoleFilter;
 use Myth\Auth\Filters\PermissionFilter;
+use App\Filters\RoleFilter;
 
 class Filters extends BaseFilters
 {
@@ -80,7 +80,7 @@ class Filters extends BaseFilters
     public array $globals = [
         'before' => [
             'honeypot',
-            'login'
+            'login' => ['except' => ['login', 'login/*', '/', 'scan', 'scan/*']],
             // 'csrf',
             // 'invalidchars',
         ],
@@ -121,6 +121,12 @@ class Filters extends BaseFilters
                 'admin/',
                 'admin/*',
                 'register/',
+            ]
+        ],
+        'role' => [
+            'before' => [
+                'admin/',
+                'admin/*',
             ]
         ]
     ];

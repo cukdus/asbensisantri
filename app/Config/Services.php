@@ -29,4 +29,24 @@ class Services extends BaseService
      *     return new \CodeIgniter\Example();
      * }
      */
+
+    /**
+     * Override authentication service to use our custom UserModel
+     */
+    public static function authentication(string $lib = 'local', ?\CodeIgniter\Model $userModel = null, ?\CodeIgniter\Model $loginModel = null, bool $getShared = true)
+    {
+        if ($getShared) {
+            return static::getSharedInstance('authentication', $lib, $userModel, $loginModel);
+        }
+
+        // Explicitly use our custom UserModel
+        $userModel ??= model(\App\Models\UserModel::class);
+        $loginModel ??= model(\Myth\Auth\Models\LoginModel::class);
+
+        $instance = new \Myth\Auth\Authentication\LocalAuthenticator(config('Auth'));
+        $instance->setUserModel($userModel);
+        $instance->setLoginModel($loginModel);
+
+        return $instance;
+    }
 }

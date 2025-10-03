@@ -17,11 +17,11 @@
 
                   <div class="card-body pt-1 px-3">
                      <div class="row">
-                        <?php foreach ($kelas as $value) : ?>
+                        <?php foreach ($kelas as $value): ?>
                            <?php
-                           $idKelas = $value['id_kelas'];
-                           $namaKelas =  $value['kelas'] . ' ' . $value['jurusan'];
-                           ?>
+    $idKelas = $value['id_kelas'];
+    $namaKelas = $value['kelas'] . ' ' . $value['jurusan'];
+    ?>
                            <div class="col-md-3">
                               <button id="kelas-<?= $idKelas; ?>" onclick="getSiswa(<?= $idKelas; ?>, '<?= $namaKelas; ?>')" class="btn btn-primary w-100">
                                  <?= $namaKelas; ?>

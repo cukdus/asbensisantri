@@ -1,5 +1,5 @@
 <div class="card-body table-responsive">
-   <?php if (!$empty) : ?>
+   <?php if (!$empty): ?>
       <table class="table table-hover">
          <thead class="text-primary">
             <th width="20"><input type="checkbox" class="checkbox-table" id="checkAll"></th>
@@ -8,27 +8,34 @@
             <th><b>Nama Siswa</b></th>
             <th><b>Jenis Kelamin</b></th>
             <th><b>Kelas</b></th>
-            <th><b>Jurusan</b></th>
             <th><b>No HP</b></th>
+            <th><b>Status Kelulusan</b></th>
             <th width="1%"><b>Aksi</b></th>
          </thead>
          <tbody>
             <?php $i = 1;
-            foreach ($data as $value) : ?>
+            foreach ($data as $value): ?>
                <tr>
                   <td><input type="checkbox" name="checkbox-table" class="checkbox-table" value="<?= $value['id_siswa']; ?>"></td>
                   <td><?= $i; ?></td>
                   <td><?= $value['nis']; ?></td>
                   <td><b><?= $value['nama_siswa']; ?></b></td>
                   <td><?= $value['jenis_kelamin']; ?></td>
-                  <td><?= $value['kelas']; ?></td>
-                  <td><?= $value['jurusan']; ?></td>
+                  <td><?= $value['kelas']; ?> <?= $value['jurusan']; ?></td>
                   <td><?= $value['no_hp']; ?></td>
+                  <td>
+                     <span class="badge badge-<?= $value['is_graduated'] == 1 ? 'success' : 'warning'; ?>" id="status-badge-<?= $value['id_siswa']; ?>">
+                        <?= $value['is_graduated'] == 1 ? 'Lulus' : 'Belum Lulus'; ?>
+                     </span>
+                  </td>
                   <td>
                      <div class="d-flex justify-content-center">
                         <a title="Edit" href="<?= base_url('admin/siswa/edit/' . $value['id_siswa']); ?>" class="btn btn-primary p-2" id="<?= $value['nis']; ?>">
                            <i class="material-icons">edit</i>
                         </a>
+                        <button title="Toggle Status Kelulusan" onclick="toggleGraduationStatus(<?= $value['id_siswa']; ?>)" class="btn btn-<?= $value['is_graduated'] == 1 ? 'warning' : 'success'; ?> p-2" id="toggle-btn-<?= $value['id_siswa']; ?>">
+                           <i class="material-icons"><?= $value['is_graduated'] == 1 ? 'school' : 'school'; ?></i>
+                        </button>
                         <form action="<?= base_url('admin/siswa/delete/' . $value['id_siswa']); ?>" method="post" class="d-inline">
                            <?= csrf_field(); ?>
                            <input type="hidden" name="_method" value="DELETE">
@@ -46,7 +53,7 @@
             endforeach; ?>
          </tbody>
       </table>
-   <?php else : ?>
+   <?php else: ?>
       <div class="row">
          <div class="col">
             <h4 class="text-center text-danger">Data tidak ditemukan</h4>

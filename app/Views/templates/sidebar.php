@@ -1,23 +1,23 @@
 <?php
 $context = $ctx ?? 'dashboard';
 switch ($context) {
-   case 'absen-siswa':
-   case 'siswa':
-   case 'kelas':
-      $sidebarColor = 'purple';
-      break;
-   case 'absen-guru':
-   case 'guru':
-      $sidebarColor = 'green';
-      break;
+    case 'absen-siswa':
+    case 'siswa':
+    case 'kelas':
+        $sidebarColor = 'purple';
+        break;
+    case 'absen-guru':
+    case 'guru':
+        $sidebarColor = 'green';
+        break;
 
-   case 'qr':
-      $sidebarColor = 'danger';
-      break;
+    case 'qr':
+        $sidebarColor = 'danger';
+        break;
 
-   default:
-      $sidebarColor = 'azure';
-      break;
+    default:
+        $sidebarColor = 'azure';
+        break;
 }
 ?>
 <div class="sidebar" data-color="<?= $sidebarColor; ?>" data-background-color="black" data-image="<?= base_url('assets/img/sidebar/sidebar-1.jpg'); ?>">
@@ -57,37 +57,41 @@ switch ($context) {
                <p>Data Siswa</p>
             </a>
          </li>
-         <li class="nav-item <?= $context == 'guru' ? 'active' : ''; ?>">
-            <a class="nav-link" href="<?= base_url('admin/guru'); ?>">
-               <i class="material-icons">person_4</i>
-               <p>Data Guru</p>
-            </a>
-         </li>
-         <li class="nav-item <?= $context == 'kelas' ? 'active' : ''; ?>">
-            <a class="nav-link" href="<?= base_url('admin/kelas'); ?>">
-               <i class="material-icons">school</i>
-               <p>Data Kelas & Jurusan</p>
-            </a>
-         </li>
-         <li class="nav-item <?= $context == 'qr' ? 'active' : ''; ?>">
-            <a class="nav-link" href="<?= base_url('admin/generate'); ?>">
-               <i class="material-icons">qr_code</i>
-               <p>Generate QR Code</p>
-            </a>
-         </li>
-         <li class="nav-item <?= $context == 'laporan' ? 'active' : ''; ?>">
-            <a class="nav-link" href="<?= base_url('admin/laporan'); ?>">
-               <i class="material-icons">print</i>
-               <p>Generate Laporan</p>
-            </a>
-         </li>
-         <?php if (user()->toArray()['is_superadmin'] ?? '0' == '1') : ?>
-            <li class="nav-item <?= $context == 'petugas' ? 'active' : ''; ?>">
-               <a class="nav-link" href="<?= base_url('admin/petugas'); ?>">
-                  <i class="material-icons">computer</i>
-                  <p>Data Petugas</p>
+         <?php
+$user = user();
+$userRole = $user->role ?? ($user->is_superadmin ? 'superadmin' : 'guru');
+?>
+         <?php if ($userRole === 'superadmin'): ?>
+            <li class="nav-item <?= $context == 'user' ? 'active' : ''; ?>">
+               <a class="nav-link" href="<?= base_url('admin/user'); ?>">
+                  <i class="material-icons">person_4</i>
+                  <p>Data Guru</p>
                </a>
             </li>
+         <?php endif; ?>
+         <?php if ($userRole === 'superadmin'): ?>
+            <li class="nav-item <?= $context == 'kelas' ? 'active' : ''; ?>">
+               <a class="nav-link" href="<?= base_url('admin/kelas'); ?>">
+                  <i class="material-icons">school</i>
+                  <p>Data Kelas & Jurusan</p>
+               </a>
+            </li>
+         <?php endif; ?>
+         <?php if ($userRole === 'superadmin'): ?>
+            <li class="nav-item <?= $context == 'qr' ? 'active' : ''; ?>">
+               <a class="nav-link" href="<?= base_url('admin/generate'); ?>">
+                  <i class="material-icons">qr_code</i>
+                  <p>Generate QR Code</p>
+               </a>
+            </li>
+            <li class="nav-item <?= $context == 'laporan' ? 'active' : ''; ?>">
+               <a class="nav-link" href="<?= base_url('admin/laporan'); ?>">
+                  <i class="material-icons">print</i>
+                  <p>Generate Laporan</p>
+               </a>
+            </li>
+         <?php endif; ?>
+         <?php if ($userRole === 'superadmin'): ?>
             <li class="nav-item <?= $context == 'general_settings' ? 'active' : ''; ?>">
                <a class="nav-link" href="<?= base_url('admin/general-settings'); ?>">
                   <i class="material-icons">settings</i>

@@ -62,6 +62,97 @@
                         <hr>
                     </div>
                 </div>
+
+                <!-- WhatsApp Settings Panel -->
+                <div class="card mt-4">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title"><b>Pengaturan WhatsApp</b></h4>
+                        <p class="card-category">Konfigurasi API WhatsApp dan template pesan</p>
+                    </div>
+                    <div class="card-body mx-5 my-3">
+                        <form action="<?= base_url('admin/general-settings/update-whatsapp'); ?>" method="post">
+                            <?= csrf_field() ?>
+                            
+                            <div class="form-group mt-4">
+                                <label for="waha_api_url">URL/Link WAHA API</label>
+                                <input type="url" id="waha_api_url" class="form-control <?= invalidFeedback('waha_api_url') ? 'is-invalid' : ''; ?>" name="waha_api_url" placeholder="http://localhost:3000" value="<?= $generalSettings->waha_api_url ?? 'http://localhost:3000'; ?>">
+                                <small class="form-text text-muted">URL endpoint untuk WAHA (WhatsApp HTTP API)</small>
+                                <div class="invalid-feedback">
+                                    <?= invalidFeedback('waha_api_url'); ?>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mt-4">
+                                        <label for="waha_api_key">API Key</label>
+                                        <input type="text" id="waha_api_key" class="form-control <?= invalidFeedback('waha_api_key') ? 'is-invalid' : ''; ?>" name="waha_api_key" placeholder="API Key (opsional)" value="<?= $generalSettings->waha_api_key ?? ''; ?>">
+                                        <small class="form-text text-muted">API Key jika diperlukan oleh provider</small>
+                                        <div class="invalid-feedback">
+                                            <?= invalidFeedback('waha_api_key'); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mt-4">
+                                        <label for="waha_x_api_key">X-API-Key</label>
+                                        <input type="text" id="waha_x_api_key" class="form-control <?= invalidFeedback('waha_x_api_key') ? 'is-invalid' : ''; ?>" name="waha_x_api_key" placeholder="X-API-Key header" value="<?= $generalSettings->waha_x_api_key ?? ''; ?>">
+                                        <small class="form-text text-muted">Header X-API-Key untuk autentikasi</small>
+                                        <div class="invalid-feedback">
+                                            <?= invalidFeedback('waha_x_api_key'); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-4">
+                                <label for="wa_template_masuk">Template Pesan Absen Masuk</label>
+                                <textarea id="wa_template_masuk" class="form-control <?= invalidFeedback('wa_template_masuk') ? 'is-invalid' : ''; ?>" name="wa_template_masuk" rows="3" placeholder="Template pesan untuk absen masuk"><?= $generalSettings->wa_template_masuk ?? 'Halo {nama_siswa}, anak Anda telah absen masuk pada {tanggal} pukul {jam_masuk}. Terima kasih.'; ?></textarea>
+                                <small class="form-text text-muted">
+                                    Variabel yang tersedia: {nama_siswa}, {tanggal}, {jam_masuk}
+                                </small>
+                                <div class="invalid-feedback">
+                                    <?= invalidFeedback('wa_template_masuk'); ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-4">
+                                <label for="wa_template_pulang">Template Pesan Absen Pulang Siswa</label>
+                                <textarea id="wa_template_pulang" class="form-control <?= invalidFeedback('wa_template_pulang') ? 'is-invalid' : ''; ?>" name="wa_template_pulang" rows="3" placeholder="Template pesan untuk absen pulang"><?= $generalSettings->wa_template_pulang ?? 'Halo {nama_siswa}, anak Anda telah absen pulang pada {tanggal} pukul {jam_pulang}. Terima kasih.'; ?></textarea>
+                                <small class="form-text text-muted">
+                                    Variabel yang tersedia: {nama_siswa}, {tanggal}, {jam_pulang}
+                                </small>
+                                <div class="invalid-feedback">
+                                    <?= invalidFeedback('wa_template_pulang'); ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-4">
+                                <label for="wa_template_guru_masuk">Template Pesan Absen Masuk Guru</label>
+                                <textarea id="wa_template_guru_masuk" class="form-control <?= invalidFeedback('wa_template_guru_masuk') ? 'is-invalid' : ''; ?>" name="wa_template_guru_masuk" rows="3" placeholder="Template pesan untuk absen masuk guru"><?= $generalSettings->wa_template_guru_masuk ?? 'Halo {nama_guru}, Anda telah absen masuk pada {tanggal} pukul {jam_masuk}. Terima kasih.'; ?></textarea>
+                                <small class="form-text text-muted">
+                                    Variabel yang tersedia: {nama_guru}, {tanggal}, {jam_masuk}
+                                </small>
+                                <div class="invalid-feedback">
+                                    <?= invalidFeedback('wa_template_guru_masuk'); ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-4">
+                                <label for="wa_template_guru_pulang">Template Pesan Absen Pulang Guru</label>
+                                <textarea id="wa_template_guru_pulang" class="form-control <?= invalidFeedback('wa_template_guru_pulang') ? 'is-invalid' : ''; ?>" name="wa_template_guru_pulang" rows="3" placeholder="Template pesan untuk absen pulang guru"><?= $generalSettings->wa_template_guru_pulang ?? 'Halo {nama_guru}, Anda telah absen pulang pada {tanggal} pukul {jam_pulang}. Terima kasih.'; ?></textarea>
+                                <small class="form-text text-muted">
+                                    Variabel yang tersedia: {nama_guru}, {tanggal}, {jam_pulang}
+                                </small>
+                                <div class="invalid-feedback">
+                                    <?= invalidFeedback('wa_template_guru_pulang'); ?>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-info btn-block">Simpan Pengaturan WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

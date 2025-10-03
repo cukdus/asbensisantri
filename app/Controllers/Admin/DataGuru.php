@@ -74,7 +74,7 @@ class DataGuru extends BaseController
          $data = [
             'ctx' => 'guru',
             'title' => 'Tambah Data Guru',
-            'validation' => $this->validator,
+            'validation_errors' => $this->validator->getErrors(),
             'oldInput' => $this->request->getVar()
          ];
          return view('/admin/data/create/create-data-guru', $data);
@@ -131,7 +131,7 @@ class DataGuru extends BaseController
             'data' => $this->guruModel->getGuruById($idGuru),
             'ctx' => 'guru',
             'title' => 'Edit Data Guru',
-            'validation' => $this->validator,
+            'validation_errors' => $this->validator->getErrors(),
             'oldInput' => $this->request->getVar()
          ];
          return view('/admin/data/edit/edit-data-guru', $data);

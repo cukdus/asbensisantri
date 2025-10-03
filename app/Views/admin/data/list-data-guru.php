@@ -1,23 +1,21 @@
 <div class="card-body table-responsive">
-   <?php if (!$empty) : ?>
+   <?php if (!$empty): ?>
       <table class="table table-hover">
          <thead class="text-success">
             <th><b>No</b></th>
             <th><b>NUPTK</b></th>
             <th><b>Nama Guru</b></th>
-            <th><b>Jenis Kelamin</b></th>
             <th><b>No HP</b></th>
             <th><b>Alamat</b></th>
             <th width="1%"><b>Aksi</b></th>
          </thead>
          <tbody>
             <?php $i = 1;
-            foreach ($data as $value) : ?>
+            foreach ($data as $value): ?>
                <tr>
                   <td><?= $i; ?></td>
                   <td><?= $value['nuptk']; ?></td>
                   <td><b><?= $value['nama_guru']; ?></b></td>
-                  <td><?= $value['jenis_kelamin']; ?></td>
                   <td><?= $value['no_hp']; ?></td>
                   <td><?= $value['alamat']; ?></td>
                   <td>
@@ -42,7 +40,7 @@
             endforeach; ?>
          </tbody>
       </table>
-   <?php else : ?>
+   <?php else: ?>
       <div class="row">
          <div class="col">
             <h4 class="text-center text-danger">Data tidak ditemukan</h4>

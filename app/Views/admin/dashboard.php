@@ -12,7 +12,7 @@
                                 <i class="material-icons">person</i>
                             </a>
                         </div>
-                        <p class="card-category">Jumlah siswa</p>
+                        <p class="card-category">Jumlah Santri</p>
                         <h3 class="card-title"><?= count($siswa); ?></h3>
                     </div>
                     <div class="card-footer">
@@ -31,7 +31,7 @@
                                 <i class="material-icons">person_4</i>
                             </a>
                         </div>
-                        <p class="card-category">Jumlah guru</p>
+                        <p class="card-category">Jumlah Guru</p>
                         <h3 class="card-title"><?= count($guru); ?></h3>
                     </div>
                     <div class="card-footer">
@@ -65,17 +65,17 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-danger card-header-icon">
                         <div class="card-icon">
-                            <a href="<?= base_url('admin/petugas'); ?>" class="text-white">
-                                <i class="material-icons">settings</i>
+                            <a href="<?= base_url('admin/siswa'); ?>" class="text-white">
+                                <i class="material-icons">school</i>
                             </a>
                         </div>
-                        <p class="card-category">Jumlah petugas</p>
-                        <h3 class="card-title"><?= count($petugas); ?></h3>
+                        <p class="card-category">Jumlah Alumni</p>
+                        <h3 class="card-title"><?= $alumni; ?></h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">person</i>
-                            Petugas dan Administrator
+                            <i class="material-icons">school</i>
+                            Alumni                        
                         </div>
                     </div>
                 </div>
