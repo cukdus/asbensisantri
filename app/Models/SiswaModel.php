@@ -66,14 +66,41 @@ class SiswaModel extends Model
             'LEFT'
         );
 
+        // Exclude graduated students (is_graduated = 1)
+        $query = $this->where('tb_siswa.is_graduated', 0);
+
         if (!empty($kelas) && !empty($jurusan)) {
             $query = $this->where(['kelas' => $kelas, 'jurusan' => $jurusan]);
         } else if (empty($kelas) && !empty($jurusan)) {
             $query = $this->where(['jurusan' => $jurusan]);
         } else if (!empty($kelas) && empty($jurusan)) {
             $query = $this->where(['kelas' => $kelas]);
-        } else {
-            $query = $this;
+        }
+
+        return $query->orderBy('nama_siswa')->findAll();
+    }
+
+    public function getAllAlumniWithKelas($kelas = null, $jurusan = null)
+    {
+        $query = $this->join(
+            'tb_kelas',
+            'tb_kelas.id_kelas = tb_siswa.id_kelas',
+            'LEFT'
+        )->join(
+            'tb_jurusan',
+            'tb_kelas.id_jurusan = tb_jurusan.id',
+            'LEFT'
+        );
+
+        // Only include graduated students (is_graduated = 1)
+        $query = $this->where('tb_siswa.is_graduated', 1);
+
+        if (!empty($kelas) && !empty($jurusan)) {
+            $query = $this->where(['kelas' => $kelas, 'jurusan' => $jurusan]);
+        } else if (empty($kelas) && !empty($jurusan)) {
+            $query = $this->where(['jurusan' => $jurusan]);
+        } else if (!empty($kelas) && empty($jurusan)) {
+            $query = $this->where(['kelas' => $kelas]);
         }
 
         return $query->orderBy('nama_siswa')->findAll();
@@ -94,6 +121,7 @@ class SiswaModel extends Model
             )
             ->join('tb_jurusan', 'tb_kelas.id_jurusan = tb_jurusan.id', 'left')
             ->where(['tb_siswa.id_kelas' => $id_kelas])
+            ->where('tb_siswa.is_graduated', 0)
             ->orderBy('nama_siswa')
             ->findAll();
     }

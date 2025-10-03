@@ -57,6 +57,12 @@ switch ($context) {
                <p>Data Siswa</p>
             </a>
          </li>
+         <li class="nav-item <?= $context == 'alumni' ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('admin/alumni'); ?>">
+               <i class="material-icons">school</i>
+               <p>Data Alumni</p>
+            </a>
+         </li>
          <?php
 $user = user();
 $userRole = $user->role ?? ($user->is_superadmin ? 'superadmin' : 'guru');
@@ -69,6 +75,43 @@ $userRole = $user->role ?? ($user->is_superadmin ? 'superadmin' : 'guru');
                </a>
             </li>
          <?php endif; ?>
+         <li class="nav-item <?= $context == 'mapel' ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('admin/mapel'); ?>">
+               <i class="material-icons">book</i>
+               <p>Data Mata Pelajaran</p>
+            </a>
+         </li>
+         <li class="nav-item <?= $context == 'nilai' ? 'active' : ''; ?>">
+            <a class="nav-link" data-toggle="collapse" href="#nilaiSubmenu" role="button" aria-expanded="false" aria-controls="nilaiSubmenu">
+               <i class="material-icons">grade</i>
+               <p>Data Nilai Siswa
+                  <b class="caret"></b>
+               </p>
+            </a>
+            <div class="collapse <?= $context == 'nilai' ? 'show' : ''; ?>" id="nilaiSubmenu">
+               <ul class="nav">
+                  <li class="nav-item">
+                     <a class="nav-link" href="<?= base_url('admin/nilai'); ?>">
+                        <span class="sidebar-mini"> DN </span>
+                        <span class="sidebar-normal"> Data Nilai </span>
+                     </a>
+                  </li>
+                  <?php
+// Load KelasModel to get all classes
+$kelasModel = new \App\Models\KelasModel();
+$kelasList = $kelasModel->getAllKelas();
+?>
+                  <?php foreach ($kelasList as $kelas): ?>
+                     <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('admin/nilai/kelas/' . $kelas['id_kelas']); ?>">
+                           <span class="sidebar-mini"> <?= substr($kelas['kelas'], 0, 2); ?> </span>
+                           <span class="sidebar-normal"> <?= $kelas['kelas'] . ' - ' . $kelas['jurusan']; ?> </span>
+                        </a>
+                     </li>
+                  <?php endforeach; ?>
+               </ul>
+            </div>
+         </li>
          <?php if ($userRole === 'superadmin'): ?>
             <li class="nav-item <?= $context == 'kelas' ? 'active' : ''; ?>">
                <a class="nav-link" href="<?= base_url('admin/kelas'); ?>">

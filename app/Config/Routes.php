@@ -94,6 +94,11 @@ $routes->group('admin', function (RouteCollection $routes) {
         $routes->post('toggle-graduation', 'DataSiswa::toggleGraduationStatus');
     });
 
+    // admin lihat data alumni
+    $routes->get('alumni', 'Admin\DataAlumni::index');
+    $routes->post('alumni/ambil-data-alumni', 'Admin\DataAlumni::ambilDataAlumni');
+    $routes->post('alumni/toggle-graduation-status', 'Admin\DataAlumni::toggleGraduationStatus');
+
     // unified user management (guru and petugas)
     $routes->get('user', 'Admin\DataUser::index');
     $routes->post('user', 'Admin\DataUser::ambilDataUser');
@@ -143,6 +148,37 @@ $routes->group('admin', function (RouteCollection $routes) {
     $routes->get('laporan', 'Admin\GenerateLaporan::index');
     $routes->post('laporan/siswa', 'Admin\GenerateLaporan::generateLaporanSiswa');
     $routes->post('laporan/guru', 'Admin\GenerateLaporan::generateLaporanGuru');
+
+    // admin lihat data mata pelajaran
+    $routes->get('mapel', 'Admin\DataMapel::index');
+    $routes->get('mapel/ambil-data', 'Admin\DataMapel::ambilDataMapel');
+    $routes->get('mapel/kelas/(:any)', 'Admin\DataMapel::mapelByKelas/$1');
+    // admin tambah data mata pelajaran
+    $routes->get('mapel/create', 'Admin\DataMapel::formTambahMapel');
+    $routes->post('mapel/create', 'Admin\DataMapel::saveMapel');
+    // admin edit data mata pelajaran
+    $routes->get('mapel/edit/(:any)', 'Admin\DataMapel::formEditMapel/$1');
+    $routes->post('mapel/edit', 'Admin\DataMapel::updateMapel');
+    // admin hapus data mata pelajaran
+    $routes->delete('mapel/delete/(:any)', 'Admin\DataMapel::delete/$1');
+
+    // admin lihat data nilai siswa
+    $routes->get('nilai', 'Admin\DataNilai::index');
+    $routes->get('nilai/ambil-data', 'Admin\DataNilai::ambilDataNilai');
+    // admin tambah data nilai
+    $routes->get('nilai/create', 'Admin\DataNilai::formTambahNilai');
+    $routes->post('nilai/create', 'Admin\DataNilai::saveNilai');
+    // admin edit data nilai
+    $routes->get('nilai/edit/(:any)', 'Admin\DataNilai::formEditNilai/$1');
+    $routes->post('nilai/edit', 'Admin\DataNilai::updateNilai');
+    // admin hapus data nilai
+    $routes->delete('nilai/delete/(:any)', 'Admin\DataNilai::delete/$1');
+    // admin lihat statistik nilai
+    $routes->get('nilai/statistik', 'Admin\DataNilai::statistik');
+    // admin lihat siswa berdasarkan kelas untuk nilai
+    $routes->get('nilai/kelas/(:any)', 'Admin\DataNilai::siswaByKelas/$1');
+    // admin tambah nilai untuk siswa tertentu
+    $routes->get('nilai/tambah-nilai-siswa/(:any)', 'Admin\DataNilai::formTambahNilaiSiswa/$1');
 
     // Settings
     $routes->group('general-settings', ['namespace' => 'App\Controllers\Admin'], function ($routes) {

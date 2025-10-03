@@ -52,6 +52,11 @@ class UserModel extends MythUserModel
         return $this->where('role', 'guru')->orderBy('nama_lengkap', 'ASC')->findAll();
     }
 
+    public function getDataGuru()
+    {
+        return $this->where('role', 'guru')->orderBy('nama_lengkap', 'ASC')->get()->getResult('array');
+    }
+
     public function getAllSuperadmin()
     {
         return $this->where('role', 'superadmin')->orderBy('nama_lengkap', 'ASC')->findAll();
