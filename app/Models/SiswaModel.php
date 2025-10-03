@@ -14,6 +14,7 @@ class SiswaModel extends Model
          'id_kelas',
          'jenis_kelamin',
          'no_hp',
+         'foto',
          'unique_code'
       ];
    }
@@ -79,7 +80,7 @@ class SiswaModel extends Model
          ->findAll();
    }
 
-   public function createSiswa($nis, $nama, $idKelas, $jenisKelamin, $noHp)
+   public function createSiswa($nis, $nama, $idKelas, $jenisKelamin, $noHp, $foto = null)
    {
       return $this->save([
          'nis' => $nis,
@@ -87,20 +88,28 @@ class SiswaModel extends Model
          'id_kelas' => $idKelas,
          'jenis_kelamin' => $jenisKelamin,
          'no_hp' => $noHp,
+         'foto' => $foto,
          'unique_code' => generateToken()
       ]);
    }
 
-   public function updateSiswa($id, $nis, $nama, $idKelas, $jenisKelamin, $noHp)
+   public function updateSiswa($id, $nis, $nama, $idKelas, $jenisKelamin, $noHp, $foto = null)
    {
-      return $this->save([
+      $data = [
          $this->primaryKey => $id,
          'nis' => $nis,
          'nama_siswa' => $nama,
          'id_kelas' => $idKelas,
          'jenis_kelamin' => $jenisKelamin,
          'no_hp' => $noHp,
-      ]);
+      ];
+      
+      // Only update foto if provided
+      if ($foto !== null) {
+         $data['foto'] = $foto;
+      }
+      
+      return $this->save($data);
    }
 
    public function getSiswaCountByKelas($kelasId)

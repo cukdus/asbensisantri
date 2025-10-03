@@ -38,7 +38,16 @@ class DataSiswa extends BaseController
          ]
       ],
       'jk' => ['rules' => 'required', 'errors' => ['required' => 'Jenis kelamin wajib diisi']],
-      'no_hp' => 'required|numeric|max_length[20]|min_length[5]'
+      'no_hp' => 'required|numeric|max_length[20]|min_length[5]',
+      'foto' => [
+         'rules' => 'permit_empty|uploaded[foto]|max_size[foto,2048]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png,image/gif]',
+         'errors' => [
+            'uploaded' => 'Pilih file foto terlebih dahulu.',
+            'max_size' => 'Ukuran foto maksimal 2MB.',
+            'is_image' => 'File yang dipilih harus berupa gambar.',
+            'mime_in' => 'Format foto harus JPG, JPEG, PNG, atau GIF.'
+         ]
+      ]
    ];
 
    public function __construct()
@@ -104,6 +113,30 @@ class DataSiswa extends BaseController
          return view('/admin/data/create/create-data-siswa', $data);
       }
 
+      // handle foto upload
+      $fotoName = null;
+      $foto = $this->request->getFile('foto');
+      
+      if ($foto && $foto->isValid() && !$foto->hasMoved()) {
+         // create uploads directory if not exists
+         $uploadPath = WRITEPATH . 'uploads/siswa/';
+         if (!is_dir($uploadPath)) {
+            mkdir($uploadPath, 0755, true);
+         }
+         
+         // generate unique filename
+         $fotoName = $foto->getRandomName();
+         
+         // move file to uploads directory
+         if (!$foto->move($uploadPath, $fotoName)) {
+            session()->setFlashdata([
+               'msg' => 'Gagal mengupload foto',
+               'error' => true
+            ]);
+            return redirect()->to('/admin/siswa/create');
+         }
+      }
+
       // simpan
       $result = $this->siswaModel->createSiswa(
          nis: $this->request->getVar('nis'),
@@ -111,6 +144,7 @@ class DataSiswa extends BaseController
          idKelas: intval($this->request->getVar('id_kelas')),
          jenisKelamin: $this->request->getVar('jk'),
          noHp: $this->request->getVar('no_hp'),
+         foto: $fotoName
       );
 
       if ($result) {
@@ -173,6 +207,38 @@ class DataSiswa extends BaseController
          return view('/admin/data/edit/edit-data-siswa', $data);
       }
 
+      // handle foto upload
+      $fotoName = null;
+      $foto = $this->request->getFile('foto');
+      
+      if ($foto && $foto->isValid() && !$foto->hasMoved()) {
+         // create uploads directory if not exists
+         $uploadPath = WRITEPATH . 'uploads/siswa/';
+         if (!is_dir($uploadPath)) {
+            mkdir($uploadPath, 0755, true);
+         }
+         
+         // generate unique filename
+         $fotoName = $foto->getRandomName();
+         
+         // move file to uploads directory
+         if (!$foto->move($uploadPath, $fotoName)) {
+            session()->setFlashdata([
+               'msg' => 'Gagal mengupload foto',
+               'error' => true
+            ]);
+            return redirect()->to('/admin/siswa/edit/' . $idSiswa);
+         }
+         
+         // delete old photo if exists
+         if (!empty($siswaLama['foto'])) {
+            $oldPhotoPath = WRITEPATH . 'uploads/siswa/' . $siswaLama['foto'];
+            if (file_exists($oldPhotoPath)) {
+               unlink($oldPhotoPath);
+            }
+         }
+      }
+
       // update
       $result = $this->siswaModel->updateSiswa(
          id: $idSiswa,
@@ -181,6 +247,7 @@ class DataSiswa extends BaseController
          idKelas: intval($this->request->getVar('id_kelas')),
          jenisKelamin: $this->request->getVar('jk'),
          noHp: $this->request->getVar('no_hp'),
+         foto: $fotoName
       );
 
       if ($result) {

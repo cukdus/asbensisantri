@@ -11,7 +11,7 @@
                </div>
                <div class="card-body mx-5 my-3">
 
-                  <form action="<?= base_url('admin/siswa/create'); ?>" method="post">
+                  <form action="<?= base_url('admin/siswa/create'); ?>" method="post" enctype="multipart/form-data">
                      <?= csrf_field() ?>
                      <?php $validation = \Config\Services::validation(); ?>
 
@@ -103,6 +103,15 @@
                         <input type="number" id="hp" name="no_hp" class="form-control <?= $validation->getError('no_hp') ? 'is-invalid' : ''; ?>" value="<?= old('no_hp') ?? $oldInput['no_hp'] ?? '' ?>">
                         <div class="invalid-feedback">
                            <?= $validation->getError('no_hp'); ?>
+                        </div>
+                     </div>
+
+                     <div class="form-group mt-5">
+                        <label for="foto">Foto Siswa</label>
+                        <input type="file" id="foto" name="foto" class="form-control-file <?= $validation->getError('foto') ? 'is-invalid' : ''; ?>" accept="image/*">
+                        <small class="form-text text-muted">Format yang diizinkan: JPG, JPEG, PNG, GIF. Maksimal 2MB.</small>
+                        <div class="invalid-feedback">
+                           <?= $validation->getError('foto'); ?>
                         </div>
                      </div>
 
