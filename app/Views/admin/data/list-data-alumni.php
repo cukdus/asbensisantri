@@ -41,7 +41,7 @@
                   </td>
                   <td>
                      <div class="d-flex justify-content-center">
-                        <a title="Lihat Detail" href="<?= base_url('admin/siswa/edit/' . $value['id_siswa']); ?>" class="btn btn-info p-2">
+                        <a title="Lihat Detail" href="<?= base_url('admin/alumni/view/' . $value['id_siswa']); ?>" class="btn btn-info p-2">
                            <i class="material-icons">visibility</i>
                         </a>
                         <button title="Aktifkan Kembali" onclick="toggleGraduationStatus(<?= $value['id_siswa']; ?>)" class="btn btn-warning p-2" id="toggle-btn-<?= $value['id_siswa']; ?>">

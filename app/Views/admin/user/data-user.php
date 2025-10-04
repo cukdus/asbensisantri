@@ -15,19 +15,27 @@
                   </div>
                </div>
             <?php endif; ?>
-            <a class="btn btn-primary ml-3 pl-3 py-3" href="<?= base_url('admin/user/register'); ?>">
-               <i class="material-icons mr-2">add</i> Tambah User
-            </a>
-            <button class="btn btn-danger ml-3 pl-3 py-3 btn-table-delete" onclick="deleteSelectedUsers('Data yang sudah dihapus tidak bisa dikembalikan');"><i class="material-icons mr-2">delete_forever</i>Bulk Delete</button>
+            <?php if ($userRole === 'superadmin'): ?>
+               <a class="btn btn-primary ml-3 pl-3 py-3" href="<?= base_url('admin/user/register'); ?>">
+                  <i class="material-icons mr-2">add</i> Tambah User
+               </a>
+               <button class="btn btn-danger ml-3 pl-3 py-3 btn-table-delete" onclick="deleteSelectedUsers('Data yang sudah dihapus tidak bisa dikembalikan');"><i class="material-icons mr-2">delete_forever</i>Bulk Delete</button>
+            <?php else: ?>
+               <div class="alert alert-info ml-3 mr-3">
+                  <i class="material-icons mr-2">info</i>
+                  <strong>Mode Lihat Saja:</strong> Anda dapat melihat data user dan mendownload QR Code guru, tetapi tidak dapat mengedit atau menghapus data.
+               </div>
+            <?php endif; ?>
             <div class="card">
                <div class="card-header card-header-tabs card-header-primary">
                   <div class="nav-tabs-navigation">
                      <div class="row">
                         <div class="col-md-6">
-                           <h4 class="card-title"><b>Daftar User</b></h4>
-                           <p class="card-category">Guru & Petugas Sistem</p>
+                           <h4 class="card-title"><b><?= $ctx === 'guru' ? 'Daftar Guru' : 'Daftar User' ?></b></h4>
+                           <p class="card-category"><?= $ctx === 'guru' ? 'Data Guru' : 'Guru & Petugas Sistem' ?></p>
                         </div>
                         <div class="col-md-6">
+                           <?php if ($ctx === 'user'): ?>
                            <div class="nav-tabs-wrapper">
                               <span class="nav-tabs-title">Filter Role:</span>
                               <ul class="nav nav-tabs" data-tabs="tabs">
@@ -51,6 +59,7 @@
                                  </li>
                               </ul>
                            </div>
+                           <?php endif; ?>
                         </div>
                      </div>
                   </div>

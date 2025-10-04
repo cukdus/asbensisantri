@@ -98,6 +98,7 @@ $routes->group('admin', function (RouteCollection $routes) {
     $routes->get('alumni', 'Admin\DataAlumni::index');
     $routes->post('alumni/ambil-data-alumni', 'Admin\DataAlumni::ambilDataAlumni');
     $routes->post('alumni/toggle-graduation-status', 'Admin\DataAlumni::toggleGraduationStatus');
+    $routes->get('alumni/view/(:any)', 'Admin\DataAlumni::viewSiswa/$1');
 
     // unified user management (guru and petugas)
     $routes->get('user', 'Admin\DataUser::index');

@@ -73,14 +73,25 @@ class DataUser extends BaseController
         $user = user();
         $userRole = $user->role ?? ($user->is_superadmin ? 'superadmin' : 'guru');
 
-        // Only superadmin can access user management
-        if ($userRole !== 'superadmin') {
+        // Allow both superadmin and guru to access user management
+        if (!in_array($userRole, ['superadmin', 'guru'])) {
             return redirect()->to('admin')->with('error', 'Anda tidak memiliki akses untuk halaman ini.');
         }
 
+        // Determine context based on the current URI
+        $currentUri = $this->request->getUri()->getPath();
+        $context = 'user';  // default context
+        $title = 'Data User';  // default title
+
+        if (strpos($currentUri, '/admin/guru') !== false) {
+            $context = 'guru';
+            $title = 'Data Guru';
+        }
+
         $data = [
-            'title' => 'Data User',
-            'ctx' => 'user'
+            'title' => $title,
+            'ctx' => $context,
+            'userRole' => $userRole
         ];
 
         return view('admin/user/data-user', $data);
@@ -89,16 +100,26 @@ class DataUser extends BaseController
     public function ambilDataUser()
     {
         $role = $this->request->getPost('role');
+        $user = user();
+        $userRole = $user->role ?? ($user->is_superadmin ? 'superadmin' : 'guru');
+
+        // Check if accessed via guru route
+        $currentUri = $this->request->getUri()->getPath();
+        $isGuruRoute = strpos($currentUri, '/admin/guru') !== false;
 
         if ($role) {
             $users = $this->userModel->getUsersByRole($role);
+        } else if ($isGuruRoute) {
+            // If accessed via guru route, only show guru data
+            $users = $this->userModel->getUsersByRole('guru');
         } else {
             $users = $this->userModel->getAllUsers();
         }
 
         $data = [
             'data' => $users,
-            'empty' => empty($users)
+            'empty' => empty($users),
+            'userRole' => $userRole
         ];
 
         return view('admin/user/list-data-user', $data);
@@ -167,7 +188,7 @@ class DataUser extends BaseController
             case 'P':
                 return 'Perempuan';
             default:
-                return $value; // Return as is if already in correct format
+                return $value;  // Return as is if already in correct format
         }
     }
 

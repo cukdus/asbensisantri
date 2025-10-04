@@ -66,14 +66,14 @@ foreach ($kelas as $value):
                                        <div class="ripple-container"></div>
                                     </a>
                                  </li>
-                                 <php foreach ($jurusan as $value) : ?>
+                                 <?php foreach ($jurusan as $value): ?>
                                     <li class="nav-item">
                                        <a class="nav-link" onclick="jurusan = '<?= $value['jurusan']; ?>'; trig();" href="#" data-toggle="tab">
                                           <i class="material-icons">work</i> <?= $value['jurusan']; ?>
                                           <div class="ripple-container"></div>
                                        </a>
                                     </li>
-                                 <php endforeach; ?>
+                                 <?php endforeach; ?>
                               </ul>
                            </div>
                         </div> -->

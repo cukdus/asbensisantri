@@ -25,7 +25,7 @@ class SiswaSeeder extends Seeder
 
         // Insert new data
         $this->db->table('tb_siswa')->insertBatch(
-            $this->createSiswa(20)
+            $this->createSiswa(10)
         );
 
         echo "✅ SiswaSeeder: 20 siswa berhasil ditambahkan\n";

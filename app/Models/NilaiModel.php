@@ -8,7 +8,7 @@ class NilaiModel extends Model
 {
     protected $table = 'tb_nilai';
     protected $primaryKey = 'id_nilai';
-    protected $allowedFields = ['id_siswa', 'id_mapel', 'nilai', 'semester', 'tahun_ajaran', 'keterangan'];
+    protected $allowedFields = ['id_siswa', 'id_mapel', 'id_kelas', 'nilai', 'semester', 'tahun_ajaran', 'keterangan'];
     protected $useTimestamps = true;
     protected $useSoftDeletes = false;
     protected $createdField = 'created_at';
@@ -22,7 +22,7 @@ class NilaiModel extends Model
         return $this->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_mapel.nama_mapel, tb_kelas.kelas')
                     ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
                     ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
-                    ->join('tb_kelas', 'tb_kelas.id_kelas = tb_siswa.id_kelas')
+                    ->join('tb_kelas', 'tb_kelas.id_kelas = tb_nilai.id_kelas')
                     ->orderBy('tb_nilai.created_at', 'DESC')
                     ->findAll();
     }
@@ -35,7 +35,7 @@ class NilaiModel extends Model
         return $this->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_mapel.nama_mapel, tb_kelas.kelas')
                     ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
                     ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
-                    ->join('tb_kelas', 'tb_kelas.id_kelas = tb_siswa.id_kelas')
+                    ->join('tb_kelas', 'tb_kelas.id_kelas = tb_nilai.id_kelas')
                     ->find($id);
     }
 

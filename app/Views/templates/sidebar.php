@@ -28,7 +28,7 @@ switch ($context) {
     -->
    <div class="logo">
       <a class="simple-text logo-normal">
-         <b>Operator<br>Petugas Absensi</b>
+         <b>Dashboard<br><?= $generalSettings->school_name; ?></b>
       </a>
    </div>
    <div class="sidebar-wrapper">
@@ -67,9 +67,9 @@ switch ($context) {
 $user = user();
 $userRole = $user->role ?? ($user->is_superadmin ? 'superadmin' : 'guru');
 ?>
-         <?php if ($userRole === 'superadmin'): ?>
-            <li class="nav-item <?= $context == 'user' ? 'active' : ''; ?>">
-               <a class="nav-link" href="<?= base_url('admin/user'); ?>">
+         <?php if (in_array($userRole, ['superadmin', 'guru'])): ?>
+            <li class="nav-item <?= $context == 'guru' ? 'active' : ''; ?>">
+               <a class="nav-link" href="<?= base_url('admin/guru'); ?>">
                   <i class="material-icons">person_4</i>
                   <p>Data Guru</p>
                </a>

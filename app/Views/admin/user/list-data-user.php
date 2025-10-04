@@ -4,7 +4,9 @@
          <table class="table">
             <thead class="text-primary">
                <tr>
-                  <th width="20"><input type="checkbox" class="checkbox-table" id="checkAll"></th>
+                  <?php if ($userRole === 'superadmin'): ?>
+                     <th width="20"><input type="checkbox" class="checkbox-table" id="checkAll"></th>
+                  <?php endif; ?>
                   <th>No</th>
                   <th>Nama Lengkap</th>
                   <th>Username</th>
@@ -20,7 +22,9 @@
                <?php $no = 1; ?>
                <?php foreach ($data as $user): ?>
                <tr>
-                  <td><input type="checkbox" name="checkbox-table" class="checkbox-table" value="<?= $user->id ?>"></td>
+                  <?php if ($userRole === 'superadmin'): ?>
+                     <td><input type="checkbox" name="checkbox-table" class="checkbox-table" value="<?= $user->id ?>"></td>
+                  <?php endif; ?>
                   <td><?= $no++ ?></td>
                   <td><?= esc($user->nama_lengkap) ?></td>
                   <td><?= esc($user->username) ?></td>
@@ -41,20 +45,25 @@
                   </td>
                   <td>
                      <div class="d-flex justify-content-center">
-                        <a title="Edit" href="<?= base_url('admin/user/edit/' . $user->id) ?>" class="btn btn-primary p-2" id="<?= $user->id ?>">
-                           <i class="material-icons">edit</i>
-                        </a>
-                        <form action="<?= base_url('admin/user/delete/' . $user->id) ?>" method="post" class="d-inline">
-                           <?= csrf_field(); ?>
-                           <input type="hidden" name="_method" value="DELETE">
-                           <button title="Delete" onclick="return confirm('Konfirmasi untuk menghapus data');" type="submit" class="btn btn-danger p-2" id="<?= $user->id ?>">
-                              <i class="material-icons">delete_forever</i>
-                           </button>
-                        </form>
+                        <?php if ($userRole === 'superadmin'): ?>
+                           <a title="Edit" href="<?= base_url('admin/user/edit/' . $user->id) ?>" class="btn btn-primary p-2" id="<?= $user->id ?>">
+                              <i class="material-icons">edit</i>
+                           </a>
+                           <form action="<?= base_url('admin/user/delete/' . $user->id) ?>" method="post" class="d-inline">
+                              <?= csrf_field(); ?>
+                              <input type="hidden" name="_method" value="DELETE">
+                              <button title="Delete" onclick="return confirm('Konfirmasi untuk menghapus data');" type="submit" class="btn btn-danger p-2" id="<?= $user->id ?>">
+                                 <i class="material-icons">delete_forever</i>
+                              </button>
+                           </form>
+                        <?php endif; ?>
                         <?php if ($user->role === 'guru'): ?>
                         <a title="Download QR Code" href="<?= base_url('admin/qr/guru/' . $user->id . '/download') ?>" class="btn btn-success p-2">
                            <i class="material-icons">qr_code</i>
                         </a>
+                        <?php endif; ?>
+                        <?php if ($userRole === 'guru' && empty($user->role === 'guru')): ?>
+                           <span class="text-muted small">Hanya dapat melihat data</span>
                         <?php endif; ?>
                      </div>
                   </td>

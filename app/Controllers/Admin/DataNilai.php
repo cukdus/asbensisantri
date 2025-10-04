@@ -119,6 +119,17 @@ class DataNilai extends BaseController
         $semester = $this->request->getPost('semester');
         $tahunAjaran = $this->request->getPost('tahun_ajaran');
         $mapelData = $this->request->getPost('mapel');
+        
+        // Get student's class information
+        $siswa = $this->siswaModel->getSiswaById($idSiswa);
+        if (!$siswa) {
+            session()->setFlashdata([
+                'msg' => 'Data siswa tidak ditemukan',
+                'error' => true
+            ]);
+            return redirect()->back()->withInput();
+        }
+        $idKelas = $siswa['id_kelas'];
 
         // Check if we have old format (single subject) or new format (multiple subjects)
         if ($this->request->getPost('id_mapel') && $this->request->getPost('nilai')) {
@@ -139,6 +150,7 @@ class DataNilai extends BaseController
             $data = [
                 'id_siswa' => $idSiswa,
                 'id_mapel' => $idMapel,
+                'id_kelas' => $idKelas,
                 'nilai' => $nilai,
                 'semester' => $semester,
                 'tahun_ajaran' => $tahunAjaran,
@@ -183,6 +195,7 @@ class DataNilai extends BaseController
                 $data = [
                     'id_siswa' => $idSiswa,
                     'id_mapel' => $mapel['id_mapel'],
+                    'id_kelas' => $idKelas,
                     'nilai' => $mapel['nilai'],
                     'semester' => $semester,
                     'tahun_ajaran' => $tahunAjaran,
@@ -324,6 +337,17 @@ class DataNilai extends BaseController
         $idMapel = $this->request->getPost('id_mapel');
         $semester = $this->request->getPost('semester');
         $tahunAjaran = $this->request->getPost('tahun_ajaran');
+        
+        // Get student's class information
+        $siswa = $this->siswaModel->getSiswaById($idSiswa);
+        if (!$siswa) {
+            session()->setFlashdata([
+                'msg' => 'Data siswa tidak ditemukan',
+                'error' => true
+            ]);
+            return redirect()->back()->withInput();
+        }
+        $idKelas = $siswa['id_kelas'];
 
         // Check if nilai already exists for this combination (excluding current record)
         if ($this->nilaiModel->isNilaiExists($idSiswa, $idMapel, $semester, $tahunAjaran, $id)) {
@@ -337,6 +361,7 @@ class DataNilai extends BaseController
         $data = [
             'id_siswa' => $idSiswa,
             'id_mapel' => $idMapel,
+            'id_kelas' => $idKelas,
             'nilai' => $this->request->getPost('nilai'),
             'semester' => $semester,
             'tahun_ajaran' => $tahunAjaran

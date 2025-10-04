@@ -342,6 +342,7 @@ CREATE TABLE IF NOT EXISTS `tb_nilai` (
   `id_nilai` int(11) NOT NULL AUTO_INCREMENT,
   `id_siswa` int(11) NOT NULL,
   `id_mapel` int(11) NOT NULL,
+  `id_kelas` int(11) NOT NULL,
   `nilai` decimal(5,2) NOT NULL,
   `semester` enum('Ganjil','Genap') NOT NULL,
   `tahun_ajaran` varchar(9) NOT NULL,
@@ -349,7 +350,8 @@ CREATE TABLE IF NOT EXISTS `tb_nilai` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_nilai`),
   KEY `id_siswa` (`id_siswa`),
-  KEY `id_mapel` (`id_mapel`)
+  KEY `id_mapel` (`id_mapel`),
+  KEY `id_kelas` (`id_kelas`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

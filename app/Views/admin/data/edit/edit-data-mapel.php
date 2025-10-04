@@ -24,12 +24,12 @@
                   <form action="<?= base_url('admin/mapel/update'); ?>" method="post">
                      <?= csrf_field() ?>
                      <input type="hidden" name="_method" value="PUT">
-                     <input type="hidden" name="id_mapel" value="<?= $data['id_mapel']; ?>">
+                     <input type="hidden" name="id_mapel" value="<?= $mapel['id_mapel']; ?>">
                      <?php $validation = \Config\Services::validation(); ?>
 
                      <div class="form-group mt-4">
                         <label for="nama_mapel">Nama Mata Pelajaran</label>
-                        <input type="text" id="nama_mapel" class="form-control <?= $validation->getError('nama_mapel') ? 'is-invalid' : ''; ?>" name="nama_mapel" placeholder="Contoh: Matematika" value="<?= old('nama_mapel') ?? $data['nama_mapel']; ?>" required>
+                        <input type="text" id="nama_mapel" class="form-control <?= $validation->getError('nama_mapel') ? 'is-invalid' : ''; ?>" name="nama_mapel" placeholder="Contoh: Matematika" value="<?= old('nama_mapel') ?? $mapel['nama_mapel']; ?>" required>
                         <div class="invalid-feedback">
                            <?= $validation->getError('nama_mapel'); ?>
                         </div>

@@ -65,7 +65,7 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-danger card-header-icon">
                         <div class="card-icon">
-                            <a href="<?= base_url('admin/siswa'); ?>" class="text-white">
+                            <a href="<?= base_url('admin/alumni'); ?>" class="text-white">
                                 <i class="material-icons">school</i>
                             </a>
                         </div>
