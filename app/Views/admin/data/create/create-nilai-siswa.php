@@ -29,31 +29,28 @@
                      <div class="col-md-4">
                         <div class="card shadow-sm" style="border-radius: 15px; overflow: hidden;">
                            <div class="card-body p-3 text-center" style="background: <?= $siswa['jenis_kelamin'] == 'Perempuan' ? 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)' : 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' ?>;">
-                              <div class="photo-container mb-3" style="position: relative; display: inline-block;">
+                              <div class="photo-container mb-2" style="position: relative; display: inline-block;">
                                  <?php if (!empty($siswa['foto']) && file_exists(FCPATH . 'uploads/siswa/' . $siswa['foto'])): ?>
                                     <img src="<?= base_url('uploads/siswa/' . $siswa['foto']); ?>" 
                                          alt="Foto <?= $siswa['nama_siswa']; ?>" 
                                          class="rounded-circle border border-white" 
-                                         style="width: 120px; height: 120px; object-fit: cover; border-width: 4px !important;">
+                                         style="width: 200px; height: 200px; object-fit: cover; border-width: 4px !important;">
                                  <?php else: ?>
                                     <div class="bg-light rounded-circle d-flex align-items-center justify-content-center border border-white" 
-                                         style="width: 120px; height: 120px; border-width: 4px !important;">
+                                         style="width: 200px; height: 200px; border-width: 4px !important;">
                                        <i class="material-icons text-muted" style="font-size: 60px;">school</i>
                                     </div>
                                  <?php endif; ?>
                               </div>
-                              <h6 class="text-white mb-1 font-weight-bold"><?= $siswa['nama_siswa'] ?: 'Nama Siswa' ?></h6>
-                              <p class="text-white-50 mb-0 small">NIS: <?= $siswa['nis'] ?: '-' ?></p>
-                              <p class="text-white-50 mb-0 small"><?= $siswa['kelas'] ?: 'Kelas' ?> <?= $siswa['jurusan'] ?: '' ?></p>
                            </div>
                         </div>
                      </div>
                      <div class="col-md-8">
-                        <div class="card h-100 shadow-sm" style="border-radius: 15px;">
+                        <div class="card h-80 shadow-sm" style="border-radius: 15px;">
                            <div class="card-body">
-                              <h6 class="card-title text-success mb-3">
-                                 <i class="material-icons mr-2">grade</i>Informasi Nilai Siswa
-                              </h6>
+                              <h2 class="card-title text-success mb-3">
+                                 <?= $siswa['nama_siswa'] ?: 'Nama Siswa' ?>
+                              </h2>
                               <div class="row">
                                  <div class="col-sm-6">
                                     <p class="mb-2"><strong>NIS:</strong><br><span class="text-muted"><?= $siswa['nis'] ?: '-' ?></span></p>
@@ -172,24 +169,24 @@
                                           <label class="bmd-label-floating">Tahun Ajaran</label>
                                           <select class="form-control" name="tahun_ajaran" required>
                                              <option value="">Pilih Tahun Ajaran</option>
-                                             <?php 
-                                                $currentYear = date('Y');
-                                                $oldValue = old('tahun_ajaran');
-                                                
-                                                // Generate tahun ajaran dari 2 tahun kebelakang sampai 2 tahun kedepan
-                                                for ($i = -2; $i <= 2; $i++) {
-                                                   $startYear = $currentYear + $i;
-                                                   $endYear = $startYear + 1;
-                                                   $tahunAjaran = $startYear . '/' . $endYear;
-                                                   $selected = '';
-                                                   
-                                                   // Set default ke tahun ajaran saat ini jika tidak ada old value
-                                                   if (empty($oldValue) && $i == 0) {
-                                                      $selected = 'selected';
-                                                   } elseif ($oldValue == $tahunAjaran) {
-                                                      $selected = 'selected';
-                                                   }
-                                             ?>
+                                             <?php
+$currentYear = date('Y');
+$oldValue = old('tahun_ajaran');
+
+// Generate tahun ajaran dari 2 tahun kebelakang sampai 2 tahun kedepan
+for ($i = -2; $i <= 2; $i++) {
+    $startYear = $currentYear + $i;
+    $endYear = $startYear + 1;
+    $tahunAjaran = $startYear . '/' . $endYear;
+    $selected = '';
+
+    // Set default ke tahun ajaran saat ini jika tidak ada old value
+    if (empty($oldValue) && $i == 0) {
+        $selected = 'selected';
+    } elseif ($oldValue == $tahunAjaran) {
+        $selected = 'selected';
+    }
+    ?>
                                                 <option value="<?= $tahunAjaran; ?>" <?= $selected; ?>><?= $tahunAjaran; ?></option>
                                              <?php } ?>
                                           </select>
