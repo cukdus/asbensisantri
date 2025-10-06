@@ -91,6 +91,7 @@ $routes->group('admin', function (RouteCollection $routes) {
         $routes->post('generateCSVObjectPost', 'DataSiswa::generateCSVObjectPost');
         $routes->post('importCSVItemPost', 'DataSiswa::importCSVItemPost');
         $routes->post('deleteSelectedSiswa', 'DataSiswa::deleteSelectedSiswa');
+        $routes->post('graduateSelectedSiswa', 'DataSiswa::graduateSelectedSiswa');
         $routes->post('toggle-graduation', 'DataSiswa::toggleGraduationStatus');
     });
 

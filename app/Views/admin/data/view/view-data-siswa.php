@@ -36,13 +36,13 @@
                      <div class="col-md-8">
                         <div class="card h-80 shadow-sm" style="border-radius: 15px;">
                            <div class="card-body">
-                              <h6 class="card-title text-info mb-3">
-                                 <i class="material-icons mr-2">info</i><?= $data['nama_siswa'] ?: 'Nama Siswa' ?> <?php if ($data['is_graduated'] == 1): ?>
+                              <h2 class="card-title text-info mb-3">
+                                 <?= $data['nama_siswa'] ?: 'Nama Siswa' ?> <?php if ($data['is_graduated'] == 1): ?>
                                  <span class="badge badge-warning mt-2">Lulus</span>
                               <?php else: ?>
                                  <span class="badge badge-success mt-2">Siswa Aktif</span>
                               <?php endif; ?>
-                              </h6>
+                              </h2>
                               <div class="row">
                                  <div class="col-sm-6">
                                     <p class="mb-2"><strong>NIS:</strong><br><span class="text-muted"><?= $data['nis'] ?: '-' ?></span></p>
@@ -242,18 +242,18 @@
                   </div>
 
                   <!-- Action Buttons -->
-                  <div class="text-center mt-4">
+                  <div class="text-center mt-1 mb-3">
                      <a href="<?= base_url('admin/alumni'); ?>" class="btn btn-outline-secondary btn-lg px-5" style="border-radius: 25px;">
                         <i class="material-icons mr-2">arrow_back</i>Kembali ke Data Alumni
                      </a>
-                     <?php if ($data['is_graduated'] == 1): ?>
-                        <a href="<?= base_url('admin/siswa/edit/' . $data['id_siswa']); ?>" class="btn btn-primary btn-lg px-5 ml-3" style="border-radius: 25px;">
+                     <!-- php if ($data['is_graduated'] == 1): ?>
+                        <a href="<!--?= base_url('admin/siswa/edit/' . $data['id_siswa']); ?>" class="btn btn-primary btn-lg px-5 ml-3" style="border-radius: 25px;">
                            <i class="material-icons mr-2">edit</i>Edit Data
                         </a>
-                     <?php endif; ?>
-                     <a href="<?= base_url('admin/qr/siswa/' . $data['id_siswa'] . '/download'); ?>" class="btn btn-success btn-lg px-5 ml-3" style="border-radius: 25px;">
+                     <!--?php endif; ?>
+                     <a href="<!--?= base_url('admin/qr/siswa/' . $data['id_siswa'] . '/download'); ?>" class="btn btn-success btn-lg px-5 ml-3" style="border-radius: 25px;">
                         <i class="material-icons mr-2">qr_code</i>Download QR Code
-                     </a>
+                     </a -->
                   </div>
 
                </div>

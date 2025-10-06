@@ -18,58 +18,23 @@
                      </div>
                   <?php endif; ?>
 
-                  <div class="nav-tabs-navigation">
+                  <div class="card-header">
                      <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                            <h4 class="card-title"><b>Daftar Alumni</b></h4>
                            <p class="card-category">Siswa yang telah lulus</p>
                         </div>
-                        <div class="col-md-4">
-                           <div class="nav-tabs-wrapper">
-                              <span class="nav-tabs-title">Kelas:</span>
-                              <ul class="nav nav-tabs" data-tabs="tabs">
-                                 <li class="nav-item">
-                                    <a class="nav-link active" onclick="kelas = null; trig()" href="#" data-toggle="tab">
-                                       <i class="material-icons">check</i> Semua
-                                       <div class="ripple-container"></div>
-                                    </a>
-                                 </li>
-                                 <?php
-$tempKelas = [];
-foreach ($kelas as $value):
-?>
-                                    <?php if (!in_array($value['kelas'], $tempKelas)): ?>
-                                       <li class="nav-item">
-                                          <a class="nav-link" onclick="kelas = '<?= $value['kelas']; ?>'; trig()" href="#" data-toggle="tab">
-                                             <i class="material-icons">school</i> <?= $value['kelas']; ?>
-                                             <div class="ripple-container"></div>
-                                          </a>
-                                       </li>
-                                       <?php array_push($tempKelas, $value['kelas']) ?>
+                        <div class="col-md-8">
+                           <div class="form-group">
+                              <label for="tahun_lulus_filter" class="bmd-label-floating">Filter Tahun Lulus:</label>
+                              <select class="form-control" id="tahun_lulus_filter" onchange="filterByTahunLulus()">
+                                 <option value="">Semua Tahun</option>
+                                 <?php foreach ($graduation_years as $value): ?>
+                                    <?php if (!empty($value['tahun_lulus'])): ?>
+                                       <option value="<?= $value['tahun_lulus']; ?>"><?= $value['tahun_lulus']; ?></option>
                                     <?php endif; ?>
                                  <?php endforeach; ?>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="col-md-6">
-                           <div class="nav-tabs-wrapper">
-                              <span class="nav-tabs-title">Jurusan:</span>
-                              <ul class="nav nav-tabs" data-tabs="tabs">
-                                 <li class="nav-item">
-                                    <a class="nav-link active" onclick="jurusan = null; trig()" href="#" data-toggle="tab">
-                                       <i class="material-icons">check</i> Semua
-                                       <div class="ripple-container"></div>
-                                    </a>
-                                 </li>
-                                 <?php foreach ($jurusan as $value): ?>
-                                    <li class="nav-item">
-                                       <a class="nav-link" onclick="jurusan = '<?= $value['jurusan']; ?>'; trig()" href="#" data-toggle="tab">
-                                          <i class="material-icons">work</i> <?= $value['jurusan']; ?>
-                                          <div class="ripple-container"></div>
-                                       </a>
-                                    </li>
-                                 <?php endforeach; ?>
-                              </ul>
+                              </select>
                            </div>
                         </div>
                      </div>
@@ -113,16 +78,20 @@ foreach ($kelas as $value):
 </div>
 
 <script>
-   let kelas = null;
-   let jurusan = null;
+   let tahun_lulus = null;
+
+   function filterByTahunLulus() {
+      const selectElement = document.getElementById('tahun_lulus_filter');
+      tahun_lulus = selectElement.value || null;
+      trig();
+   }
 
    function trig() {
       $.ajax({
          url: "<?= base_url('admin/alumni/ambil-data-alumni'); ?>",
          type: "POST",
          data: {
-            kelas: kelas,
-            jurusan: jurusan
+            tahun_lulus: tahun_lulus
          },
          success: function(data) {
             $("#load-table").html(data);

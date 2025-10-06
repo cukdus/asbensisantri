@@ -39,6 +39,10 @@
     display: none;
 }
 
+.btn-table-graduate {
+    display: none;
+}
+
 .btn-custom-tools:hover,
 .btn-custom-tools:focus {
     color: #fff;

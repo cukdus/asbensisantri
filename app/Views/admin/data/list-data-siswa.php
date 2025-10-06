@@ -9,7 +9,7 @@
             <th><b>Jenis Kelamin</b></th>
             <th><b>Kelas</b></th>
             <th><b>No HP</b></th>
-            <th><b>Status Kelulusan</b></th>
+            <th><b>Status</b></th>
             <th width="1%"><b>Aksi</b></th>
          </thead>
          <tbody>

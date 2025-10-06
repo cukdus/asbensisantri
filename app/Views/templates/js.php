@@ -1,5 +1,7 @@
 <!--   Core JS Files   -->
 <script src="<?= base_url('assets/js/core/jquery-3.5.1.min.js') ?>"></script>
+<!-- SweetAlert Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <!-- Custom Plugins Sweetalert, Cookies, Etc -->
 <script src="<?= base_url('assets/js/plugins.js') ?>" type="text/javascript"></script>
 <script src="<?= base_url('assets/js/core/bootstrap.bundle.min.js') ?>"></script>

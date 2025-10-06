@@ -6,7 +6,7 @@
          <div class="col-lg-12 col-md-12">
             <div class="card">
                <div class="card-header card-header-primary">
-                  <h4 class="card-title"><b>Form Edit User</b></h4>
+                  <h4 class="card-title"><b>Form Edit <?= ucfirst($data['role']) ?></b></h4>
 
                </div>
                <div class="card-body mx-5 my-3">
@@ -48,15 +48,15 @@ function hasValidationError($field, $validation, $validationErrors)
                         <div class="col-md-4">
                            <div class="card shadow-sm" style="border-radius: 15px; overflow: hidden;">
                               <div class="card-body p-3 text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                                 <div class="photo-container mb-3" style="position: relative; display: inline-block;">
+                                 <div class="photo-container mb-1" style="position: relative; display: inline-block;">
                                     <?php if (!empty($data['foto']) && file_exists(FCPATH . 'uploads/users/' . $data['foto'])): ?>
                                        <img id="photo-preview" src="<?= base_url('uploads/users/' . $data['foto']); ?>" 
                                             alt="Foto <?= $data['nama_lengkap']; ?>" 
                                             class="rounded-circle border border-white" 
-                                            style="width: 120px; height: 120px; object-fit: cover; border-width: 4px !important;">
+                                            style="width: 200px; height: 200px; object-fit: cover; border-width: 4px !important;">
                                     <?php else: ?>
                                        <div id="photo-preview" class="bg-light rounded-circle d-flex align-items-center justify-content-center border border-white" 
-                                            style="width: 120px; height: 120px; border-width: 4px !important;">
+                                            style="width: 200px; height: 200px; border-width: 4px !important;">
                                           <i class="material-icons text-muted" style="font-size: 60px;">person</i>
                                        </div>
                                     <?php endif; ?>
@@ -64,11 +64,7 @@ function hasValidationError($field, $validation, $validationErrors)
                                        <i class="material-icons text-white" style="font-size: 30px;">camera_alt</i>
                                     </div>
                                  </div>
-                                 <h6 class="text-white mb-1 font-weight-bold"><?= $data['nama_lengkap'] ?: 'Nama User' ?></h6>
-                                 <p class="text-white-50 mb-0 small"><?= ucfirst($data['role']) ?></p>
-                                 <?php if (!empty($data['nuptk'])): ?>
-                                    <p class="text-white-50 mb-0 small">NUPTK: <?= $data['nuptk'] ?></p>
-                                 <?php endif; ?>
+                                 
                               </div>
                            </div>
                            <div class="mt-3">
@@ -90,9 +86,9 @@ function hasValidationError($field, $validation, $validationErrors)
                         <div class="col-md-8">
                            <div class="card h-100 shadow-sm" style="border-radius: 15px;">
                               <div class="card-body">
-                                 <h6 class="card-title text-primary mb-3">
-                                    <i class="material-icons mr-2">info</i>Informasi Profil
-                                 </h6>
+                                 <h2 class="card-title text-primary mb-3">
+                                    <?= $data['nama_lengkap'] ?: 'Nama User' ?>
+                                 </h2>
                                  <div class="row">
                                     <div class="col-sm-6">
                                        <p class="mb-2"><strong>Email:</strong><br><span class="text-muted"><?= $data['email'] ?: '-' ?></span></p>
@@ -100,12 +96,12 @@ function hasValidationError($field, $validation, $validationErrors)
                                     </div>
                                     <div class="col-sm-6">
                                        <p class="mb-2"><strong>No HP:</strong><br><span class="text-muted"><?= $data['no_hp'] ?: '-' ?></span></p>
-                                       <p class="mb-2"><strong>Jenis Kelamin:</strong><br><span class="text-muted"><?= $data['jenis_kelamin'] == 'L' ? 'Laki-laki' : ($data['jenis_kelamin'] == 'P' ? 'Perempuan' : '-') ?></span></p>
+                                    <?php if (!empty($data['alamat'])): ?>
+                                       <p class="mb-0"><strong>Alamat:</strong><br><span class="text-muted"><?= $data['alamat'] ?></span></p>
+                                    <?php endif; ?>
                                     </div>
                                  </div>
-                                 <?php if (!empty($data['alamat'])): ?>
-                                    <p class="mb-0"><strong>Alamat:</strong><br><span class="text-muted"><?= $data['alamat'] ?></span></p>
-                                 <?php endif; ?>
+                                 
                               </div>
                            </div>
                         </div>

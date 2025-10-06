@@ -19,6 +19,7 @@ class SiswaModel extends Model
             'nama_orang_tua',
             'alamat',
             'tahun_masuk',
+            'tahun_lulus',
             'unique_code'
         ];
     }
@@ -109,6 +110,38 @@ class SiswaModel extends Model
     public function getAlumniCount()
     {
         return $this->where('is_graduated', 1)->countAllResults();
+    }
+
+    public function getGraduationYears()
+    {
+        return $this->select('tahun_lulus')
+                   ->where('is_graduated', 1)
+                   ->where('tahun_lulus IS NOT NULL')
+                   ->groupBy('tahun_lulus')
+                   ->orderBy('tahun_lulus', 'DESC')
+                   ->findAll();
+    }
+
+    public function getAllAlumniByGraduationYear($tahun_lulus = null)
+    {
+        $query = $this->join(
+            'tb_kelas',
+            'tb_kelas.id_kelas = tb_siswa.id_kelas',
+            'LEFT'
+        )->join(
+            'tb_jurusan',
+            'tb_kelas.id_jurusan = tb_jurusan.id',
+            'LEFT'
+        );
+
+        // Only include graduated students (is_graduated = 1)
+        $query = $this->where('tb_siswa.is_graduated', 1);
+
+        if (!empty($tahun_lulus)) {
+            $query = $this->where('tb_siswa.tahun_lulus', $tahun_lulus);
+        }
+
+        return $query->orderBy('nama_siswa')->findAll();
     }
 
     public function getSiswaByKelas($id_kelas)

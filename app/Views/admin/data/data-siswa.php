@@ -21,6 +21,7 @@
                <i class="material-icons mr-2">add</i> Import CSV
             </a>
             <button class="btn btn-danger ml-3 pl-3 py-3 btn-table-delete" onclick="deleteSelectedSiswa('Data yang sudah dihapus tidak bisa kembalikan');"><i class="material-icons mr-2">delete_forever</i>Bulk Delete</button>
+            <button class="btn btn-success ml-3 pl-3 py-3 btn-table-graduate" onclick="graduateSelectedSiswa('Apakah Anda yakin ingin meluluskan siswa yang dipilih?');"><i class="material-icons mr-2">school</i>Bulk Lulus</button>
             <div class="card">
                <div class="card-header card-header-tabs card-header-primary">
                   <div class="nav-tabs-navigation">

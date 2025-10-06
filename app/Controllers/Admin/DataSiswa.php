@@ -323,6 +323,56 @@ class DataSiswa extends BaseController
         $this->siswaModel->deleteMultiSelected($siswaIds);
     }
 
+    /**
+     * Bulk Graduate Students
+     */
+    public function graduateSelectedSiswa()
+    {
+        // Check if user has access (superadmin or guru)
+        $user = user();
+        $userRole = $user->role ?? ($user->is_superadmin ? 'superadmin' : 'guru');
+
+        if (!in_array($userRole, ['superadmin', 'guru'])) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Anda tidak memiliki akses untuk melakukan aksi ini.'
+            ]);
+        }
+
+        $siswaIds = $this->request->getPost('siswa_ids');
+        
+        if (empty($siswaIds) || !is_array($siswaIds)) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Tidak ada siswa yang dipilih.'
+            ]);
+        }
+
+        $updateData = [
+            'is_graduated' => 1,
+            'tahun_lulus' => date('Y')
+        ];
+
+        $successCount = 0;
+        foreach ($siswaIds as $id) {
+            if ($this->siswaModel->update($id, $updateData)) {
+                $successCount++;
+            }
+        }
+
+        if ($successCount > 0) {
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => "Berhasil meluluskan {$successCount} siswa."
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Gagal meluluskan siswa.'
+            ]);
+        }
+    }
+
     /*
      * -------------------------------------------------------------------------------------------------
      * IMPORT SISWA
@@ -449,6 +499,14 @@ class DataSiswa extends BaseController
         $updateData = [
             'is_graduated' => $newStatus
         ];
+        
+        // If graduating the student, record the graduation year
+        if ($newStatus == 1) {
+            $updateData['tahun_lulus'] = date('Y');
+        } else {
+            // If un-graduating, clear the graduation year
+            $updateData['tahun_lulus'] = null;
+        }
 
         if ($this->siswaModel->update($id_siswa, $updateData)) {
             $statusText = $newStatus == 1 ? 'Lulus' : 'Belum Lulus';

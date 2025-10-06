@@ -34,8 +34,7 @@ class DataAlumni extends BaseController
         $data = [
             'title' => 'Data Alumni',
             'ctx' => 'alumni',
-            'kelas' => $this->kelasModel->getDataKelas(),
-            'jurusan' => $this->jurusanModel->getDataJurusan(),
+            'graduation_years' => $this->siswaModel->getGraduationYears(),
             'userRole' => $userRole
         ];
 
@@ -44,10 +43,9 @@ class DataAlumni extends BaseController
 
     public function ambilDataAlumni()
     {
-        $kelas = $this->request->getVar('kelas') ?? null;
-        $jurusan = $this->request->getVar('jurusan') ?? null;
+        $tahun_lulus = $this->request->getVar('tahun_lulus') ?? null;
 
-        $result = $this->siswaModel->getAllAlumniWithKelas($kelas, $jurusan);
+        $result = $this->siswaModel->getAllAlumniByGraduationYear($tahun_lulus);
 
         $data = [
             'data' => $result,
@@ -98,6 +96,14 @@ class DataAlumni extends BaseController
         $updateData = [
             'is_graduated' => $newStatus
         ];
+        
+        // If reactivating alumni (changing from graduated to active), clear tahun_lulus
+        if ($newStatus == 0) {
+            $updateData['tahun_lulus'] = null;
+        } else {
+            // If graduating student, set current year as tahun_lulus
+            $updateData['tahun_lulus'] = date('Y');
+        }
 
         if ($this->siswaModel->update($id_siswa, $updateData)) {
             $statusText = $newStatus == 1 ? 'Lulus' : 'Aktif';
