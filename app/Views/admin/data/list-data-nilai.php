@@ -13,8 +13,11 @@
             <th width="1%"><b>Aksi</b></th>
          </thead>
          <tbody>
-            <?php $i = 1;
-            foreach ($data as $value): ?>
+            <?php
+            $startNumber = isset($pagination) ? (($pagination['current_page'] - 1) * $pagination['per_page']) + 1 : 1;
+            $i = $startNumber;
+            foreach ($data as $value):
+                ?>
                <tr>
                   <td><?= $i; ?></td>
                   <td><b><?= $value['nama_siswa']; ?></b></td>
@@ -47,6 +50,50 @@
             endforeach; ?>
          </tbody>
       </table>
+      
+      <!-- Pagination Controls -->
+      <?php if (isset($pagination) && $pagination['total_pages'] > 1): ?>
+         <div class="row mt-3">
+            <div class="col-md-6">
+               <p class="text-muted">
+                  Menampilkan <?= count($data); ?> dari <?= $pagination['total_data']; ?> data 
+                  (Halaman <?= $pagination['current_page']; ?> dari <?= $pagination['total_pages']; ?>)
+               </p>
+            </div>
+            <div class="col-md-6">
+               <nav aria-label="Page navigation">
+                  <ul class="pagination justify-content-end">
+                     <!-- Previous Button -->
+                     <li class="page-item <?= !$pagination['has_prev'] ? 'disabled' : ''; ?>">
+                        <a class="page-link" href="#" onclick="<?= $pagination['has_prev'] ? 'changePage(' . $pagination['prev_page'] . ')' : 'return false;'; ?>">
+                           <i class="material-icons">chevron_left</i>
+                        </a>
+                     </li>
+                     
+                     <!-- Page Numbers -->
+                     <?php
+        $start = max(1, $pagination['current_page'] - 2);
+        $end = min($pagination['total_pages'], $pagination['current_page'] + 2);
+
+        for ($i = $start; $i <= $end; $i++):
+            ?>
+                        <li class="page-item <?= $i == $pagination['current_page'] ? 'active' : ''; ?>">
+                           <a class="page-link" href="#" onclick="changePage(<?= $i; ?>)"><?= $i; ?></a>
+                        </li>
+                     <?php endfor; ?>
+                     
+                     <!-- Next Button -->
+                     <li class="page-item <?= !$pagination['has_next'] ? 'disabled' : ''; ?>">
+                        <a class="page-link" href="#" onclick="<?= $pagination['has_next'] ? 'changePage(' . $pagination['next_page'] . ')' : 'return false;'; ?>">
+                           <i class="material-icons">chevron_right</i>
+                        </a>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+         </div>
+      <?php endif; ?>
+      
    <?php else: ?>
       <div class="row">
          <div class="col">

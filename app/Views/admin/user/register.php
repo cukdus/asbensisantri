@@ -183,7 +183,7 @@ $p = $jenisKelamin == 'P' ? 'checked' : '';
                         <button type="submit" class="btn btn-primary btn-lg px-5">
                            <i class="material-icons mr-2">save</i>Simpan
                         </button>
-                        <a href="<?= base_url('admin/data-user') ?>" class="btn btn-warning btn-lg px-5 ml-3">
+                        <a href="<?= base_url('admin/user') ?>" class="btn btn-warning btn-lg px-5 ml-3">
                            <i class="material-icons mr-2">cancel</i>Batal
                         </a>
                      </div>

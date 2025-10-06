@@ -22,9 +22,9 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        <?php if (session()->getFlashdata('msg')) : ?>
+        <?php if (session()->getFlashdata('msg')): ?>
           <div class="pb-2 px-3">
-            <div class="alert alert-<?= session()->getFlashdata('error') == true ? 'danger' : 'success'  ?> ">
+            <div class="alert alert-<?= session()->getFlashdata('error') == true ? 'danger' : 'success' ?> ">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <i class="material-icons">close</i>
               </button>
@@ -88,7 +88,7 @@
                     <form action="<?= base_url('admin/qr/siswa/download'); ?>" method="get">
                       <select name="id_kelas" id="kelasSelect" class="custom-select mb-3" required>
                         <option value="">--Pilih kelas--</option>
-                        <?php foreach ($kelas as $value) : ?>
+                        <?php foreach ($kelas as $value): ?>
                           <option id="idKelas<?= $value['id_kelas']; ?>" value="<?= $value['id_kelas']; ?>">
                             <?= $value['kelas'] . ' ' . $value['jurusan']; ?>
                           </option>

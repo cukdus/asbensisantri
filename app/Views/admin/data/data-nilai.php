@@ -25,7 +25,7 @@
                      <div class="card-body">
                         <form id="filterForm">
                            <div class="row">
-                              <div class="col-md-3">
+                              <div class="col-md-2">
                                  <div class="form-group">
                                     <label for="filter_mapel">Mata Pelajaran</label>
                                     <select id="filter_mapel" class="form-control" name="mapel_id">
@@ -49,6 +49,17 @@
                               </div>
                               <div class="col-md-2">
                                  <div class="form-group">
+                                    <label for="filter_kelas">Kelas</label>
+                                    <select id="filter_kelas" class="form-control" name="id_kelas">
+                                       <option value="">-- Semua Kelas --</option>
+                                       <?php foreach ($kelas as $k): ?>
+                                          <option value="<?= $k['id_kelas']; ?>"><?= $k['kelas']; ?></option>
+                                       <?php endforeach; ?>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="col-md-2">
+                                 <div class="form-group">
                                     <label for="filter_semester">Semester</label>
                                     <select id="filter_semester" class="form-control" name="semester">
                                        <option value="">-- Semua Semester --</option>
@@ -62,20 +73,20 @@
                                     <label for="filter_tahun">Tahun Ajaran</label>
                                     <select id="filter_tahun" class="form-control" name="tahun_ajaran">
                                        <option value="">Semua Tahun</option>
-                                       <?php 
-                                          $currentYear = date('Y');
-                                          // Generate tahun ajaran dari 2 tahun kebelakang sampai 2 tahun kedepan
-                                          for ($i = -2; $i <= 2; $i++) {
-                                             $startYear = $currentYear + $i;
-                                             $endYear = $startYear + 1;
-                                             $tahunAjaran = $startYear . '/' . $endYear;
-                                       ?>
+                                       <?php
+$currentYear = date('Y');
+// Generate tahun ajaran dari 2 tahun kebelakang sampai 2 tahun kedepan
+for ($i = -2; $i <= 2; $i++) {
+    $startYear = $currentYear + $i;
+    $endYear = $startYear + 1;
+    $tahunAjaran = $startYear . '/' . $endYear;
+    ?>
                                           <option value="<?= $tahunAjaran; ?>"><?= $tahunAjaran; ?></option>
                                        <?php } ?>
                                     </select>
                                  </div>
                               </div>
-                              <div class="col-md-2">
+                              <div class="col-md-1">
                                  <div class="form-group">
                                     <label>&nbsp;</label>
                                     <div>
@@ -143,12 +154,15 @@
 </div>
 
 <script>
-   function getDataNilai() {
+   function getDataNilai(page = 1) {
       const formData = new FormData(document.getElementById('filterForm'));
-      const params = new URLSearchParams(formData).toString();
+      const params = new URLSearchParams(formData);
+      
+      // Add page parameter
+      params.append('page', page);
       
       $.ajax({
-         url: "<?= base_url('admin/nilai/ambil-data'); ?>" + (params ? '?' + params : ''),
+         url: "<?= base_url('admin/nilai/ambil-data'); ?>" + '?' + params.toString(),
          type: "GET",
          success: function(data) {
             $("#dataNilai").html(data);
@@ -157,6 +171,10 @@
             $("#dataNilai").html('<div class="alert alert-danger">Gagal memuat data nilai</div>');
          }
       });
+   }
+
+   function changePage(page) {
+      getDataNilai(page);
    }
 
    function removeHover() {

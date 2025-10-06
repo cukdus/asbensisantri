@@ -21,9 +21,8 @@
                      </div>
                   <?php endif; ?>
 
-                  <form action="<?= base_url('admin/mapel/update'); ?>" method="post">
+                  <form action="<?= base_url('admin/mapel/edit'); ?>" method="post">
                      <?= csrf_field() ?>
-                     <input type="hidden" name="_method" value="PUT">
                      <input type="hidden" name="id_mapel" value="<?= $mapel['id_mapel']; ?>">
                      <?php $validation = \Config\Services::validation(); ?>
 

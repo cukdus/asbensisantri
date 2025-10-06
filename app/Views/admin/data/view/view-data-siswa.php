@@ -83,60 +83,145 @@
                                        </h6>
                                        
                                        <?php foreach ($kelasList as $kelas => $semesters): ?>
-                                          <div class="card border-left-info shadow-sm mb-3">
-                                             <div class="card-body p-3">
-                                                <h6 class="text-info mb-3">
-                                                   <i class="material-icons mr-1" style="font-size: 16px;">class</i>
+                                          <div class="card border-left-info shadow-sm mb-4" style="border-radius: 12px;">
+                                             <div class="card-header bg-light py-2 px-3" style="border-radius: 12px 12px 0 0;">
+                                                <h6 class="text-info mb-0 font-weight-bold">
+                                                   <i class="material-icons mr-2" style="font-size: 18px; vertical-align: middle;">class</i>
                                                    Kelas <?= $kelas ?>
+                                                   <small class="text-muted ml-2">(<?= count($semesters) ?> Semester)</small>
                                                 </h6>
-                                                
+                                             </div>
+                                             <div class="card-body p-4">
                                                 <div class="row">
-                                                   <?php foreach ($semesters as $semester => $nilaiList): ?>
-                                                      <div class="col-md-6 mb-3">
-                                                         <div class="border-left-primary pl-3">
-                                                            <h6 class="text-secondary mb-2" style="font-size: 14px;">
-                                                               <i class="material-icons mr-1" style="font-size: 14px;">book</i>
-                                                               Semester <?= $semester == 'Ganjil' ? '1 (Ganjil)' : '2 (Genap)' ?>
-                                                            </h6>
-                                                            
-                                                            <div class="table-responsive">
-                                                               <table class="table table-sm table-borderless mb-0">
-                                                                  <tbody>
-                                                                     <?php
-                $totalNilai = 0;
-                $jumlahMapel = count($nilaiList);
-                foreach ($nilaiList as $nilai):
-                    $totalNilai += $nilai['nilai'];
-                    ?>
-                                                                        <tr>
-                                                                           <td class="py-1" style="width: 60%;">
-                                                                              <small class="text-muted"><?= $nilai['nama_mapel'] ?></small>
-                                                                           </td>
-                                                                           <td class="py-1 text-right">
-                                                                              <span class="badge badge-<?= $nilai['nilai'] >= 75 ? 'success' : ($nilai['nilai'] >= 60 ? 'warning' : 'danger') ?> badge-pill">
-                                                                                 <?= number_format($nilai['nilai'], 1) ?>
-                                                                              </span>
-                                                                           </td>
-                                                                        </tr>
-                                                                     <?php endforeach; ?>
-                                                                     
-                                                                     <?php if ($jumlahMapel > 0): ?>
-                                                                        <tr class="border-top">
-                                                                           <td class="py-2"><strong>Rata-rata:</strong></td>
-                                                                           <td class="py-2 text-right">
-                                                                              <?php $rataRata = $totalNilai / $jumlahMapel; ?>
-                                                                              <span class="badge badge-<?= $rataRata >= 75 ? 'success' : ($rataRata >= 60 ? 'warning' : 'danger') ?> badge-pill">
-                                                                                 <strong><?= number_format($rataRata, 1) ?></strong>
-                                                                              </span>
-                                                                           </td>
-                                                                        </tr>
-                                                                     <?php endif; ?>
-                                                                  </tbody>
-                                                               </table>
+                                                   <?php
+            // Organize semesters to ensure Ganjil and Genap are displayed side by side
+            $semesterGanjil = isset($semesters['Ganjil']) ? $semesters['Ganjil'] : [];
+            $semesterGenap = isset($semesters['Genap']) ? $semesters['Genap'] : [];
+            ?>
+                                                   
+                                                   <!-- Semester Ganjil -->
+                                                   <div class="col-md-6 mb-3">
+                                                      <div class="card border-0 bg-light h-100" style="border-radius: 8px;">
+                                                         <div class="card-body p-3">
+                                                            <div class="d-flex align-items-center mb-3">
+                                                               <div class="bg-primary rounded-circle p-2 mr-3" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                                                  <i class="material-icons text-white" style="font-size: 18px;">book</i>
+                                                               </div>
+                                                               <div>
+                                                                  <h6 class="mb-0 font-weight-bold text-primary">
+                                                                     Semester 1
+                                                                  </h6>
+                                                                  <small class="text-muted">Ganjil</small>
+                                                               </div>
                                                             </div>
+                                                            
+                                                            <?php if (!empty($semesterGanjil)): ?>
+                                                               <div class="table-responsive">
+                                                                  <table class="table table-sm table-borderless mb-0">
+                                                                     <tbody>
+                                                                        <?php
+                                                                        $totalNilaiGanjil = 0;
+                                                                        $jumlahMapelGanjil = count($semesterGanjil);
+                                                                        foreach ($semesterGanjil as $nilai):
+                                                                            $totalNilaiGanjil += $nilai['nilai'];
+                                                                            ?>
+                                                                           <tr>
+                                                                              <td class="py-1" style="width: 65%;">
+                                                                                 <small class="text-dark font-weight-medium"><?= $nilai['nama_mapel'] ?></small>
+                                                                              </td>
+                                                                              <td class="py-1 text-right">
+                                                                                 <span class="badge badge-<?= $nilai['nilai'] >= 75 ? 'success' : ($nilai['nilai'] >= 60 ? 'warning' : 'danger') ?> badge-pill px-2">
+                                                                                    <?= number_format($nilai['nilai'], 1) ?>
+                                                                                 </span>
+                                                                              </td>
+                                                                           </tr>
+                                                                        <?php endforeach; ?>
+                                                                        
+                                                                        <?php if ($jumlahMapelGanjil > 0): ?>
+                                                                           <tr class="border-top">
+                                                                              <td class="py-2"><strong class="text-primary">Rata-rata:</strong></td>
+                                                                              <td class="py-2 text-right">
+                                                                                 <?php $rataRataGanjil = $totalNilaiGanjil / $jumlahMapelGanjil; ?>
+                                                                                 <span class="badge badge-<?= $rataRataGanjil >= 75 ? 'success' : ($rataRataGanjil >= 60 ? 'warning' : 'danger') ?> badge-pill px-2">
+                                                                                    <strong><?= number_format($rataRataGanjil, 1) ?></strong>
+                                                                                 </span>
+                                                                              </td>
+                                                                           </tr>
+                                                                        <?php endif; ?>
+                                                                     </tbody>
+                                                                  </table>
+                                                               </div>
+                                                            <?php else: ?>
+                                                               <div class="text-center py-3">
+                                                                  <small class="text-muted">Belum ada nilai</small>
+                                                               </div>
+                                                            <?php endif; ?>
                                                          </div>
                                                       </div>
-                                                   <?php endforeach; ?>
+                                                   </div>
+                                                   
+                                                   <!-- Semester Genap -->
+                                                   <div class="col-md-6 mb-3">
+                                                      <div class="card border-0 bg-light h-100" style="border-radius: 8px;">
+                                                         <div class="card-body p-3">
+                                                            <div class="d-flex align-items-center mb-3">
+                                                               <div class="bg-success rounded-circle p-2 mr-3" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                                                  <i class="material-icons text-white" style="font-size: 18px;">book</i>
+                                                               </div>
+                                                               <div>
+                                                                  <h6 class="mb-0 font-weight-bold text-success">
+                                                                     Semester 2
+                                                                  </h6>
+                                                                  <small class="text-muted">Genap</small>
+                                                               </div>
+                                                            </div>
+                                                            
+                                                            <?php if (!empty($semesterGenap)): ?>
+                                                               <div class="table-responsive">
+                                                                  <table class="table table-sm table-borderless mb-0">
+                                                                     <tbody>
+                                                                        <?php
+                                                                        $totalNilaiGenap = 0;
+                                                                        $jumlahMapelGenap = count($semesterGenap);
+                                                                        foreach ($semesterGenap as $nilai):
+                                                                            $totalNilaiGenap += $nilai['nilai'];
+                                                                            ?>
+                                                                           <tr>
+                                                                              <td class="py-1" style="width: 65%;">
+                                                                                 <small class="text-dark font-weight-medium"><?= $nilai['nama_mapel'] ?></small>
+                                                                              </td>
+                                                                              <td class="py-1 text-right">
+                                                                                 <span class="badge badge-<?= $nilai['nilai'] >= 75 ? 'success' : ($nilai['nilai'] >= 60 ? 'warning' : 'danger') ?> badge-pill px-2">
+                                                                                    <?= number_format($nilai['nilai'], 1) ?>
+                                                                                 </span>
+                                                                              </td>
+                                                                           </tr>
+                                                                        <?php endforeach; ?>
+                                                                        
+                                                                        <?php if ($jumlahMapelGenap > 0): ?>
+                                                                           <tr class="border-top">
+                                                                              <td class="py-2"><strong class="text-success">Rata-rata:</strong></td>
+                                                                              <td class="py-2 text-right">
+                                                                                 <?php $rataRataGenap = $totalNilaiGenap / $jumlahMapelGenap; ?>
+                                                                                 <span class="badge badge-<?= $rataRataGenap >= 75 ? 'success' : ($rataRataGenap >= 60 ? 'warning' : 'danger') ?> badge-pill px-2">
+                                                                                    <strong><?= number_format($rataRataGenap, 1) ?></strong>
+                                                                                 </span>
+                                                                              </td>
+                                                                           </tr>
+                                                                        <?php endif; ?>
+                                                                     </tbody>
+                                                                  </table>
+                                                               </div>
+                                                            <?php else: ?>
+                                                               <div class="text-center py-3">
+                                                                  <small class="text-muted">Belum ada nilai</small>
+                                                               </div>
+                                                            <?php endif; ?>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   
+                                                   
                                                 </div>
                                              </div>
                                           </div>

@@ -19,12 +19,13 @@ class NilaiModel extends Model
      */
     public function getAllNilai()
     {
-        return $this->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_mapel.nama_mapel, tb_kelas.kelas')
-                    ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
-                    ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
-                    ->join('tb_kelas', 'tb_kelas.id_kelas = tb_nilai.id_kelas')
-                    ->orderBy('tb_nilai.created_at', 'DESC')
-                    ->findAll();
+        return $this
+            ->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_mapel.nama_mapel, tb_kelas.kelas')
+            ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
+            ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
+            ->join('tb_kelas', 'tb_kelas.id_kelas = tb_nilai.id_kelas')
+            ->orderBy('tb_nilai.created_at', 'DESC')
+            ->findAll();
     }
 
     /**
@@ -32,11 +33,12 @@ class NilaiModel extends Model
      */
     public function getNilaiById($id)
     {
-        return $this->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_mapel.nama_mapel, tb_kelas.kelas')
-                    ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
-                    ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
-                    ->join('tb_kelas', 'tb_kelas.id_kelas = tb_nilai.id_kelas')
-                    ->find($id);
+        return $this
+            ->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_mapel.nama_mapel, tb_kelas.kelas')
+            ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
+            ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
+            ->join('tb_kelas', 'tb_kelas.id_kelas = tb_nilai.id_kelas')
+            ->find($id);
     }
 
     /**
@@ -44,10 +46,11 @@ class NilaiModel extends Model
      */
     public function getNilaiBySiswaId($siswaId)
     {
-        return $this->select('tb_nilai.*, tb_mapel.nama_mapel')
-                    ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
-                    ->where('tb_nilai.id_siswa', $siswaId)
-                    ->findAll();
+        return $this
+            ->select('tb_nilai.*, tb_mapel.nama_mapel')
+            ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
+            ->where('tb_nilai.id_siswa', $siswaId)
+            ->findAll();
     }
 
     /**
@@ -55,11 +58,12 @@ class NilaiModel extends Model
      */
     public function getNilaiByMapelId($mapelId)
     {
-        return $this->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_kelas.kelas')
-                    ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
-                    ->join('tb_kelas', 'tb_kelas.id_kelas = tb_siswa.id_kelas')
-                    ->where('tb_nilai.id_mapel', $mapelId)
-                    ->findAll();
+        return $this
+            ->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_kelas.kelas')
+            ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
+            ->join('tb_kelas', 'tb_kelas.id_kelas = tb_siswa.id_kelas')
+            ->where('tb_nilai.id_mapel', $mapelId)
+            ->findAll();
     }
 
     /**
@@ -67,13 +71,14 @@ class NilaiModel extends Model
      */
     public function getNilaiBySemesterTahun($semester, $tahunAjaran)
     {
-        return $this->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_mapel.nama_mapel, tb_kelas.kelas')
-                    ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
-                    ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
-                    ->join('tb_kelas', 'tb_kelas.id_kelas = tb_siswa.id_kelas')
-                    ->where('tb_nilai.semester', $semester)
-                    ->where('tb_nilai.tahun_ajaran', $tahunAjaran)
-                    ->findAll();
+        return $this
+            ->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_mapel.nama_mapel, tb_kelas.kelas')
+            ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
+            ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
+            ->join('tb_kelas', 'tb_kelas.id_kelas = tb_siswa.id_kelas')
+            ->where('tb_nilai.semester', $semester)
+            ->where('tb_nilai.tahun_ajaran', $tahunAjaran)
+            ->findAll();
     }
 
     /**
@@ -105,15 +110,16 @@ class NilaiModel extends Model
      */
     public function isNilaiExists($siswaId, $mapelId, $semester, $tahunAjaran, $excludeId = null)
     {
-        $builder = $this->where('id_siswa', $siswaId)
-                        ->where('id_mapel', $mapelId)
-                        ->where('semester', $semester)
-                        ->where('tahun_ajaran', $tahunAjaran);
-        
+        $builder = $this
+            ->where('id_siswa', $siswaId)
+            ->where('id_mapel', $mapelId)
+            ->where('semester', $semester)
+            ->where('tahun_ajaran', $tahunAjaran);
+
         if ($excludeId) {
             $builder->where('id_nilai !=', $excludeId);
         }
-        
+
         return $builder->countAllResults() > 0;
     }
 
@@ -123,18 +129,19 @@ class NilaiModel extends Model
     public function getNilaiStatistics()
     {
         $stats = [];
-        
+
         // Count by semester
-        $stats['semester'] = $this->select('semester, COUNT(*) as total')
-                                  ->groupBy('semester')
-                                  ->findAll();
-        
+        $stats['semester'] = $this
+            ->select('semester, COUNT(*) as total')
+            ->groupBy('semester')
+            ->findAll();
+
         // Average nilai
         $stats['average'] = $this->selectAvg('nilai')->first();
-        
+
         // Count total
         $stats['total'] = $this->countAllResults();
-        
+
         return $stats;
     }
 
@@ -143,10 +150,11 @@ class NilaiModel extends Model
      */
     public function getNilaiWithFilters($filters = [])
     {
-        $builder = $this->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_mapel.nama_mapel, tb_kelas.kelas')
-                        ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
-                        ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
-                        ->join('tb_kelas', 'tb_kelas.id_kelas = tb_siswa.id_kelas');
+        $builder = $this
+            ->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_mapel.nama_mapel, tb_kelas.kelas')
+            ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
+            ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
+            ->join('tb_kelas', 'tb_kelas.id_kelas = tb_siswa.id_kelas');
 
         if (!empty($filters['semester'])) {
             $builder->where('tb_nilai.semester', $filters['semester']);
@@ -165,5 +173,79 @@ class NilaiModel extends Model
         }
 
         return $builder->orderBy('tb_nilai.created_at', 'DESC')->findAll();
+    }
+
+    /**
+     * Get nilai with filters and pagination
+     */
+    public function getNilaiWithFiltersPaginated($filters = [], $page = 1, $perPage = 10)
+    {
+        $builder = $this
+            ->select('tb_nilai.*, tb_siswa.nama_siswa, tb_siswa.nis, tb_mapel.nama_mapel, tb_kelas.kelas')
+            ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
+            ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
+            ->join('tb_kelas', 'tb_kelas.id_kelas = tb_siswa.id_kelas');
+
+        if (!empty($filters['semester'])) {
+            $builder->where('tb_nilai.semester', $filters['semester']);
+        }
+
+        if (!empty($filters['tahun_ajaran'])) {
+            $builder->where('tb_nilai.tahun_ajaran', $filters['tahun_ajaran']);
+        }
+
+        if (!empty($filters['id_mapel'])) {
+            $builder->where('tb_nilai.id_mapel', $filters['id_mapel']);
+        }
+
+        if (!empty($filters['id_kelas'])) {
+            $builder->where('tb_siswa.id_kelas', $filters['id_kelas']);
+        }
+
+        if (!empty($filters['siswa_id'])) {
+            $builder->where('tb_nilai.id_siswa', $filters['siswa_id']);
+        }
+
+        $offset = ($page - 1) * $perPage;
+
+        return $builder
+            ->orderBy('tb_nilai.created_at', 'DESC')
+            ->limit($perPage, $offset)
+            ->findAll();
+    }
+
+    /**
+     * Get total count with filters for pagination
+     */
+    public function getTotalNilaiWithFilters($filters = [])
+    {
+        $builder = $this
+            ->select('COUNT(*) as total')
+            ->join('tb_siswa', 'tb_siswa.id_siswa = tb_nilai.id_siswa')
+            ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
+            ->join('tb_kelas', 'tb_kelas.id_kelas = tb_siswa.id_kelas');
+
+        if (!empty($filters['semester'])) {
+            $builder->where('tb_nilai.semester', $filters['semester']);
+        }
+
+        if (!empty($filters['tahun_ajaran'])) {
+            $builder->where('tb_nilai.tahun_ajaran', $filters['tahun_ajaran']);
+        }
+
+        if (!empty($filters['id_mapel'])) {
+            $builder->where('tb_nilai.id_mapel', $filters['id_mapel']);
+        }
+
+        if (!empty($filters['id_kelas'])) {
+            $builder->where('tb_siswa.id_kelas', $filters['id_kelas']);
+        }
+
+        if (!empty($filters['siswa_id'])) {
+            $builder->where('tb_nilai.id_siswa', $filters['siswa_id']);
+        }
+
+        $result = $builder->first();
+        return $result ? $result['total'] : 0;
     }
 }

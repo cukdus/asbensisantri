@@ -33,7 +33,8 @@ class DataNilai extends BaseController
             'title' => 'Data Nilai Siswa',
             'ctx' => 'nilai',
             'mapel' => $this->mapelModel->getAllMapel(),
-            'siswa' => $this->siswaModel->findAll()
+            'siswa' => $this->siswaModel->findAll(),
+            'kelas' => $this->kelasModel->getDataKelas()
         ];
 
         return view('admin/data/data-nilai', $data);
@@ -45,22 +46,39 @@ class DataNilai extends BaseController
         $siswaId = $this->request->getGet('siswa_id');
         $semester = $this->request->getGet('semester');
         $tahunAjaran = $this->request->getGet('tahun_ajaran');
+        $kelasId = $this->request->getGet('id_kelas');
+        $page = $this->request->getGet('page') ?? 1;
+        $perPage = 10;  // Maksimal 10 siswa per halaman
 
         $filters = [];
         if ($mapelId)
             $filters['id_mapel'] = $mapelId;
         if ($siswaId)
-            $filters['id_siswa'] = $siswaId;
+            $filters['siswa_id'] = $siswaId;
         if ($semester)
             $filters['semester'] = $semester;
         if ($tahunAjaran)
             $filters['tahun_ajaran'] = $tahunAjaran;
+        if ($kelasId)
+            $filters['id_kelas'] = $kelasId;
 
-        $result = $this->nilaiModel->getNilaiWithFilters($filters);
+        $result = $this->nilaiModel->getNilaiWithFiltersPaginated($filters, $page, $perPage);
+        $totalData = $this->nilaiModel->getTotalNilaiWithFilters($filters);
+        $totalPages = ceil($totalData / $perPage);
 
         $data = [
             'data' => $result,
-            'empty' => empty($result)
+            'empty' => empty($result),
+            'pagination' => [
+                'current_page' => $page,
+                'total_pages' => $totalPages,
+                'total_data' => $totalData,
+                'per_page' => $perPage,
+                'has_prev' => $page > 1,
+                'has_next' => $page < $totalPages,
+                'prev_page' => $page > 1 ? $page - 1 : null,
+                'next_page' => $page < $totalPages ? $page + 1 : null
+            ]
         ];
 
         return view('admin/data/list-data-nilai', $data);
@@ -119,7 +137,7 @@ class DataNilai extends BaseController
         $semester = $this->request->getPost('semester');
         $tahunAjaran = $this->request->getPost('tahun_ajaran');
         $mapelData = $this->request->getPost('mapel');
-        
+
         // Get student's class information
         $siswa = $this->siswaModel->getSiswaById($idSiswa);
         if (!$siswa) {
@@ -337,7 +355,7 @@ class DataNilai extends BaseController
         $idMapel = $this->request->getPost('id_mapel');
         $semester = $this->request->getPost('semester');
         $tahunAjaran = $this->request->getPost('tahun_ajaran');
-        
+
         // Get student's class information
         $siswa = $this->siswaModel->getSiswaById($idSiswa);
         if (!$siswa) {
@@ -448,7 +466,7 @@ class DataNilai extends BaseController
 
         // Get subjects filtered by student's class
         $mapelList = $this->mapelModel->getMapelByKelasId($siswa['id_kelas']);
-        
+
         // If no subjects found for this class, get all subjects as fallback
         if (empty($mapelList)) {
             $mapelList = $this->mapelModel->getAllMapel();
