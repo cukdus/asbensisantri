@@ -6,27 +6,14 @@
          <div class="col-md-12">
             <div class="card">
                <div class="card-header card-header-primary">
-                  <h4 class="card-title"><b>Data Alumni</b></h4>
-                  <p class="card-category">Daftar siswa yang telah lulus</p>
-               </div>
-               <div class="card-body">
-                  <?php if (session()->getFlashdata('msg')): ?>
-                     <div class="alert alert-<?= session()->getFlashdata('error') ? 'danger' : 'success'; ?> alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <h4><i class="icon fa fa-<?= session()->getFlashdata('error') ? 'ban' : 'check'; ?>"></i></h4>
-                        <?= session()->getFlashdata('msg') ?>
-                     </div>
-                  <?php endif; ?>
-
-                  <div class="card-header">
-                     <div class="row">
+                  <div class="row">
                         <div class="col-md-4">
                            <h4 class="card-title"><b>Daftar Alumni</b></h4>
                            <p class="card-category">Siswa yang telah lulus</p>
                         </div>
                         <div class="col-md-8">
-                           <div class="form-group">
-                              <label for="tahun_lulus_filter" class="bmd-label-floating">Filter Tahun Lulus:</label>
+                           <div class="nav-tabs-wrapper">
+                              <span class="nav-tabs-title">Tahun Lulus:</span>
                               <select class="form-control" id="tahun_lulus_filter" onchange="filterByTahunLulus()">
                                  <option value="">Semua Tahun</option>
                                  <?php foreach ($graduation_years as $value): ?>
@@ -38,7 +25,17 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+               </div>
+               <div class="card-body">
+                  <?php if (session()->getFlashdata('msg')): ?>
+                     <div class="alert alert-<?= session()->getFlashdata('error') ? 'danger' : 'success'; ?> alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-<?= session()->getFlashdata('error') ? 'ban' : 'check'; ?>"></i></h4>
+                        <?= session()->getFlashdata('msg') ?>
+                     </div>
+                  <?php endif; ?>
+
+                  
                   <div class="tab-content">
                      <div class="tab-pane active" id="link1">
                         <div class="card-body">

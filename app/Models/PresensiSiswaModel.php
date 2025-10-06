@@ -80,6 +80,7 @@ class PresensiSiswaModel extends Model implements PresensiInterface
                 'left'
             )
             ->where("{$this->table}.id_kelas = $idKelas")
+            ->where("{$this->table}.is_graduated", 0)
             ->orderBy('nama_siswa')
             ->findAll();
     }

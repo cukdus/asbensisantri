@@ -39,7 +39,10 @@ class SiswaModel extends Model
             'tb_jurusan.id = tb_kelas.id_jurusan',
             'LEFT'
         );
-        return $this->where(['unique_code' => $unique_code])->first();
+        return $this
+            ->where(['unique_code' => $unique_code])
+            ->where('tb_siswa.is_graduated', 0)
+            ->first();
     }
 
     public function getSiswaById($id)
@@ -114,12 +117,13 @@ class SiswaModel extends Model
 
     public function getGraduationYears()
     {
-        return $this->select('tahun_lulus')
-                   ->where('is_graduated', 1)
-                   ->where('tahun_lulus IS NOT NULL')
-                   ->groupBy('tahun_lulus')
-                   ->orderBy('tahun_lulus', 'DESC')
-                   ->findAll();
+        return $this
+            ->select('tahun_lulus')
+            ->where('is_graduated', 1)
+            ->where('tahun_lulus IS NOT NULL')
+            ->groupBy('tahun_lulus')
+            ->orderBy('tahun_lulus', 'DESC')
+            ->findAll();
     }
 
     public function getAllAlumniByGraduationYear($tahun_lulus = null)
