@@ -25,8 +25,20 @@ class AddIdKelasToMapelTable extends Migration
 
     public function down()
     {
-        // Drop foreign key constraint first
-        $this->forge->dropForeignKey('tb_mapel', 'fk_mapel_kelas');
+        // Check if foreign key exists before dropping
+        $db = \Config\Database::connect();
+        $query = $db->query("
+            SELECT CONSTRAINT_NAME 
+            FROM information_schema.KEY_COLUMN_USAGE 
+            WHERE TABLE_SCHEMA = DATABASE() 
+            AND TABLE_NAME = 'tb_mapel' 
+            AND CONSTRAINT_NAME = 'fk_mapel_kelas'
+        ");
+        
+        if ($query->getNumRows() > 0) {
+            // Drop foreign key constraint first
+            $this->forge->dropForeignKey('tb_mapel', 'fk_mapel_kelas');
+        }
         
         // Drop the column
         $this->forge->dropColumn('tb_mapel', 'id_kelas');
