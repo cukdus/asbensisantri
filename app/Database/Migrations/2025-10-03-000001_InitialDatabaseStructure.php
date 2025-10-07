@@ -100,7 +100,8 @@ class InitialDatabaseStructure extends Migration
             'is_superadmin' => [
                 'type' => 'TINYINT',
                 'constraint' => 1,
-                'default' => 0
+                'default' => 0,
+                'comment' => '1 = superadmin, 0 = bukan',
             ],
             'password_hash' => [
                 'type' => 'VARCHAR',
