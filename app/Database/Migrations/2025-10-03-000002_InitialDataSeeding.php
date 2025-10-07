@@ -203,15 +203,29 @@ class InitialDataSeeding extends Migration
         // Hash the password using Myth\Auth\Password for compatibility
         $encryptedPassword = \Myth\Auth\Password::hash($password);
 
+        // Check if is_superadmin column exists in users table
+        $fields = $this->db->getFieldNames('users');
+        $hasIsSuperadmin = in_array('is_superadmin', $fields);
+        $hasRole = in_array('role', $fields);
+
         $userData = [
             'email' => $email,
             'username' => $username,
-            'is_superadmin' => 1,
             'password_hash' => $encryptedPassword,
             'active' => 1,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ];
+
+        // Add is_superadmin column if it exists
+        if ($hasIsSuperadmin) {
+            $userData['is_superadmin'] = 1;
+        }
+
+        // Add role column if it exists
+        if ($hasRole) {
+            $userData['role'] = 'superadmin';
+        }
 
         $this->db->table('users')->insert($userData);
     }

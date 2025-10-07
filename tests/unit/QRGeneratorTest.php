@@ -31,6 +31,7 @@ class QRGeneratorTest extends CIUnitTestCase
             'nis' => '1234567890',
             'nama_siswa' => 'John Doe',
             'id_kelas' => $kelasId ?? 1,
+            'jenis_kelamin' => 'Laki-laki',
             'no_hp' => '081234567890',
             'unique_code' => '1234567890',
         ]);
@@ -55,7 +56,10 @@ class QRGeneratorTest extends CIUnitTestCase
 
         $this->assertIsString($result);
         $this->assertTrue(file_exists($result));
-        $this->assertStringContainsString('public/uploads/test/', $result);
+        // Normalize path separators for cross-platform compatibility
+        $normalizedResult = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $result);
+        $expectedPath = 'public' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR;
+        $this->assertStringContainsString($expectedPath, $normalizedResult);
         $this->assertStringContainsString('.png', $result);
     }
 }

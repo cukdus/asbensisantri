@@ -541,6 +541,12 @@ class InitialDatabaseStructure extends Migration
             'tahun_masuk' => [
                 'type' => 'YEAR',
                 'null' => true
+            ],
+            'tahun_lulus' => [
+                'type' => 'YEAR',
+                'constraint' => 4,
+                'null' => true,
+                'comment' => 'Tahun kelulusan siswa'
             ]
         ]);
         $this->forge->addKey('id_siswa', true);
@@ -667,10 +673,18 @@ class InitialDatabaseStructure extends Migration
                 'type' => 'INT',
                 'constraint' => 11,
                 'null' => true
+            ],
+            'id_kelas' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+                'null' => true
             ]
         ]);
         $this->forge->addKey('id_mapel', true);
         $this->forge->addKey('id_guru');
+        $this->forge->addKey('id_kelas');
+        $this->forge->addForeignKey('id_kelas', 'tb_kelas', 'id_kelas', 'CASCADE', 'SET NULL');
         $this->forge->createTable('tb_mapel', true);
 
         // Create tb_nilai table
@@ -690,6 +704,12 @@ class InitialDatabaseStructure extends Migration
                 'constraint' => 11,
                 'null' => false
             ],
+            'id_kelas' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+                'null' => true
+            ],
             'nilai' => [
                 'type' => 'DECIMAL',
                 'constraint' => '5,2',
@@ -705,6 +725,11 @@ class InitialDatabaseStructure extends Migration
                 'constraint' => 9,
                 'null' => false
             ],
+            'keterangan' => [
+                'type' => 'TEXT',
+                'null' => true,
+                'comment' => 'Keterangan tambahan untuk nilai siswa'
+            ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
                 'null' => true
@@ -717,6 +742,10 @@ class InitialDatabaseStructure extends Migration
         $this->forge->addKey('id_nilai', true);
         $this->forge->addKey('id_siswa');
         $this->forge->addKey('id_mapel');
+        $this->forge->addKey('id_kelas');
+        $this->forge->addForeignKey('id_siswa', 'tb_siswa', 'id_siswa', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_mapel', 'tb_mapel', 'id_mapel', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_kelas', 'tb_kelas', 'id_kelas', 'CASCADE', 'SET NULL');
         $this->forge->createTable('tb_nilai', true);
 
         // Create general_settings table
