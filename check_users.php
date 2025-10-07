@@ -1,1 +1,0 @@
-<?php require 'vendor/autoload.php'; \ = \Config\Database::connect(); \ = \->query('SELECT id, nama_lengkap FROM users LIMIT 5')->getResultArray(); foreach(\ as \) { echo 'ID: ' . \['id'] . ' - Name: ' . \['nama_lengkap'] . PHP_EOL; }
