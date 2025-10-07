@@ -24,7 +24,7 @@ class InitialDatabaseStructure extends Migration
         $this->forge->dropTable('tb_jurusan', true);
         $this->forge->dropTable('tb_kehadiran', true);
         $this->forge->dropTable('general_settings', true);
-        
+
         // Drop auth tables
         $this->forge->dropTable('auth_activation_attempts', true);
         $this->forge->dropTable('auth_reset_attempts', true);
@@ -765,22 +765,26 @@ class InitialDatabaseStructure extends Migration
                 'comment' => 'WAHA X-API-Key header'
             ],
             'wa_template_masuk' => [
-                'type' => 'TEXT',
+                'type' => 'VARCHAR',
+                'constraint' => 1000,
                 'default' => 'Halo {nama_siswa}, anak Anda telah absen masuk pada {tanggal} pukul {jam_masuk}. Terima kasih.',
                 'comment' => 'Template pesan WhatsApp untuk absen masuk'
             ],
             'wa_template_pulang' => [
-                'type' => 'TEXT',
+                'type' => 'VARCHAR',
+                'constraint' => 1000,
                 'default' => 'Halo {nama_siswa}, anak Anda telah absen pulang pada {tanggal} pukul {jam_pulang}. Terima kasih.',
                 'comment' => 'Template pesan WhatsApp untuk absen pulang'
             ],
             'wa_template_guru_masuk' => [
-                'type' => 'TEXT',
+                'type' => 'VARCHAR',
+                'constraint' => 1000,
                 'null' => true,
                 'comment' => 'Template WhatsApp untuk guru absen masuk'
             ],
             'wa_template_guru_pulang' => [
-                'type' => 'TEXT',
+                'type' => 'VARCHAR',
+                'constraint' => 1000,
                 'null' => true,
                 'comment' => 'Template WhatsApp untuk guru absen pulang'
             ]
