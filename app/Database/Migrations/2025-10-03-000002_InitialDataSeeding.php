@@ -39,17 +39,17 @@ class InitialDataSeeding extends Migration
     {
         $data = [
             [
-                'jurusan' => 'Rekayasa Perangkat Lunak',
+                'jurusan' => 'Iqro 1-3',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'jurusan' => 'Teknik Komputer dan Jaringan',
+                'jurusan' => 'Iqro 4-6',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'jurusan' => 'Multimedia',
+                'jurusan' => 'Al-Quran',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]
@@ -62,109 +62,19 @@ class InitialDataSeeding extends Migration
     {
         $data = [
             [
-                'kelas' => 'X RPL 1',
+                'kelas' => '1',
                 'id_jurusan' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'kelas' => 'X RPL 2',
-                'id_jurusan' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XI RPL 1',
-                'id_jurusan' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XI RPL 2',
-                'id_jurusan' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XII RPL 1',
-                'id_jurusan' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XII RPL 2',
-                'id_jurusan' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'X TKJ 1',
+                'kelas' => '2',
                 'id_jurusan' => 2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'kelas' => 'X TKJ 2',
-                'id_jurusan' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XI TKJ 1',
-                'id_jurusan' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XI TKJ 2',
-                'id_jurusan' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XII TKJ 1',
-                'id_jurusan' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XII TKJ 2',
-                'id_jurusan' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'X MM 1',
-                'id_jurusan' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'X MM 2',
-                'id_jurusan' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XI MM 1',
-                'id_jurusan' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XI MM 2',
-                'id_jurusan' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XII MM 1',
-                'id_jurusan' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'kelas' => 'XII MM 2',
+                'kelas' => '3',
                 'id_jurusan' => 3,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
@@ -178,8 +88,8 @@ class InitialDataSeeding extends Migration
     {
         $data = [
             'logo' => null,
-            'school_name' => 'SMK 1 Indonesia',
-            'school_year' => '2024/2025',
+            'school_name' => 'PP Sirojan Muniro Assalam',
+            'school_year' => '2025/2026',
             'copyright' => '© 2025 All rights reserved.',
             'waha_api_url' => 'http://localhost:3000',
             'waha_api_key' => null,
