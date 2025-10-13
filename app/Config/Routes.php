@@ -32,8 +32,8 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-// Home - Landing Page ke ponpes
-$routes->get('/', 'Landing::index');
+// Home - Landing Page
+$routes->get('/', 'Home::index');
 
 $routes->group('scan', function (RouteCollection $routes) {
     $routes->get('', 'Scan::index');
