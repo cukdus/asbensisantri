@@ -4,7 +4,7 @@ services:
   app:
     container_name: asbensisantri_app
     build:
-      context: ./app
+      context: .
       dockerfile: Dockerfile
     restart: always
     ports:
@@ -27,8 +27,7 @@ services:
     # Untuk menghindari konflik antar image & host, jangan mount seluruh source.
     # Mount hanya direktori yang memang perlu writable.
     volumes:
-      - ./app/writable:/var/www/html/writable
-      - ./app/public/uploads:/var/www/html/public/uploads
+      - ./:/var/www/html
     depends_on:
       - db
     networks:
@@ -66,7 +65,7 @@ services:
     container_name: asbensisantri_updater
     restart: always
     volumes:
-      - ./app:/repo
+      - ./:/repo
       - /var/run/docker.sock:/var/run/docker.sock
     entrypoint: >
       sh -c "
@@ -77,6 +76,10 @@ services:
         if [ $(git rev-parse HEAD) != $(git rev-parse origin/main) ]; then
           echo '🔄 Update detected, pulling latest changes...' &&
           git pull origin main &&
+          echo '📦 Running composer install in app container...' &&
+          docker exec asbensisantri_app sh -lc "composer install --no-dev --optimize-autoloader" &&
+          echo '🗄️ Running migrations (optional)...' &&
+          docker exec asbensisantri_app sh -lc "php spark migrate --all || true" &&
           echo '♻️ Restarting app container...' &&
           docker restart asbensisantri_app;
         fi;
