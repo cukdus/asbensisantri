@@ -1,0 +1,93 @@
+# Compose v2 tidak membutuhkan field version; hapus untuk menghindari warning
+
+services:
+  app:
+    container_name: asbensisantri_app
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      CI_ENVIRONMENT: production
+      COMPOSER_ALLOW_SUPERUSER: 1
+      APP_KEY: ${APP_KEY}
+      WA_NOTIFICATION: ${WA_NOTIFICATION}
+      WHATSAPP_PROVIDER: ${WHATSAPP_PROVIDER}
+      WAHA_API_URL: ${WAHA_API_URL}
+      WHATSAPP_TOKEN: ${WHATSAPP_TOKEN}
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      TZ: ${APP_TIMEZONE}
+    # Untuk menghindari konflik antar image & host, jangan mount seluruh source.
+    # Mount hanya direktori yang memang perlu writable.
+    volumes:
+      - ./app/writable:/var/www/html/writable
+      - ./app/public/uploads:/var/www/html/public/uploads
+    depends_on:
+      - db
+    networks:
+      - asbensi_net
+
+  db:
+    image: mariadb:10.11
+    container_name: asbensisantri_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    networks:
+      - asbensi_net
+
+  adminer:
+    image: adminer:latest
+    container_name: asbensisantri_adminer
+    restart: always
+    ports:
+      - "8081:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    depends_on:
+      - db
+    networks:
+      - asbensi_net
+
+  updater:
+    image: alpine:3.19
+    container_name: asbensisantri_updater
+    restart: always
+    volumes:
+      - ./app:/repo
+      - /var/run/docker.sock:/var/run/docker.sock
+    entrypoint: >
+      sh -c "
+      apk add --no-cache git docker-cli &&
+      while true; do
+        cd /repo &&
+        git fetch origin main &&
+        if [ $(git rev-parse HEAD) != $(git rev-parse origin/main) ]; then
+          echo '🔄 Update detected, pulling latest changes...' &&
+          git pull origin main &&
+          echo '♻️ Restarting app container...' &&
+          docker restart asbensisantri_app;
+        fi;
+        sleep 3600;
+      done
+      "
+    depends_on:
+      - app
+    networks:
+      - asbensi_net
+
+networks:
+  asbensi_net:
+    driver: bridge
