@@ -1,50 +1,92 @@
-# Gunakan image PHP + Apache (lebih mudah untuk CI4)
-FROM php:8.2-apache
+# =========================================
+# STAGE 1: Build dependencies (Composer)
+# =========================================
+FROM composer:2 AS builder
 
-# Install dependency dasar + ekstensi PHP
-RUN apt-get update && apt-get install -y \
+WORKDIR /app
+
+# Copy project source
+COPY . /app
+
+# Install dependencies (tanpa dev)
+RUN composer install --no-dev --optimize-autoloader
+
+
+# =========================================
+# STAGE 2: Runtime (PHP-FPM + Nginx)
+# =========================================
+FROM php:8.2-fpm-alpine
+
+# Install system dependencies
+RUN apk add --no-cache \
+    nginx \
+    bash \
+    supervisor \
+    libzip-dev \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    libxml2-dev \
+    icu-dev \
+    oniguruma-dev \
     git \
     zip \
     unzip \
-    libzip-dev \
-    libpng-dev \
-    libjpeg-dev \
-    libonig-dev \
-    libxml2-dev \
-    libicu-dev \
-    pkg-config \
     && docker-php-ext-configure gd --with-jpeg \
-    && docker-php-ext-install gd mysqli pdo pdo_mysql zip intl opcache \
-    && a2enmod rewrite \
-    && rm -rf /var/lib/apt/lists/*
+    && docker-php-ext-install gd mysqli pdo pdo_mysql zip intl opcache
+
+# Copy app files from builder
+COPY --from=builder /app /var/www/html
 
 # Set working directory
 WORKDIR /var/www/html
 
-# Salin project dari GitHub (sudah dilakukan oleh docker-compose build context)
-COPY . /var/www/html
+# Konfigurasi Nginx
+RUN mkdir -p /run/nginx
 
-# Install composer (langsung dari source resmi)
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+# Konfigurasi PHP-FPM pool
+RUN mkdir -p /etc/php8/php-fpm.d
 
-# Install dependensi CodeIgniter 4
-RUN composer install --no-dev --optimize-autoloader
+# Buat file konfigurasi Nginx untuk CodeIgniter 4
+RUN echo 'server {\n\
+    listen 80;\n\
+    server_name localhost;\n\
+    root /var/www/html/public;\n\
+\n\
+    index index.php index.html;\n\
+\n\
+    location / {\n\
+        try_files $uri $uri/ /index.php?$query_string;\n\
+    }\n\
+\n\
+    location ~ \.php$ {\n\
+        include fastcgi_params;\n\
+        fastcgi_pass 127.0.0.1:9000;\n\
+        fastcgi_index index.php;\n\
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\n\
+    }\n\
+\n\
+    location ~ /\.ht {\n\
+        deny all;\n\
+    }\n\
+}' > /etc/nginx/conf.d/default.conf
 
-# Beri izin ke folder writable
+# Supervisor (menjalankan nginx + php-fpm bersama)
+RUN echo "[supervisord]\n\
+nodaemon=true\n\
+[program:php-fpm]\n\
+command=docker-php-entrypoint php-fpm\n\
+autostart=true\n\
+autorestart=true\n\
+[program:nginx]\n\
+command=nginx -g 'daemon off;'\n\
+autostart=true\n\
+autorestart=true\n\
+" > /etc/supervisord.conf
+
+# Permissions writable folder
 RUN chown -R www-data:www-data /var/www/html/writable
 
-# Aktifkan Apache rewrite module
-RUN a2enmod rewrite
-
-# Konfigurasi Apache untuk CodeIgniter 4
-RUN echo "<Directory /var/www/html>\n\
-    AllowOverride All\n\
-    Require all granted\n\
-</Directory>" > /etc/apache2/conf-available/ci4.conf \
-    && a2enconf ci4
-
-# Port yang diekspos
 EXPOSE 80
 
-# Jalankan Apache
-CMD ["apache2-foreground"]
+# Jalankan Supervisor (Nginx + PHP-FPM)
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
