@@ -67,25 +67,26 @@ services:
     volumes:
       - ./:/repo
       - /var/run/docker.sock:/var/run/docker.sock
-    entrypoint: >
-      sh -c "
-      apk add --no-cache git docker-cli &&
-      while true; do
-        cd /repo &&
-        git fetch origin main &&
-        if [ $(git rev-parse HEAD) != $(git rev-parse origin/main) ]; then
-          echo '🔄 Update detected, pulling latest changes...' &&
-          git pull origin main &&
-          echo '📦 Running composer install in app container...' &&
-          docker exec asbensisantri_app sh -lc "composer install --no-dev --optimize-autoloader" &&
-          echo '🗄️ Running migrations (optional)...' &&
-          docker exec asbensisantri_app sh -lc "php spark migrate --all || true" &&
-          echo '♻️ Restarting app container...' &&
-          docker restart asbensisantri_app;
-        fi;
-        sleep 3600;
-      done
-      "
+    entrypoint:
+      - sh
+      - -lc
+      - |
+        apk add --no-cache git docker-cli &&
+        while true; do
+          cd /repo &&
+          git fetch origin main &&
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]; then
+            echo 'Update detected, pulling latest changes...' &&
+            git pull origin main &&
+            echo 'Running composer install in app container...' &&
+            docker exec asbensisantri_app sh -lc "composer install --no-dev --optimize-autoloader" &&
+            echo 'Running migrations (optional)...' &&
+            docker exec asbensisantri_app sh -lc "php spark migrate --all || true" &&
+            echo 'Restarting app container...' &&
+            docker restart asbensisantri_app
+          fi
+          sleep 3600
+        done
     depends_on:
       - app
     networks:
