@@ -38,19 +38,20 @@ COPY app/ /var/www/html/app/
 # Install dependensi PHP dari composer.json (produksi)
 RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
 
-# Buat virtual host Apache menunjuk ke public nested app
-RUN set -eux; cat >/etc/apache2/sites-available/ci4-runtime.conf <<'EOF' \
-<VirtualHost *:80>\
-    ServerName localhost\
-    DocumentRoot /var/www/html/app/public\
-    <Directory /var/www/html/app/public>\
-        AllowOverride All\
-        Require all granted\
-    </Directory>\
-</VirtualHost>\
-EOF \
-  && a2ensite ci4-runtime \
-  && a2dissite 000-default
+# Buat virtual host Apache menunjuk ke public nested app (hindari heredoc agar stabil)
+RUN set -eux; \
+  printf '%s\n' \
+    '<VirtualHost *:80>' \
+    '    ServerName localhost' \
+    '    DocumentRoot /var/www/html/app/public' \
+    '    <Directory /var/www/html/app/public>' \
+    '        AllowOverride All' \
+    '        Require all granted' \
+    '    </Directory>' \
+    '</VirtualHost>' \
+    > /etc/apache2/sites-available/ci4-runtime.conf; \
+  a2ensite ci4-runtime; \
+  a2dissite 000-default
 
 # Set permission untuk folder writable dan uploads
 RUN chown -R www-data:www-data /var/www/html/app/writable /var/www/html/app/public/uploads /var/www/html/app/uploads \
