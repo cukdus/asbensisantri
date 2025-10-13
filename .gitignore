@@ -85,11 +85,8 @@ phpunit
 #-------------------------
 vendor/
 
-# uploads
-public/uploads/*
-!public/uploads/index.html
-!public/uploads/logo/index.html
-!public/uploads/tmp/index.html
+# uploads (diizinkan untuk dilacak)
+# Jika ingin tetap mengabaikan, pulihkan blok ini.
 
 #-------------------------
 # IDE / Development Files
