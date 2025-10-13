@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libxml2-dev \
     libonig-dev \
+    libcurl4-openssl-dev \
     unzip \
     git \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
@@ -25,15 +26,16 @@ RUN apt-get update && apt-get install -y \
         bcmath \
         exif \
         opcache \
+        curl \
     && a2enmod rewrite \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Salin Composer dari image resmi Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Set direktori kerja ke nested app dan salin source
-WORKDIR /var/www/html/app
-COPY app/ /var/www/html/app/
+# Set direktori kerja ke root CI4 dan salin seluruh source
+WORKDIR /var/www/html
+COPY . /var/www/html
 
 # Konfigurasi Composer dan install dependensi untuk produksi
 ENV COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_MEMORY_LIMIT=-1
@@ -46,8 +48,8 @@ RUN set -eux; \
   printf '%s\n' \
     '<VirtualHost *:80>' \
     '    ServerName localhost' \
-    '    DocumentRoot /var/www/html/app/public' \
-    '    <Directory /var/www/html/app/public>' \
+    '    DocumentRoot /var/www/html/public' \
+    '    <Directory /var/www/html/public>' \
     '        AllowOverride All' \
     '        Require all granted' \
     '    </Directory>' \
@@ -57,8 +59,8 @@ RUN set -eux; \
   a2dissite 000-default
 
 # Set permission untuk folder writable dan uploads
-RUN chown -R www-data:www-data /var/www/html/app/writable /var/www/html/app/public/uploads /var/www/html/app/uploads \
-  && chmod -R 775 /var/www/html/app/writable /var/www/html/app/public/uploads /var/www/html/app/uploads
+RUN chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads /var/www/html/uploads \
+  && chmod -R 775 /var/www/html/writable /var/www/html/public/uploads /var/www/html/uploads
 
 # Konfigurasi opcache produksi
 RUN set -eux; echo \

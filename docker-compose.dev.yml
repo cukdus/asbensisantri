@@ -23,7 +23,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       TZ: ${APP_TIMEZONE}
     volumes:
-      - ./app:/var/www/html/app
+      - ./:/var/www/html
     depends_on:
       - db
     networks:
@@ -69,15 +69,15 @@ services:
       - |
         apk add --no-cache git docker-cli &&
         while true; do
-          cd /repo/app &&
+          cd /repo &&
           git fetch origin main &&
           if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]; then
             echo 'Update detected, pulling latest changes...' &&
             git pull origin main &&
             echo 'Running composer install in app container...' &&
-            docker exec asbensisantri_app sh -lc "cd /var/www/html/app && composer install --no-dev --optimize-autoloader" &&
+            docker exec asbensisantri_app sh -lc "cd /var/www/html && composer install --no-dev --optimize-autoloader" &&
             echo 'Running migrations (optional)...' &&
-            docker exec asbensisantri_app sh -lc "cd /var/www/html/app && php spark migrate --all || true" &&
+            docker exec asbensisantri_app sh -lc "cd /var/www/html && php spark migrate --all || true" &&
             echo 'Restarting app container...' &&
             docker restart asbensisantri_app
           fi
