@@ -58,8 +58,9 @@ RUN set -eux; \
   a2ensite ci4-runtime; \
   a2dissite 000-default
 
-# Set permission untuk folder writable dan uploads
-RUN chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads /var/www/html/uploads \
+# Set permission untuk folder writable dan uploads (buat jika belum ada)
+RUN mkdir -p /var/www/html/writable /var/www/html/public/uploads /var/www/html/uploads \
+  && chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads /var/www/html/uploads \
   && chmod -R 775 /var/www/html/writable /var/www/html/public/uploads /var/www/html/uploads
 
 # Konfigurasi opcache produksi
