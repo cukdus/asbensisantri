@@ -35,8 +35,11 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html/app
 COPY app/ /var/www/html/app/
 
-# Install dependensi PHP dari composer.json (produksi)
-RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
+# Konfigurasi Composer dan install dependensi untuk produksi
+ENV COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_MEMORY_LIMIT=-1
+RUN composer config --no-interaction allow-plugins.codeigniter4/framework true \
+  && composer config --no-interaction allow-plugins.kylekatarnls/update-helper true || true \
+  && composer install --no-dev --optimize-autoloader --prefer-dist --no-interaction --no-progress
 
 # Buat virtual host Apache menunjuk ke public nested app (hindari heredoc agar stabil)
 RUN set -eux; \
