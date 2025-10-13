@@ -1,16 +1,19 @@
 # Gunakan base image PHP 8.2 dengan Apache
 FROM php:8.2-apache
 
-# Install dependency system untuk ekstensi PHP
+# Install dependency system untuk ekstensi PHP (GD perlu freetype & jpeg)
 RUN apt-get update && apt-get install -y \
     libicu-dev \
     libzip-dev \
     libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
     libxml2-dev \
     libonig-dev \
     unzip \
     git \
-    && docker-php-ext-install \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j"$(nproc)" \
         intl \
         pdo \
         pdo_mysql \
@@ -21,32 +24,47 @@ RUN apt-get update && apt-get install -y \
         zip \
         bcmath \
         exif \
+        opcache \
+    && a2enmod rewrite \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Aktifkan mod_rewrite untuk CodeIgniter
-RUN a2enmod rewrite
 
 # Salin Composer dari image resmi Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Set direktori kerja
-WORKDIR /var/www/html
+# Set direktori kerja ke nested app dan salin source
+WORKDIR /var/www/html/app
+COPY app/ /var/www/html/app/
 
-# Copy semua file project
-COPY . .
-
-# Install dependensi PHP dari composer.json
+# Install dependensi PHP dari composer.json (produksi)
 RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
 
-# Set permission untuk folder writable
-RUN chown -R www-data:www-data writable && chmod -R 775 writable
+# Buat virtual host Apache menunjuk ke public nested app
+RUN set -eux; cat >/etc/apache2/sites-available/ci4-runtime.conf <<'EOF' \
+<VirtualHost *:80>\
+    ServerName localhost\
+    DocumentRoot /var/www/html/app/public\
+    <Directory /var/www/html/app/public>\
+        AllowOverride All\
+        Require all granted\
+    </Directory>\
+</VirtualHost>\
+EOF \
+  && a2ensite ci4-runtime \
+  && a2dissite 000-default
 
-# Konfigurasi Apache agar mendukung .htaccess
-RUN echo '<Directory /var/www/html/public>\n\
-    AllowOverride All\n\
-    Require all granted\n\
-</Directory>' > /etc/apache2/conf-available/ci4.conf \
-    && a2enconf ci4
+# Set permission untuk folder writable dan uploads
+RUN chown -R www-data:www-data /var/www/html/app/writable /var/www/html/app/public/uploads /var/www/html/app/uploads \
+  && chmod -R 775 /var/www/html/app/writable /var/www/html/app/public/uploads /var/www/html/app/uploads
+
+# Konfigurasi opcache produksi
+RUN set -eux; echo \
+  "opcache.enable=1\n" \
+  "opcache.enable_cli=1\n" \
+  "opcache.memory_consumption=128\n" \
+  "opcache.interned_strings_buffer=8\n" \
+  "opcache.max_accelerated_files=20000\n" \
+  "opcache.validate_timestamps=0\n" \
+  > /usr/local/etc/php/conf.d/opcache.ini
 
 # Expose port HTTP
 EXPOSE 80
