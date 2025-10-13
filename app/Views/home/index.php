@@ -35,7 +35,7 @@
     <meta property="og:locale" content="id_ID" />
     <meta
       property="og:image"
-      content="https://sirojanmuniroassalam.com/assets/img/education/program1.webp"
+      content="https://sirojanmuniroassalam.com/assets-web/img/education/program1.webp"
     />
     <meta
       property="og:image:alt"
@@ -52,11 +52,11 @@
     />
     <meta
       name="twitter:image"
-      content="https://sirojanmuniroassalam.com/assets/img/education/program1.webp"
+      content="https://sirojanmuniroassalam.com/assets-web/img/education/program1.webp"
     />
     <meta name="theme-color" content="#005e01" />
-    <link href="assets/img/favicon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="assets-web/img/favicon.png" rel="icon" />
+    <link href="assets-web/img/apple-touch-icon.png" rel="apple-touch-icon" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link
@@ -64,19 +64,19 @@
       rel="stylesheet"
     />
     <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      href="assets-web/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
-      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      href="assets-web/vendor/bootstrap-icons/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="assets-web/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
     <link
-      href="assets/vendor/glightbox/css/glightbox.min.css"
+      href="assets-web/vendor/glightbox/css/glightbox.min.css"
       rel="stylesheet"
     />
-    <link href="assets/css/main.css" rel="stylesheet" />
+    <link href="assets-web/css/main.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -90,7 +90,7 @@
             "name": "Pondok Pesantren Sirojan Muniro As-Salam",
             "alternateName": "Pondok Pesantren Sirojan Muniro",
             "url": "https://sirojanmuniroassalam.com/",
-            "logo": "https://sirojanmuniroassalam.com/assets/img/ponpes.png",
+            "logo": "https://sirojanmuniroassalam.com/assets-web/img/ponpes.png",
             "description": "Pondok Pesantren Sirojan Muniro As-Salam menyediakan pendidikan Islam terpadu dengan program unggulan tahfidz, kajian kitab, dan pembinaan karakter santri.",
             "sameAs": [
               "https://www.facebook.com/Sirojanmuniroassalam",
@@ -132,7 +132,7 @@
             <div class="col-lg-6">
               <div class="header-brand d-flex align-items-center">
                 <img
-                  src="assets/img/ponpes.png"
+                  src="assets-web/img/ponpes.png"
                   alt="Logo Pondok Pesantren Sirojan Muniro As-Salam"
                   class="me-3"
                   decoding="async"
@@ -328,7 +328,7 @@
                 <div class="col-lg-6">
                   <div class="image-wrapper">
                     <img
-                      src="assets/img/education/about.webp"
+                      src="assets-web/img/education/about.webp"
                       alt="Fasad Pondok Pesantren Sirojan Muniro As-Salam"
                       class="img-fluid"
                       loading="lazy"
@@ -368,7 +368,7 @@
                   </div>
                   <div class="overview-image">
                     <img
-                      src="assets/img/education/program1.webp"
+                      src="assets-web/img/education/program1.webp"
                       alt="Kegiatan belajar santri"
                       class="img-fluid"
                       loading="lazy"
@@ -417,7 +417,7 @@
                   <div class="visual-grid">
                     <div class="main-visual">
                       <img
-                        src="assets/img/education/program1.webp"
+                        src="assets-web/img/education/program1.webp"
                         alt="Suasana kegiatan santri"
                         class="img-fluid"
                         loading="lazy"
@@ -428,7 +428,7 @@
                     <div class="secondary-visuals">
                       <div class="small-visual">
                         <img
-                          src="assets/img/education/program2.webp"
+                          src="assets-web/img/education/program2.webp"
                           alt="Aktivitas santri di pondok"
                           class="img-fluid"
                           loading="lazy"
@@ -441,7 +441,7 @@
 
                       <div class="small-visual">
                         <img
-                          src="assets/img/education/program3.webp"
+                          src="assets-web/img/education/program3.webp"
                           alt="Pembelajaran akademik santri"
                           class="img-fluid"
                           loading="lazy"
@@ -473,7 +473,7 @@
                   <div class="activity-card">
                     <div class="card-image-wrapper">
                       <img
-                        src="assets/img/education/kegiatan2.jpg"
+                        src="assets-web/img/education/kegiatan2.jpg"
                         alt="Santri belajar membaca Iqra"
                         loading="lazy"
                         decoding="async"
@@ -495,7 +495,7 @@
                   <div class="activity-card">
                     <div class="card-image-wrapper">
                       <img
-                        src="assets/img/education/kegiatan1.jpg"
+                        src="assets-web/img/education/kegiatan1.jpg"
                         alt="Santri memperdalam bacaan Al-Qur'an"
                         loading="lazy"
                         decoding="async"
@@ -517,7 +517,7 @@
                   <div class="activity-card">
                     <div class="card-image-wrapper">
                       <img
-                        src="assets/img/education/ponpes (11).jpeg"
+                        src="assets-web/img/education/ponpes (11).jpeg"
                         alt="Kajian Islam bersama ustadz"
                         loading="lazy"
                         decoding="async"
@@ -560,7 +560,7 @@
                   onmouseout="this.style.transform='scale(1)'"
                 >
                   <img
-                    src="assets/img/pp2.jpg"
+                    src="assets-web/img/pp2.jpg"
                     alt="Foto profil kanal YouTube Pondok Pesantren Sirojan Muniro As-Salam"
                     style="
                       max-width: 160px;
@@ -656,7 +656,7 @@
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="assets/img/sponsor/ais.webp"
+                        src="assets-web/img/sponsor/ais.webp"
                         alt="PT. Azka Indie Satu"
                         class="img-fluid sponsor-logo"
                         loading="lazy"
@@ -671,7 +671,7 @@
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="assets/img/sponsor/eqiyu.webp"
+                        src="assets-web/img/sponsor/eqiyu.webp"
                         alt="EQIYU"
                         class="img-fluid sponsor-logo"
                         loading="lazy"
@@ -686,7 +686,7 @@
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="assets/img/sponsor/bekasbaru.webp"
+                        src="assets-web/img/sponsor/bekasbaru.webp"
                         alt="BekasBaru.com"
                         class="img-fluid sponsor-logo"
                         loading="lazy"
@@ -701,7 +701,7 @@
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="assets/img/sponsor/overhaul.webp"
+                        src="assets-web/img/sponsor/overhaul.webp"
                         alt="Overhaul"
                         class="img-fluid sponsor-logo"
                         loading="lazy"
@@ -716,7 +716,7 @@
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="assets/img/sponsor/mbowis.webp"
+                        src="assets-web/img/sponsor/mbowis.webp"
                         alt="Mbowis"
                         class="img-fluid sponsor-logo"
                         loading="lazy"
@@ -731,7 +731,7 @@
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="assets/img/sponsor/mlg.webp"
+                        src="assets-web/img/sponsor/mlg.webp"
                         alt="mlgcoffee"
                         class="img-fluid sponsor-logo"
                         loading="lazy"
@@ -746,7 +746,7 @@
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="assets/img/sponsor/mbowis.webp"
+                        src="assets-web/img/sponsor/mbowis.webp"
                         alt="Mbowis"
                         class="img-fluid sponsor-logo"
                         loading="lazy"
@@ -761,7 +761,7 @@
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="assets/img/sponsor/pressolve.webp"
+                        src="assets-web/img/sponsor/pressolve.webp"
                         alt="Pressolve"
                         class="img-fluid sponsor-logo"
                         loading="lazy"
@@ -787,7 +787,7 @@
           >
             <div class="mb-3">
               <img
-                src="assets/img/ponpes.png"
+                src="assets-web/img/ponpes.png"
                 alt="Logo Pondok Pesantren Sirojan Muniro As-Salam"
                 style="height: 120px"
                 class="mb-3"
@@ -871,11 +871,11 @@
       ><i class="bi bi-arrow-up-short"></i
     ></a>
     <div id="preloader"></div>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets-web/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets-web/vendor/php-email-form/validate.js"></script>
+    <script src="assets-web/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets-web/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets-web/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets-web/js/main.js"></script>
   </body>
 </html>
