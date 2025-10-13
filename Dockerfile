@@ -35,7 +35,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # Set direktori kerja ke root CI4 dan salin seluruh source
 WORKDIR /var/www/html
-COPY asbensi/ /var/www/html
+COPY . /var/www/html
 
 # Konfigurasi Composer dan install dependensi untuk produksi
 ENV COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_MEMORY_LIMIT=-1
