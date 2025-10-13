@@ -1,11 +1,7 @@
-# ==========================================
-# 🧱 BASE IMAGE
-# ==========================================
+# Gunakan image PHP + Apache (lebih mudah untuk CI4)
 FROM php:8.2-apache
 
-# ==========================================
-# 🧩 SYSTEM DEPENDENCIES & PHP EXTENSIONS
-# ==========================================
+# Install dependency dasar + ekstensi PHP
 RUN apt-get update && apt-get install -y \
     git \
     zip \
@@ -15,62 +11,40 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libonig-dev \
     libxml2-dev \
+    libicu-dev \
+    pkg-config \
     && docker-php-ext-configure gd --with-jpeg \
     && docker-php-ext-install gd mysqli pdo pdo_mysql zip intl opcache \
     && a2enmod rewrite \
     && rm -rf /var/lib/apt/lists/*
 
-# ==========================================
-# 🧰 INSTALL COMPOSER
-# ==========================================
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-# ==========================================
-# 📂 SETUP APP DIRECTORY
-# ==========================================
+# Set working directory
 WORKDIR /var/www/html
 
-# Copy composer files first for layer caching
-COPY composer.json composer.lock ./
-
-# Install PHP dependencies (optimize autoloader)
-RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-interaction || true
-
-# ==========================================
-# 📦 COPY APPLICATION SOURCE
-# ==========================================
+# Salin project dari GitHub (sudah dilakukan oleh docker-compose build context)
 COPY . /var/www/html
 
-# ==========================================
-# 🔧 PERMISSIONS & CLEANUP
-# ==========================================
-RUN chown -R www-data:www-data /var/www/html/writable \
-    && chmod -R 775 /var/www/html/writable \
-    && rm -rf /var/lib/apt/lists/*
+# Install composer (langsung dari source resmi)
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# ==========================================
-# ⚙️ APACHE CONFIG (CI4 friendly)
-# ==========================================
-RUN echo '<Directory /var/www/html>\n\
+# Install dependensi CodeIgniter 4
+RUN composer install --no-dev --optimize-autoloader
+
+# Beri izin ke folder writable
+RUN chown -R www-data:www-data /var/www/html/writable
+
+# Aktifkan Apache rewrite module
+RUN a2enmod rewrite
+
+# Konfigurasi Apache untuk CodeIgniter 4
+RUN echo "<Directory /var/www/html>\n\
     AllowOverride All\n\
-</Directory>' > /etc/apache2/conf-available/ci4.conf \
+    Require all granted\n\
+</Directory>" > /etc/apache2/conf-available/ci4.conf \
     && a2enconf ci4
 
-# ==========================================
-# 🚀 BUILD OPTIMIZATION
-# ==========================================
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
-    && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
-
-# ==========================================
-# ✅ HEALTH CHECK
-# ==========================================
-HEALTHCHECK --interval=30s --timeout=10s --start-period=20s --retries=3 \
-  CMD curl -f http://localhost/ || exit 1
-
-# ==========================================
-# ⚡ ENTRY POINT
-# ==========================================
+# Port yang diekspos
 EXPOSE 80
+
+# Jalankan Apache
 CMD ["apache2-foreground"]
