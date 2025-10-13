@@ -26,8 +26,9 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 # Jalankan composer install otomatis saat build
 RUN composer install --no-dev --optimize-autoloader
 
-# Beri izin ke storage dan writable folder
-RUN chown -R www-data:www-data /var/www/html/writable /var/www/html/public /var/www/html/uploads
+# Pastikan direktori ada dan beri izin ke storage & writable
+RUN mkdir -p /var/www/html/uploads /var/www/html/public/uploads /var/www/html/writable \
+    && chown -R www-data:www-data /var/www/html/writable /var/www/html/public /var/www/html/uploads
 
 # Set timezone PHP agar konsisten
 ENV TZ=Asia/Jakarta
