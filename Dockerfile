@@ -1,12 +1,17 @@
 # Gunakan base image PHP 8.2 dengan Apache
 FROM php:8.2-apache
 
+# Set DocumentRoot ke folder public (sesuai struktur CI4)
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+
 # Install dependensi dasar & ekstensi PHP yang dibutuhkan CI4
 RUN apt-get update && apt-get install -y \
-    git zip unzip libzip-dev libpng-dev libjpeg-dev libicu-dev \
-    && docker-php-ext-configure gd --with-jpeg \
+    git zip unzip libzip-dev libpng-dev libjpeg-dev libfreetype6-dev libicu-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd mysqli pdo pdo_mysql zip intl opcache \
-    && a2enmod rewrite \
+    && a2enmod rewrite headers \
+    && sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
+    && sed -ri -e 's!<Directory /var/www/>!<Directory ${APACHE_DOCUMENT_ROOT}>!g' /etc/apache2/apache2.conf \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory di dalam container
@@ -22,7 +27,11 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
 # Beri izin ke storage dan writable folder
-RUN chown -R www-data:www-data /var/www/html/writable /var/www/html/public
+RUN chown -R www-data:www-data /var/www/html/writable /var/www/html/public /var/www/html/uploads
+
+# Set timezone PHP agar konsisten
+ENV TZ=Asia/Jakarta
+RUN echo "date.timezone = ${TZ}" > /usr/local/etc/php/conf.d/timezone.ini
 
 # Expose port 80 (Apache)
 EXPOSE 80
