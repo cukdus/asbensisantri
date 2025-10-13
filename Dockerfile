@@ -35,7 +35,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # Set direktori kerja ke root CI4 dan salin seluruh source
 WORKDIR /var/www/html
-COPY . /var/www/html
+COPY asbensi/ /var/www/html
 
 # Konfigurasi Composer dan install dependensi untuk produksi
 ENV COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_MEMORY_LIMIT=-1
@@ -61,7 +61,8 @@ RUN set -eux; \
 # Set permission untuk folder writable dan uploads (buat jika belum ada)
 RUN mkdir -p /var/www/html/writable /var/www/html/public/uploads /var/www/html/uploads \
   && chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads /var/www/html/uploads \
-  && chmod -R 775 /var/www/html/writable /var/www/html/public/uploads /var/www/html/uploads
+  && chmod -R 777 /var/www/html/writable \
+  && chmod -R 775 /var/www/html/public/uploads /var/www/html/uploads
 
 # Konfigurasi opcache produksi
 RUN set -eux; echo \
