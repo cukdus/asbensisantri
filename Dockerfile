@@ -59,10 +59,15 @@ RUN set -eux; \
   a2dissite 000-default
 
 # Set permission untuk folder writable dan uploads (buat jika belum ada)
-RUN mkdir -p /var/www/html/writable /var/www/html/public/uploads /var/www/html/uploads \
-  && chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads /var/www/html/uploads \
+RUN mkdir -p \
+    /var/www/html/writable \
+    /var/www/html/public/uploads \
+    /var/www/html/public/uploads/siswa \
+    /var/www/html/public/uploads/tmp \
+    /var/www/html/public/uploads/logo \
+  && chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads \
   && chmod -R 777 /var/www/html/writable \
-  && chmod -R 775 /var/www/html/public/uploads /var/www/html/uploads
+  && chmod -R 775 /var/www/html/public/uploads
 
 # Konfigurasi opcache produksi
 RUN set -eux; echo \

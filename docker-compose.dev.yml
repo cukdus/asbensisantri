@@ -24,6 +24,8 @@ services:
       TZ: ${APP_TIMEZONE}
     volumes:
       - ./:/var/www/html
+      - uploads:/var/www/html/public/uploads
+      - writable:/var/www/html/writable
     depends_on:
       - db
     networks:
@@ -91,3 +93,6 @@ services:
 networks:
   asbensi_net:
     driver: bridge
+volumes:
+  uploads:
+  writable:
