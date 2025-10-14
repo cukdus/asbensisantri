@@ -59,9 +59,9 @@
             <div class="col-12 col-lg-6">
               <div class="header-brand d-flex align-items-center">
                 <img
-                  src="assets/img/ponpes.png"
+                  src="assets/img/ponpes.webp"
                   alt="Logo Pondok Pesantren Sirojan Muniro As-Salam"
-                  class="me-3"
+                  class="me-1"
                   decoding="async"
                 />
                 <div class="brand-text">
@@ -320,20 +320,16 @@
               <div class="visual-grid">
                 <div class="main-visual">
                   <img
-                    src="assets/img/education/students-7.webp"
+                    src="assets/img/education/program1.webp"
                     alt="Campus Life"
                     class="img-fluid"
                   />
-                  <div class="overlay-badge">
-                    <i class="bi bi-heart-fill"></i>
-                    <span>Campus Community</span>
-                  </div>
                 </div>
 
                 <div class="secondary-visuals">
                   <div class="small-visual">
                     <img
-                      src="assets/img/education/activities-8.webp"
+                      src="assets/img/education/program2.webp"
                       alt="Student Activities"
                       class="img-fluid"
                     />
@@ -344,7 +340,7 @@
 
                   <div class="small-visual">
                     <img
-                      src="assets/img/education/activities-5.webp"
+                      src="assets/img/education/program3.webp"
                       alt="Academic Excellence"
                       class="img-fluid"
                     />
@@ -760,131 +756,76 @@
       <div class="container">
         <div class="footer-main">
           <div class="row align-items-start">
-            <div class="col-lg-5">
-              <div class="brand-section">
-                <a
-                  href="index.html"
-                  class="logo d-flex align-items-center mb-4"
+            <div
+              class="col-lg-5 d-flex flex-column mx-auto text-center align-items-center"
+            >
+              <div class="mb-3">
+                <img
+                  src="assets/img/ponpes.png"
+                  alt="Logo Pondok Pesantren Sirojan Muniro As-Salam"
+                  style="height: 120px"
+                  class="mb-3"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h6 class="fw-bold mb-0 text-uppercase">
+                  Pondok Pesantren<br />Sirojan Muniro As-Salam
+                </h6>
+                <div
+                  class="header-socials-wrapper d-flex justify-content-center mt-3"
                 >
-                  <span class="sitename">MySchool</span>
-                </a>
-                <p class="brand-description">
-                  Crafting exceptional digital experiences through thoughtful
-                  design and innovative solutions that elevate your brand
-                  presence.
-                </p>
-
-                <div class="contact-info mt-5">
-                  <div class="contact-item">
-                    <i class="bi bi-geo-alt"></i>
-                    <span
-                      >123 Creative Boulevard, Design District, NY 10012</span
+                  <div class="header-socials">
+                    <a
+                      class="instagram"
+                      href="https://www.instagram.com/sirojanmuniro_assalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                      aria-label="Instagram"
                     >
-                  </div>
-                  <div class="contact-item">
-                    <i class="bi bi-telephone"></i>
-                    <span>+1 (555) 987-6543</span>
-                  </div>
-                  <div class="contact-item">
-                    <i class="bi bi-envelope"></i>
-                    <span>hello@designstudio.com</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-7">
-              <div class="footer-nav-wrapper">
-                <div class="row">
-                  <div class="col-6 col-lg-3">
-                    <div class="nav-column">
-                      <h6>Studio</h6>
-                      <nav class="footer-nav">
-                        <a href="#">Our Story</a>
-                        <a href="#">Design Process</a>
-                        <a href="#">Portfolio</a>
-                        <a href="#">Case Studies</a>
-                        <a href="#">Awards</a>
-                      </nav>
-                    </div>
-                  </div>
-
-                  <div class="col-6 col-lg-3">
-                    <div class="nav-column">
-                      <h6>Services</h6>
-                      <nav class="footer-nav">
-                        <a href="#">Brand Identity</a>
-                        <a href="#">Web Design</a>
-                        <a href="#">Mobile Apps</a>
-                        <a href="#">Digital Strategy</a>
-                        <a href="#">Consultation</a>
-                      </nav>
-                    </div>
-                  </div>
-
-                  <div class="col-6 col-lg-3">
-                    <div class="nav-column">
-                      <h6>Resources</h6>
-                      <nav class="footer-nav">
-                        <a href="#">Design Blog</a>
-                        <a href="#">Style Guide</a>
-                        <a href="#">Free Assets</a>
-                        <a href="#">Tutorials</a>
-                        <a href="#">Inspiration</a>
-                      </nav>
-                    </div>
-                  </div>
-
-                  <div class="col-6 col-lg-3">
-                    <div class="nav-column">
-                      <h6>Connect</h6>
-                      <nav class="footer-nav">
-                        <a href="#">Start Project</a>
-                        <a href="#">Schedule Call</a>
-                        <a href="#">Join Newsletter</a>
-                        <a href="#">Follow Updates</a>
-                        <a href="#">Partnership</a>
-                      </nav>
-                    </div>
+                      <i class="bi bi-instagram"></i>
+                    </a>
+                    <a
+                      class="facebook"
+                      href="https://www.facebook.com/Sirojanmuniroassalam"
+                      aria-label="Facebook"
+                    >
+                      <i class="bi bi-facebook"></i>
+                    </a>
+                    <a class="tiktok" href="#" aria-label="TikTok">
+                      <i class="bi bi-tiktok"></i>
+                    </a>
+                    <a
+                      class="youtube"
+                      href="https://www.youtube.com/channel/UChBvBOlAoq2YFPdHjWnSjNA"
+                      aria-label="YouTube"
+                    >
+                      <i class="bi bi-youtube"></i>
+                    </a>
+                    <a
+                      class="whatsapp"
+                      href="https://wa.me/6281329039527"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="WhatsApp"
+                    >
+                      <i class="bi bi-whatsapp"></i>
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="footer-social">
-          <div class="row align-items-center">
-            <div class="col-lg-6">
-              <div class="newsletter-section">
-                <h5>Stay Inspired</h5>
-                <p>
-                  Subscribe to receive design insights and creative inspiration
-                  delivered monthly.
-                </p>
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="social-section">
-                <div class="social-links">
-                  <a href="#" aria-label="Dribbble" class="social-link">
-                    <i class="bi bi-dribbble"></i>
-                    <span>Dribbble</span>
-                  </a>
-                  <a href="#" aria-label="Behance" class="social-link">
-                    <i class="bi bi-behance"></i>
-                    <span>Behance</span>
-                  </a>
-                  <a href="#" aria-label="Instagram" class="social-link">
-                    <i class="bi bi-instagram"></i>
-                    <span>Instagram</span>
-                  </a>
-                  <a href="#" aria-label="LinkedIn" class="social-link">
-                    <i class="bi bi-linkedin"></i>
-                    <span>LinkedIn</span>
-                  </a>
-                </div>
+            <div class="col-lg-7 d-flex">
+              <div
+                class="map-container w-100"
+                style="min-height: 240px; border-radius: 12px; overflow: hidden"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d395.06453246942604!2d112.681!3d-8.0725068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd627bef4d003e5%3A0xdd0f4efe70debf25!2sPondok+Pesantren+Sirojan+Muniro+As-Salam!5e0!3m2!1sid!2sid!4v1699999999999"
+                  style="width: 100%; height: 100%; border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Lokasi Pondok Pesantren Sirojan Muniro As-Salam"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -936,11 +877,12 @@
     <!-- Preloader -->
     <div id="preloader"></div>
 
-    <!-- Vendor JS Files (CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/purecounterjs@1.5.0/dist/purecounter_vanilla.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>

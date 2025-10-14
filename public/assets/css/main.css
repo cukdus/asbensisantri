@@ -96,6 +96,11 @@ h6 {
   font-family: var(--heading-font);
 }
 
+h2,
+h3 {
+  color: var(--accent-color);
+}
+
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
@@ -168,6 +173,7 @@ h6 {
 
 .header-bottom {
   padding: 5px 0;
+  background: #107c38;
 }
 
 .header-top {
@@ -267,7 +273,7 @@ h6 {
 
 .header-brand h2,
 .header-brand h4 {
-  color: var(--heading-color);
+  color: var(--contrast-color);
   margin: 0;
 }
 
@@ -678,12 +684,14 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 .footer-16 {
-  background: var(--background-color);
-  color: var(--default-color);
+  background: #16a34a;
+  color: var(--contrast-color);
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
   font-size: 15px;
   padding: 100px 0 0;
   border-top: 1px solid
-    color-mix(in srgb, var(--default-color), transparent 92%);
+    color-mix(in srgb, var(--contrast-color), transparent 80%);
 }
 
 .footer-16 .footer-main {
@@ -856,6 +864,7 @@ h6 {
 
 .footer-16 .footer-bottom {
   padding: 30px 0;
+  background: #107c38;
 }
 
 .footer-16 .footer-bottom .copyright p {
@@ -1125,6 +1134,7 @@ section,
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
+  color: var(--accent-color);
 }
 
 .section-title h2:before {
@@ -1629,7 +1639,7 @@ section,
   font-size: 2.5rem;
   font-weight: 300;
   margin-bottom: 24px;
-  color: var(--heading-color);
+  color: var(--accent-color);
   line-height: 1.2;
 }
 
@@ -2049,7 +2059,7 @@ section,
   font-weight: 300;
   line-height: 1.3;
   margin-bottom: 2rem;
-  color: var(--heading-color);
+  color: var(--accent-color);
 }
 
 @media (max-width: 768px) {
@@ -2508,7 +2518,7 @@ section,
   font-weight: 300;
   line-height: 1.2;
   margin-bottom: 24px;
-  color: var(--heading-color);
+  color: var(--accent-color);
 }
 
 @media (max-width: 768px) {
@@ -2931,11 +2941,7 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.45),
-    rgba(0, 0, 0, 0.05)
-  );
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.05));
   color: rgba(255, 255, 255, 0.9);
   font-size: 3rem;
   transition: background 0.3s ease, color 0.3s ease;
@@ -3961,7 +3967,7 @@ section,
   font-weight: 300;
   line-height: 1.3;
   margin-bottom: 1.5rem;
-  color: var(--heading-color);
+  color: var(--accent-color);
 }
 
 @media (max-width: 768px) {
@@ -5200,6 +5206,7 @@ section,
   font-weight: 300;
   line-height: 1.2;
   margin-bottom: 32px;
+  color: var(--accent-color);
 }
 
 @media (max-width: 768px) {
@@ -5530,6 +5537,7 @@ section,
   font-weight: 300;
   margin-bottom: 0.5rem;
   line-height: 1.2;
+  color: var(--accent-color);
 }
 
 .faculty--staff .featured-faculty .featured-content .title {
@@ -5868,7 +5876,7 @@ section,
 .campus-facilities .facility-categories .categories-header h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 300;
-  color: var(--heading-color);
+  color: var(--accent-color);
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
 }
@@ -6122,7 +6130,7 @@ section,
 .campus-facilities .virtual-tour-section .tour-content h2 {
   font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   font-weight: 400;
-  color: var(--heading-color);
+  color: var(--accent-color);
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
 }
@@ -6233,7 +6241,7 @@ section,
 .campus-facilities .campus-gallery .gallery-header h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 300;
-  color: var(--heading-color);
+  color: var(--accent-color);
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
 }
@@ -6369,7 +6377,7 @@ section,
 .campus-facilities .campus-map-section .map-header h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 300;
-  color: var(--heading-color);
+  color: var(--accent-color);
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
 }
@@ -7019,7 +7027,7 @@ section,
 .blog-details .content h2 {
   font-size: 1.8rem;
   margin: 2.5rem 0 1rem;
-  color: var(--heading-color);
+  color: var(--accent-color);
 }
 
 .blog-details .content p {
