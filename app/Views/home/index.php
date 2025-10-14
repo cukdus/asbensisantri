@@ -863,7 +863,7 @@
     ></a>
     <div id="preloader"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/bootstrapmade/php-email-form/validate.js"></script>
+    <!-- validate.js dihapus dari homepage untuk menghindari ERR_BLOCKED_BY_ORB; muat hanya di halaman yang butuh form -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.5.0/dist/purecounter_vanilla.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
