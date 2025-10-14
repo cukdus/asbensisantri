@@ -235,7 +235,7 @@ h3 {
 
 .header-socials a {
   color: var(--default-color);
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1;
   transition: color 0.3s ease;
   padding: 0 10px;
@@ -2941,7 +2941,11 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.05));
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.05)
+  );
   color: rgba(255, 255, 255, 0.9);
   font-size: 3rem;
   transition: background 0.3s ease, color 0.3s ease;
