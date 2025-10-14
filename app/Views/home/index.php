@@ -1,150 +1,104 @@
 <!DOCTYPE html>
-<html lang="id" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>
-      <?= $title ?? 'Sistem Absensi QR Code' ?>
-    </title>
-    <meta
-      name="description"
-      content="Pondok Pesantren Sirojan Muniro As-Salam menawarkan pendidikan Islam terpadu, program unggulan, dan pembinaan santri untuk membentuk generasi Qur'ani berakhlak mulia."
-    />
-    <meta
-      name="keywords"
-      content="Pondok Pesantren Sirojan Muniro As-Salam, pesantren, pendidikan Islam, program unggulan pesantren, kehidupan santri"
-    />
-    <meta name="author" content="Pondok Pesantren Sirojan Muniro As-Salam" />
-    <meta name="language" content="id_ID" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://sirojanmuniroassalam.com/" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Pondok Pesantren Sirojan Muniro As-Salam"
-    />
-    <meta
-      property="og:description"
-      content="Kenali program unggulan, kehidupan santri, dan layanan Pondok Pesantren Sirojan Muniro As-Salam yang berkomitmen mencetak generasi Qur'ani."
-    />
-    <meta property="og:url" content="https://sirojanmuniroassalam.com/" />
-    <meta
-      property="og:site_name"
-      content="Pondok Pesantren Sirojan Muniro As-Salam"
-    />
-    <meta property="og:locale" content="id_ID" />
-    <meta
-      property="og:image"
-      content="https://sirojanmuniroassalam.com/assets-web/img/education/program1.webp"
-    />
-    <meta
-      property="og:image:alt"
-      content="Santri Pondok Pesantren Sirojan Muniro As-Salam"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Pondok Pesantren Sirojan Muniro As-Salam"
-    />
-    <meta
-      name="twitter:description"
-      content="Pelajari program pendidikan Islam terpadu dan kehidupan santri Pondok Pesantren Sirojan Muniro As-Salam."
-    />
-    <meta
-      name="twitter:image"
-      content="https://sirojanmuniroassalam.com/assets-web/img/education/program1.webp"
-    />
-    <meta name="theme-color" content="#005e01" />
-    <link href="<?= base_url('assets-web/img/favicon.png') ?>" rel="icon" />
-    <link href="<?= base_url('assets-web/img/apple-touch-icon.png') ?>" rel="apple-touch-icon" />
+    <title>Index - MySchool Bootstrap Template</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Vendor CSS Files (CDN) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css" rel="stylesheet" />
-    <link href="<?= base_url('assets-web/css/main.css') ?>" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
     />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "EducationalOrganization",
-            "name": "Pondok Pesantren Sirojan Muniro As-Salam",
-            "alternateName": "Pondok Pesantren Sirojan Muniro",
-            "url": "https://sirojanmuniroassalam.com/",
-            "logo": "https://sirojanmuniroassalam.com/assets-web/img/ponpes.png",
-            "description": "Pondok Pesantren Sirojan Muniro As-Salam menyediakan pendidikan Islam terpadu dengan program unggulan tahfidz, kajian kitab, dan pembinaan karakter santri.",
-            "sameAs": [
-              "https://www.facebook.com/Sirojanmuniroassalam",
-              "https://www.youtube.com/channel/UChBvBOlAoq2YFPdHjWnSjNA",
-              "https://www.instagram.com/sirojanmuniro_assalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-              "https://wa.me/6281329039527"
-            ],
-            "address": {
-              "@type": "PostalAddress",
-              "addressCountry": "ID"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "customer service",
-              "telephone": "+62-813-2903-9527",
-              "email": "sirojanmuniroassalam@gmail.com"
-            }
-          },
-          {
-            "@type": "WebSite",
-            "name": "Pondok Pesantren Sirojan Muniro As-Salam",
-            "url": "https://sirojanmuniroassalam.com/",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://sirojanmuniroassalam.com/?s={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
-          }
-        ]
-      }
-    </script>
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: MySchool
+  * Template URL: https://bootstrapmade.com/myschool-bootstrap-school-template/
+  * Updated: Jul 28 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
   </head>
 
-  <body class="index-page" id="home-page">
-    <header id="header" class="header">
+  <body class="index-page">
+    <header id="header" class="header sticky-top">
       <div class="header-top">
-        <div class="container">
+        <div class="container-fluid container-xl">
           <div class="row align-items-center g-3">
-            <div class="col-lg-6">
+            <div class="col-12 col-lg-6">
               <div class="header-brand d-flex align-items-center">
                 <img
-                  src="<?= base_url('assets-web/img/ponpes.png') ?>"
+                  src="assets/img/ponpes.png"
                   alt="Logo Pondok Pesantren Sirojan Muniro As-Salam"
                   class="me-3"
                   decoding="async"
                 />
                 <div class="brand-text">
-                  <h2 class="mt-2 mb-1 text-white text-uppercase">
-                    Pondok Pesantren
-                  </h2>
-                  <strong>
-                    <h4 class="text-uppercase">Sirojan Muniro As-Salam</h4>
-                  </strong>
+                  <h2 class="mb-1 text-white text-uppercase">Pondok Pesantren</h2>
+                  <h4 class="text-uppercase mb-0">Sirojan Muniro As-Salam</h4>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div
-                class="header-top-meta d-flex flex-wrap align-items-center justify-content-lg-end justify-content-center gap-4"
-              >
-                <div class="social-links d-flex">
+            <div class="col-12 col-lg-6">
+              <div class="header-socials-wrapper d-flex justify-content-lg-end justify-content-center">
+                <div class="header-socials">
                   <a
-                    class="icon-link whatsapp"
+                    class="instagram"
+                    href="https://www.instagram.com/sirojanmuniro_assalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    aria-label="Instagram"
+                  >
+                    <i class="bi bi-instagram"></i>
+                  </a>
+                  <a
+                    class="facebook"
+                    href="https://www.facebook.com/Sirojanmuniroassalam"
+                    aria-label="Facebook"
+                  >
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                  <a class="tiktok" href="#" aria-label="TikTok">
+                    <i class="bi bi-tiktok"></i>
+                  </a>
+                  <a
+                    class="youtube"
+                    href="https://www.youtube.com/channel/UChBvBOlAoq2YFPdHjWnSjNA"
+                    aria-label="YouTube"
+                  >
+                    <i class="bi bi-youtube"></i>
+                  </a>
+                  <a
+                    class="whatsapp"
                     href="https://wa.me/6281329039527"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -152,52 +106,33 @@
                   >
                     <i class="bi bi-whatsapp"></i>
                   </a>
-                  <a
-                    class="icon-link email"
-                    href="mailto:sirojanmuniroassalam@gmail.com"
-                    aria-label="Email"
-                  >
-                    <i class="bi bi-envelope"></i>
-                  </a>
-                  <a
-                    class="icon-link youtube"
-                    href="https://www.youtube.com/channel/UChBvBOlAoq2YFPdHjWnSjNA"
-                    aria-label="YouTube"
-                    ><i class="bi bi-youtube"></i
-                  ></a>
-                  <a
-                    class="icon-link facebook"
-                    href="https://www.facebook.com/Sirojanmuniroassalam"
-                    aria-label="Facebook"
-                    ><i class="bi bi-facebook"></i
-                  ></a>
-                  <a
-                    class="icon-link instagram"
-                    href="https://www.instagram.com/sirojanmuniro_assalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                    aria-label="Instagram"
-                    ><i class="bi bi-instagram"></i
-                  ></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="header-nav">
-        <div class="container d-flex align-items-center justify-content-center">
-          <nav id="navmenu" class="navmenu" aria-label="Navigasi utama">
+      <div class="header-bottom">
+        <div class="container-fluid container-xl position-relative">
+          <nav
+            id="navmenu"
+            class="navmenu d-flex align-items-center justify-content-between justify-content-xl-center"
+          >
             <ul>
-              <li>
-                <a href="index.html" class="active" aria-current="page">Home</a>
-              </li>
+              <li><a href="index.html" class="active">Home</a></li>
               <li><a href="about.html">About</a></li>
-              <li><a href="ngaji.html">Playlist</a></li>
-              <li><a href="online.html">Al-Qur'an</a></li>
+              <li><a href="nilai.html">Nilai</a></li>
+              <li><a href="quran.html">Al-Qur'an</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button
+              type="button"
+              class="mobile-nav-trigger d-xl-none ms-auto d-flex align-items-center"
+            >
+              <span class="mobile-nav-label me-2">Menu</span>
+              <i class="mobile-nav-toggle bi bi-list" aria-hidden="true"></i>
+            </button>
           </nav>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </div>
       </div>
     </header>
@@ -207,666 +142,807 @@
       target="_blank"
       rel="noopener noreferrer"
       class="wa-float"
+      aria-label="Hubungi kami via WhatsApp"
     >
       <i class="fab fa-whatsapp"></i>
     </a>
 
-    <main id="main-content" class="main" role="main">
-      <article
-        class="page-article"
-        itemscope
-        itemtype="https://schema.org/WebPage"
-      >
-        <div class="page-content" itemprop="mainContentOfPage">
-          <section
-            id="hero"
-            class="hero section"
-            aria-labelledby="hero-heading"
-          >
-            <div class="hero-container">
-              <div class="hero-content">
-                <h1 class="hero-title" id="hero-heading" itemprop="headline">
-                  Pondok Pesantren Sirojan Muniro As-Salam
-                </h1>
-                <p itemprop="description">
-                  Mencetak generasi Qur'ani, berakhlak mulia, dan siap mengabdi
-                  untuk umat.
+    <main class="main">
+      <!-- Hero Section -->
+      <section id="hero" class="hero section" aria-labelledby="hero-heading">
+        <div class="hero-container">
+          <div class="hero-content">
+            <h1 class="hero-title" id="hero-heading" itemprop="headline">
+              <span>Pondok Pesantren</span>
+              <span class="hero-title-highlight">Sirojan Muniro As-Salam</span>
+            </h1>
+            <p itemprop="description">
+              Mencetak generasi Qur'ani, berakhlak mulia, dan siap mengabdi
+              untuk umat.
+            </p>
+          </div>
+        </div>
+        <div class="highlights-container container mb-5">
+          <div class="row gy-4">
+            <div class="col-md-4">
+              <div class="highlight-item">
+                <div class="icon">
+                  <i class="bi bi-mortarboard-fill"></i>
+                </div>
+                <h3>98% Lulusan Berhasil</h3>
+                <p>
+                  Santri kami berhasil melanjutkan ke perguruan tinggi dan
+                  berkarir dengan bekal ilmu agama yang kuat.
                 </p>
               </div>
             </div>
-            <div class="highlights-container container mb-5">
-              <div class="row gy-4">
-                <div class="col-md-4">
-                  <div class="highlight-item">
-                    <div class="icon">
-                      <i class="bi bi-mortarboard-fill"></i>
+            <div class="col-md-4">
+              <div class="highlight-item">
+                <div class="icon">
+                  <i class="bi bi-people-fill"></i>
+                </div>
+                <h3>Rasio Santri-Ustadz 16:1</h3>
+                <p>
+                  Pembelajaran personal dengan bimbingan intensif dari para
+                  ustadz berpengalaman.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="highlight-item">
+                <div class="icon">
+                  <i class="bi bi-globe-americas"></i>
+                </div>
+                <h3>Komunitas Alumni Global</h3>
+                <p>
+                  Jaringan alumni yang tersebar di berbagai negara dan berperan
+                  aktif di masyarakat.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Hero Section -->
+
+      <!-- About Section -->
+      <section id="about" class="about section">
+        <div class="container">
+          <div class="row gy-5">
+            <div class="col-lg-6">
+              <div class="content">
+                <h3>Empowering Minds, Shaping Futures</h3>
+                <p>
+                  For over three decades, we have been committed to providing
+                  exceptional education that prepares students for success in an
+                  ever-changing world. Our innovative approach combines
+                  traditional academic excellence with cutting-edge technology
+                  and personalized learning experiences.
+                </p>
+
+                <div class="stats-row">
+                  <div class="stat-item">
+                    <div class="number">15,000+</div>
+                    <div class="label">Students Enrolled</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="number">98%</div>
+                    <div class="label">Graduation Rate</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="number">250+</div>
+                    <div class="label">Expert Faculty</div>
+                  </div>
+                </div>
+
+                <div class="mission-statement">
+                  <p>
+                    <em
+                      >"Our mission is to foster intellectual curiosity,
+                      critical thinking, and lifelong learning while nurturing
+                      compassionate leaders who will positively impact their
+                      communities and the world."</em
+                    >
+                  </p>
+                </div>
+
+                <a href="about.html" class="btn-learn-more">
+                  Learn More About Us
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="image-wrapper">
+                <img
+                  src="assets/img/education/about.webp"
+                  alt="Campus Overview"
+                  class="img-fluid"
+                />
+                <div class="experience-badge">
+                  <div class="years">32+</div>
+                  <div class="text">Years of Excellence</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /About Section -->
+
+      <!-- Students Life Block Section -->
+      <section id="students-life-block" class="students-life-block section">
+        <!-- Section Title -->
+        <div class="container section-title">
+          <h2>Students Life</h2>
+          <p>
+            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
+            consectetur velit
+          </p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <div class="content-wrapper">
+                <div class="section-tag">Student Life</div>
+                <h2>
+                  Excepteur sint occaecat cupidatat non proident sunt in culpa
+                </h2>
+                <p class="description">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam eaque
+                  ipsa.
+                </p>
+
+                <div class="stats-row">
+                  <div class="stat-item">
+                    <span class="stat-number">85+</span>
+                    <span class="stat-label">Student Organizations</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Annual Events</span>
+                  </div>
+                </div>
+
+                <div class="action-links">
+                  <a href="student-life.html" class="primary-link"
+                    >Explore Student Life</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="visual-grid">
+                <div class="main-visual">
+                  <img
+                    src="assets/img/education/students-7.webp"
+                    alt="Campus Life"
+                    class="img-fluid"
+                  />
+                  <div class="overlay-badge">
+                    <i class="bi bi-heart-fill"></i>
+                    <span>Campus Community</span>
+                  </div>
+                </div>
+
+                <div class="secondary-visuals">
+                  <div class="small-visual">
+                    <img
+                      src="assets/img/education/activities-8.webp"
+                      alt="Student Activities"
+                      class="img-fluid"
+                    />
+                    <div class="visual-caption">
+                      <span>Student Activities</span>
                     </div>
-                    <h3>98% Lulusan Berhasil</h3>
+                  </div>
+
+                  <div class="small-visual">
+                    <img
+                      src="assets/img/education/activities-5.webp"
+                      alt="Academic Excellence"
+                      class="img-fluid"
+                    />
+                    <div class="visual-caption">
+                      <span>Academic Excellence</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlights-section">
+            <div class="row g-4">
+              <div class="col-lg-4">
+                <div class="highlight-card">
+                  <div class="highlight-image">
+                    <img
+                      src="assets/img/education/activities-7.webp"
+                      alt="Leadership Programs"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="highlight-content">
+                    <h5>Leadership Development</h5>
                     <p>
-                      Santri kami berhasil melanjutkan ke perguruan tinggi dan
-                      berkarir dengan bekal ilmu agama yang kuat.
+                      Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+                      aut odit aut fugit sed
                     </p>
                   </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="highlight-item">
+              </div>
+
+              <div class="col-lg-4">
+                <div class="highlight-card">
+                  <div class="highlight-image">
+                    <img
+                      src="assets/img/education/activities-9.webp"
+                      alt="Cultural Events"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="highlight-content">
+                    <h5>Cultural Diversity</h5>
+                    <p>
+                      Ut enim ad minima veniam quis nostrum exercitationem ullam
+                      corporis suscipit
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="highlight-card">
+                  <div class="highlight-image">
+                    <img
+                      src="assets/img/education/activities-3.webp"
+                      alt="Innovation Hub"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="highlight-content">
+                    <h5>Innovation Hub</h5>
+                    <p>
+                      Quis autem vel eum iure reprehenderit qui in ea voluptate
+                      velit esse quam
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Students Life Block Section -->
+
+      
+
+      <!-- Call To Action Section -->
+      <section
+        id="call-to-action"
+        class="call-to-action section light-background"
+      >
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-5">
+              <div class="content-wrapper">
+                <div class="badge">
+                  <i class="bi bi-mortarboard-fill"></i>
+                  <span>Premium Education</span>
+                </div>
+
+                <h2>
+                  Elevate Your Learning Journey with World-Class Education
+                </h2>
+
+                <p>
+                  Discover unlimited potential through our carefully curated
+                  learning experiences designed by industry leaders and
+                  educational experts.
+                </p>
+
+                <div class="highlight-stats">
+                  <div class="stat-group">
+                    <div class="stat-item">
+                      <span
+                        class="number purecounter"
+                        data-purecounter-start="0"
+                        data-purecounter-end="25000"
+                        data-purecounter-duration="2"
+                        >0</span
+                      >
+                      <span class="label">Active Learners</span>
+                    </div>
+                    <div class="stat-item">
+                      <span
+                        class="number purecounter"
+                        data-purecounter-start="0"
+                        data-purecounter-end="200"
+                        data-purecounter-duration="2"
+                        >0</span
+                      >
+                      <span class="label">Expert Courses</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="action-buttons">
+                  <a href="programs.html" class="btn-primary"
+                    >Explore Programs</a
+                  >
+                  <a href="trial.html" class="btn-secondary">
+                    <span>Start Free Trial</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="visual-section">
+                <div class="main-image-container">
+                  <img
+                    src="assets/img/education/students-1.webp"
+                    alt="Students Learning"
+                    class="main-image"
+                  />
+                  <div class="overlay-gradient"></div>
+                </div>
+
+                <div class="feature-cards">
+                  <div class="feature-card achievement">
+                    <div class="icon">
+                      <i class="bi bi-trophy-fill"></i>
+                    </div>
+                    <div class="content">
+                      <h4>Certified Excellence</h4>
+                      <p>Industry-recognized certificates</p>
+                    </div>
+                  </div>
+
+                  <div class="feature-card flexibility">
+                    <div class="icon">
+                      <i class="bi bi-clock-fill"></i>
+                    </div>
+                    <div class="content">
+                      <h4>Learn at Your Pace</h4>
+                      <p>24/7 access to all materials</p>
+                    </div>
+                  </div>
+
+                  <div class="feature-card community">
                     <div class="icon">
                       <i class="bi bi-people-fill"></i>
                     </div>
-                    <h3>Rasio Santri-Ustadz 16:1</h3>
-                    <p>
-                      Pembelajaran personal dengan bimbingan intensif dari para
-                      ustadz berpengalaman.
-                    </p>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="highlight-item">
-                    <div class="icon">
-                      <i class="bi bi-globe-americas"></i>
-                    </div>
-                    <h3>Komunitas Alumni Global</h3>
-                    <p>
-                      Jaringan alumni yang tersebar di berbagai negara dan
-                      berperan aktif di masyarakat.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section
-            id="about"
-            class="about section section-spacing"
-            aria-labelledby="about-heading"
-          >
-            <div class="container">
-              <div class="row gy-5">
-                <div class="col-lg-6">
-                  <div class="content">
-                    <h2 id="about-heading">
-                      Memberdayakan Jiwa, Membentuk Masa Depan Islami
-                    </h2>
-                    <p>
-                      Selama lebih dari tiga dekade, kami berkomitmen
-                      menyediakan pendidikan Islam berkualitas yang
-                      mempersiapkan santri untuk sukses di dunia yang terus
-                      berubah. Pendekatan inovatif kami menggabungkan keunggulan
-                      akademik tradisional dengan teknologi modern dan
-                      pengalaman pembelajaran yang personal.
-                    </p>
-
-                    <div class="mission-statement">
-                      <p>
-                        <em
-                          >"Misi kami adalah menumbuhkan rasa ingin tahu
-                          intelektual, pemikiran kritis, dan pembelajaran
-                          sepanjang hayat sambil memupuk pemimpin yang penuh
-                          kasih sayang yang akan berdampak positif pada
-                          komunitas dan umat Islam di seluruh dunia."</em
-                        >
-                      </p>
-                    </div>
-
-                    <a href="about.html" class="btn-learn-more">
-                      Pelajari Lebih Lanjut
-                      <i class="bi bi-arrow-right"></i>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-lg-6">
-                  <div class="image-wrapper">
-                    <img
-                      src="assets-web/img/education/about.webp"
-                      alt="Fasad Pondok Pesantren Sirojan Muniro As-Salam"
-                      class="img-fluid"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section
-            id="featured-programs"
-            class="featured-programs section section-spacing"
-            aria-labelledby="program-unggulan-heading"
-          >
-            <div class="container section-title">
-              <h2 id="program-unggulan-heading">Program Unggulan</h2>
-              <p>
-                Program-program pendidikan yang dirancang khusus untuk membentuk
-                santri yang beriman, bertakwa, dan berilmu
-              </p>
-            </div>
-
-            <div class="container">
-              <div class="featured-programs-wrapper">
-                <div class="programs-overview">
-                  <div class="overview-content">
-                    <h2>Keunggulan Pendidikan Islam</h2>
-                    <p>
-                      Program tahfidz Al-Qur'an, kajian kitab kuning, bahasa
-                      Arab dan Inggris, serta keterampilan teknologi modern yang
-                      mempersiapkan santri untuk menghadapi tantangan zaman
-                      dengan tetap berpegang teguh pada nilai-nilai Islam.
-                    </p>
-                    <div class="overview-stats"></div>
-                  </div>
-                  <div class="overview-image">
-                    <img
-                      src="assets-web/img/education/program1.webp"
-                      alt="Kegiatan belajar santri"
-                      class="img-fluid"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section
-            id="students-life-block"
-            class="students-life-block section section-spacing"
-            aria-labelledby="kehidupan-santri-heading"
-          >
-            <div class="container section-title">
-              <h2 id="kehidupan-santri-heading">Kehidupan Santri</h2>
-              <p>
-                Kehidupan yang penuh berkah dengan keseimbangan antara ibadah,
-                belajar, dan aktivitas positif lainnya
-              </p>
-            </div>
-
-            <div class="container">
-              <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                  <div class="content-wrapper">
-                    <div class="section-tag">Kehidupan Santri</div>
-                    <h2>
-                      Lingkungan Islami yang Mendukung Pertumbuhan Rohani dan
-                      Jasmani
-                    </h2>
-                    <p class="description">
-                      Kehidupan di pondok pesantren memberikan pengalaman yang
-                      holistik dengan jadwal yang terstruktur, mulai dari shalat
-                      berjamaah, kajian kitab, olahraga, hingga kegiatan
-                      ekstrakurikuler yang menumbuhkan bakat dan minat santri.
-                    </p>
-
-                    <div class="action-links"></div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6">
-                  <div class="visual-grid">
-                    <div class="main-visual">
-                      <img
-                        src="assets-web/img/education/program1.webp"
-                        alt="Suasana kegiatan santri"
-                        class="img-fluid"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-
-                    <div class="secondary-visuals">
-                      <div class="small-visual">
-                        <img
-                          src="assets-web/img/education/program2.webp"
-                          alt="Aktivitas santri di pondok"
-                          class="img-fluid"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div class="visual-caption">
-                          <span>Kegiatan Santri</span>
-                        </div>
-                      </div>
-
-                      <div class="small-visual">
-                        <img
-                          src="assets-web/img/education/program3.webp"
-                          alt="Pembelajaran akademik santri"
-                          class="img-fluid"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div class="visual-caption">
-                          <span>Keunggulan Akademik</span>
-                        </div>
-                      </div>
+                    <div class="content">
+                      <h4>Global Community</h4>
+                      <p>Connect with learners worldwide</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-
-          <section
-            class="kegiatan-mengaji-section section-spacing"
-            aria-labelledby="kegiatan-mengaji-heading"
-          >
-            <div class="container">
-              <div class="section-title">
-                <h2 id="kegiatan-mengaji-heading">Kegiatan Mengaji Santri</h2>
-                <p>Membangun generasi Qur'ani yang berakhlak mulia</p>
-              </div>
-
-              <div class="row g-4">
-                <div class="col-md-4">
-                  <div class="activity-card">
-                    <div class="card-image-wrapper">
-                      <img
-                        src="assets-web/img/education/kegiatan2.jpg"
-                        alt="Santri belajar membaca Iqra"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <div class="card-overlay"></div>
-                      <div class="card-badge">Tingkat Pemula</div>
-                    </div>
-                    <div class="card-content text-center">
-                      <h5 class="card-title">Mengaji Iqra'</h5>
-                      <p class="card-text">
-                        Kegiatan pembelajaran dasar membaca huruf hijaiyah untuk
-                        santri pemula agar fasih membaca Al-Qur'an.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="activity-card">
-                    <div class="card-image-wrapper">
-                      <img
-                        src="assets-web/img/education/kegiatan1.jpg"
-                        alt="Santri memperdalam bacaan Al-Qur'an"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <div class="card-overlay"></div>
-                      <div class="card-badge">Tingkat Lanjut</div>
-                    </div>
-                    <div class="card-content text-center">
-                      <h5 class="card-title">Mengaji Al-Qur'an</h5>
-                      <p class="card-text">
-                        Santri memperdalam bacaan Al-Qur'an dengan tajwid yang
-                        benar dan memahami makna ayat-ayat suci.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="activity-card">
-                    <div class="card-image-wrapper">
-                      <img
-                        src="assets-web/img/education/ponpes (11).jpeg"
-                        alt="Kajian Islam bersama ustadz"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <div class="card-overlay"></div>
-                      <div class="card-badge">Kajian Rutin</div>
-                    </div>
-                    <div class="card-content text-center">
-                      <h5 class="card-title">Kajian Islam</h5>
-                      <p class="card-text">
-                        Kegiatan kajian rutin bersama ustadz dan santri untuk
-                        memperdalam pemahaman tentang akidah, fiqih, dan akhlak
-                        Islami.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section
-            id="subscribe-youtube"
-            class="subscribe-youtube section-spacing"
-            aria-labelledby="subscribe-heading"
-          >
-            <div class="container">
-              <div
-                class="subscribe-card text-center"
-                style="
-                  background: #16a34a;
-                  padding: 40px 20px;
-                  color: #fff;
-                  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-                  border-radius: 16px;
-                "
-              >
-                <div
-                  style="display: inline-block; transition: transform 0.3s ease"
-                  onmouseover="this.style.transform='scale(1.05)'"
-                  onmouseout="this.style.transform='scale(1)'"
-                >
-                  <img
-                    src="assets-web/img/pp2.jpg"
-                    alt="Foto profil kanal YouTube Pondok Pesantren Sirojan Muniro As-Salam"
-                    style="
-                      max-width: 160px;
-                      border-radius: 50%;
-                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-                      cursor: pointer;
-                    "
-                    onclick="window.location.href='ngaji.html'"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-
-                <h3
-                  id="subscribe-heading"
-                  class="mt-4"
-                  style="font-weight: 600; letter-spacing: 0.5px"
-                >
-                  Subscribe Our YouTube Channel
-                </h3>
-
-                <button
-                  onclick="window.location.href='ngaji.html'"
-                  type="button"
-                  style="
-                    margin-top: 10px;
-                    background-color: #ff0000;
-                    border: none;
-                    padding: 12px 28px;
-                    border-radius: 30px;
-                    color: #fff;
-                    font-size: 16px;
-                    font-weight: 600;
-                    cursor: pointer;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-                    transition: all 0.3s ease;
-                  "
-                >
-                  <i class="fab fa-youtube"></i> Subscribe
-                </button>
-              </div>
-            </div>
-          </section>
-          <section
-            id="sponsor"
-            class="sponsor section light-background"
-            aria-labelledby="sponsor-heading"
-          >
-            <div class="container section-title">
-              <h2 id="sponsor-heading">Didukung oleh:</h2>
-              <p>
-                Terima kasih kepada pihak yang telah mendukung Pondok Pesantren
-                Sirojan Muniro As-Salam
-              </p>
-            </div>
-
-            <div class="container">
-              <div class="sponsor-slider swiper init-swiper">
-                <script type="application/json" class="swiper-config">
-                  {
-                    "slidesPerView": 4,
-                    "spaceBetween": 30,
-                    "loop": true,
-                    "autoplay": {
-                      "delay": 2500
-                    },
-                    "breakpoints": {
-                      "320": {
-                        "slidesPerView": 2,
-                        "spaceBetween": 10
-                      },
-                      "768": {
-                        "slidesPerView": 3,
-                        "spaceBetween": 20
-                      },
-                      "1024": {
-                        "slidesPerView": 5,
-                        "spaceBetween": 30
-                      }
-                    },
-                    "navigation": {
-                      "nextEl": ".swiper-button-next",
-                      "prevEl": ".swiper-button-prev"
-                    }
-                  }
-                </script>
-
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <a
-                      href="https://azkaindiesatu.id/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="assets-web/img/sponsor/ais.webp"
-                        alt="PT. Azka Indie Satu"
-                        class="img-fluid sponsor-logo"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a
-                      href="https://eqiyu.id/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="assets-web/img/sponsor/eqiyu.webp"
-                        alt="EQIYU"
-                        class="img-fluid sponsor-logo"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a
-                      href="https://bekasbaru.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="assets-web/img/sponsor/bekasbaru.webp"
-                        alt="BekasBaru.com"
-                        class="img-fluid sponsor-logo"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a
-                      href="https://overhaul.id/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="assets-web/img/sponsor/overhaul.webp"
-                        alt="Overhaul"
-                        class="img-fluid sponsor-logo"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a
-                      href="https://mbowis.id/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="assets-web/img/sponsor/mbowis.webp"
-                        alt="Mbowis"
-                        class="img-fluid sponsor-logo"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a
-                      href="https://mlgcoffee.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="assets-web/img/sponsor/mlg.webp"
-                        alt="mlgcoffee"
-                        class="img-fluid sponsor-logo"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a
-                      href="https://mbowis.id/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="assets-web/img/sponsor/mbowis.webp"
-                        alt="Mbowis"
-                        class="img-fluid sponsor-logo"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a
-                      href="https://www.instagram.com/pressolve?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="assets-web/img/sponsor/pressolve.webp"
-                        alt="Pressolve"
-                        class="img-fluid sponsor-logo"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
-      </article>
-    </main>
+      </section>
+      <!-- /Call To Action Section -->
 
-    <footer id="footer" class="footer pt-5">
-      <div class="container">
-        <div
-          class="row g-4 g-lg-5 align-items-stretch justify-content-center text-center"
-        >
-          <div
-            class="col-lg-5 col-md-10 d-flex flex-column mx-auto text-center align-items-center"
-          >
-            <div class="mb-3">
-              <img
-                src="assets-web/img/ponpes.png"
-                alt="Logo Pondok Pesantren Sirojan Muniro As-Salam"
-                style="height: 120px"
-                class="mb-3"
-                loading="lazy"
-                decoding="async"
-              />
-              <h6 class="fw-bold mb-0 text-uppercase">
-                Pondok Pesantren<br />Sirojan Muniro As-Salam
-              </h6>
+
+
+      <!-- YouTube Channel Section -->
+      <section id="youtube-channel" class="events section">
+        <div class="container section-title">
+          <h2>YouTube Channel</h2>
+          <p>Simak empat kajian terbaru dari Ustadz Mbois langsung dari channel resminya.</p>
+        </div>
+
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="month">EP</span>
+                  <span class="day">42</span>
+                  <span class="year">Series</span>
+                </div>
+                <div class="event-content">
+                  <div class="video-thumb">
+                    <a
+                      href="https://www.youtube.com/watch?v=C7C_0dCnLMc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Tonton Eps 42"
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/C7C_0dCnLMc/hqdefault.jpg"
+                        alt="Eps 42 : Ngaji Quran Surat Al Baqarah 111 - 113 Tafsir Kitab Al Jalalain"
+                        class="img-fluid"
+                      />
+                      <span class="play-icon"><i class="bi bi-play-circle-fill"></i></span>
+                    </a>
+                  </div>
+                  
+                </div>
+              </div>
             </div>
-            <div class="social-links d-flex gap-2 justify-content-center">
-              <a
-                href="https://www.facebook.com/Sirojanmuniroassalam"
-                aria-label="Facebook Pondok Pesantren Sirojan Muniro As-Salam"
-                ><i class="bi bi-facebook" aria-hidden="true"></i
-              ></a>
-              <a
-                href="https://www.youtube.com/channel/UChBvBOlAoq2YFPdHjWnSjNA"
-                aria-label="YouTube Pondok Pesantren Sirojan Muniro As-Salam"
-                ><i class="bi bi-youtube" aria-hidden="true"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/sirojanmuniro_assalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                aria-label="Instagram Pondok Pesantren Sirojan Muniro As-Salam"
-                ><i class="bi bi-instagram" aria-hidden="true"></i
-              ></a>
+
+            <div class="col-lg-6">
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="month">EP</span>
+                  <span class="day">41</span>
+                  <span class="year">Series</span>
+                </div>
+                <div class="event-content">
+                  <div class="video-thumb">
+                    <a
+                      href="https://www.youtube.com/watch?v=BGWz-1DT4Ao"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Tonton Eps 41"
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/BGWz-1DT4Ao/hqdefault.jpg"
+                        alt="Eps 41 : Kajian Quran Surat Al Baqarah 109 - 110 Tafsir Kitab Jalalain"
+                        class="img-fluid"
+                      />
+                      <span class="play-icon"><i class="bi bi-play-circle-fill"></i></span>
+                    </a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="month">EP</span>
+                  <span class="day">40</span>
+                  <span class="year">Series</span>
+                </div>
+                <div class="event-content">
+                  <div class="video-thumb">
+                    <a
+                      href="https://www.youtube.com/watch?v=jPbJ6Trsf1g"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Tonton Eps 40"
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/jPbJ6Trsf1g/hqdefault.jpg"
+                        alt="Eps 40 : Kajian Quran Surat Al Baqarah Ayat 106 - 108 dari Tafsir Kitab Jalalain"
+                        class="img-fluid"
+                      />
+                      <span class="play-icon"><i class="bi bi-play-circle-fill"></i></span>
+                    </a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="month">EP</span>
+                  <span class="day">39</span>
+                  <span class="year">Series</span>
+                </div>
+                <div class="event-content">
+                  <div class="video-thumb">
+                    <a
+                      href="https://www.youtube.com/watch?v=qqVTw93OGnI"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Tonton Eps 39"
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/qqVTw93OGnI/hqdefault.jpg"
+                        alt="Eps 39 : Ngaji Surat Al Baqarah Ayat 104 - 105 Tafsir Kitab Al Jalalain"
+                        class="img-fluid"
+                      />
+                      <span class="play-icon"><i class="bi bi-play-circle-fill"></i></span>
+                    </a>
+                  </div>
+                  
+                </div>
+              </div>
             </div>
           </div>
 
-          <div
-            class="col-lg-5 col-md-10 d-flex flex-column mx-auto text-center align-items-center"
-          >
-            <div
-              class="map-container"
-              style="
-                width: 100%;
-                height: 100%;
-                min-height: 200px;
-                border-radius: 8px;
-                overflow: hidden;
-                flex: 1;
-              "
-            >
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d395.06453246942604!2d112.681!3d-8.0725068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd627bef4d003e5%3A0xdd0f4efe70debf25!2sPondok+Pesantren+Sirojan+Muniro+As-Salam!5e0!3m2!1sid!2sid!4v1699999999999"
-                style="width: 100%; height: 100%; border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                title="Lokasi Pondok Pesantren Sirojan Muniro As-Salam"
-              >
-              </iframe>
+          <div class="text-center mt-5">
+            <a
+              href="https://www.youtube.com/@ustadmbois"
+              class="btn-view-all"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Kunjungi Channel</a>
+          </div>
+        </div>
+      </section>
+      <!-- /YouTube Channel Section -->
+
+      <!-- Supported By Section -->
+      <section id="supported-by" class="supported-by section light-background">
+        <div class="container section-title">
+          <h2>Supported By</h2>
+          <p>Kolaborasi bersama mitra terbaik yang mendukung perjalanan kami.</p>
+        </div>
+
+        <div class="container">
+          <div class="partners-slider swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 2500
+                },
+                "slidesPerView": 2,
+                "spaceBetween": 20,
+                "breakpoints": {
+                  "768": {
+                    "slidesPerView": 3
+                  },
+                  "1200": {
+                    "slidesPerView": 5
+                  }
+                }
+              }
+            </script>
+
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="partner-card">
+                  <img src="assets/img/supported/ais.webp" alt="AIS" class="partner-logo" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="partner-card">
+                  <img src="assets/img/supported/atourwis.webp" alt="Atour Wisata" class="partner-logo" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="partner-card">
+                  <img src="assets/img/supported/bekasbaru.webp" alt="Bekas Baru" class="partner-logo" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="partner-card">
+                  <img src="assets/img/supported/eqiyu.webp" alt="Eqiyu" class="partner-logo" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="partner-card">
+                  <img src="assets/img/supported/mbowis.webp" alt="Mbowis" class="partner-logo" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="partner-card">
+                  <img src="assets/img/supported/mlg.webp" alt="MLG" class="partner-logo" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="partner-card">
+                  <img src="assets/img/supported/overhaul.webp" alt="Overhaul" class="partner-logo" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="partner-card">
+                  <img src="assets/img/supported/pressolve.webp" alt="Pressolve" class="partner-logo" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="partner-card">
+                  <img src="assets/img/supported/SEH.webp" alt="SEH" class="partner-logo" />
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <!-- /Supported By Section -->
+    </main>
+
+    <footer
+      id="footer"
+      class="footer-16 footer position-relative dark-background"
+    >
+      <div class="container">
+        <div class="footer-main">
+          <div class="row align-items-start">
+            <div class="col-lg-5">
+              <div class="brand-section">
+                <a
+                  href="index.html"
+                  class="logo d-flex align-items-center mb-4"
+                >
+                  <span class="sitename">MySchool</span>
+                </a>
+                <p class="brand-description">
+                  Crafting exceptional digital experiences through thoughtful
+                  design and innovative solutions that elevate your brand
+                  presence.
+                </p>
+
+                <div class="contact-info mt-5">
+                  <div class="contact-item">
+                    <i class="bi bi-geo-alt"></i>
+                    <span
+                      >123 Creative Boulevard, Design District, NY 10012</span
+                    >
+                  </div>
+                  <div class="contact-item">
+                    <i class="bi bi-telephone"></i>
+                    <span>+1 (555) 987-6543</span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="bi bi-envelope"></i>
+                    <span>hello@designstudio.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="footer-nav-wrapper">
+                <div class="row">
+                  <div class="col-6 col-lg-3">
+                    <div class="nav-column">
+                      <h6>Studio</h6>
+                      <nav class="footer-nav">
+                        <a href="#">Our Story</a>
+                        <a href="#">Design Process</a>
+                        <a href="#">Portfolio</a>
+                        <a href="#">Case Studies</a>
+                        <a href="#">Awards</a>
+                      </nav>
+                    </div>
+                  </div>
+
+                  <div class="col-6 col-lg-3">
+                    <div class="nav-column">
+                      <h6>Services</h6>
+                      <nav class="footer-nav">
+                        <a href="#">Brand Identity</a>
+                        <a href="#">Web Design</a>
+                        <a href="#">Mobile Apps</a>
+                        <a href="#">Digital Strategy</a>
+                        <a href="#">Consultation</a>
+                      </nav>
+                    </div>
+                  </div>
+
+                  <div class="col-6 col-lg-3">
+                    <div class="nav-column">
+                      <h6>Resources</h6>
+                      <nav class="footer-nav">
+                        <a href="#">Design Blog</a>
+                        <a href="#">Style Guide</a>
+                        <a href="#">Free Assets</a>
+                        <a href="#">Tutorials</a>
+                        <a href="#">Inspiration</a>
+                      </nav>
+                    </div>
+                  </div>
+
+                  <div class="col-6 col-lg-3">
+                    <div class="nav-column">
+                      <h6>Connect</h6>
+                      <nav class="footer-nav">
+                        <a href="#">Start Project</a>
+                        <a href="#">Schedule Call</a>
+                        <a href="#">Join Newsletter</a>
+                        <a href="#">Follow Updates</a>
+                        <a href="#">Partnership</a>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-social">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <div class="newsletter-section">
+                <h5>Stay Inspired</h5>
+                <p>
+                  Subscribe to receive design insights and creative inspiration
+                  delivered monthly.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="social-section">
+                <div class="social-links">
+                  <a href="#" aria-label="Dribbble" class="social-link">
+                    <i class="bi bi-dribbble"></i>
+                    <span>Dribbble</span>
+                  </a>
+                  <a href="#" aria-label="Behance" class="social-link">
+                    <i class="bi bi-behance"></i>
+                    <span>Behance</span>
+                  </a>
+                  <a href="#" aria-label="Instagram" class="social-link">
+                    <i class="bi bi-instagram"></i>
+                    <span>Instagram</span>
+                  </a>
+                  <a href="#" aria-label="LinkedIn" class="social-link">
+                    <i class="bi bi-linkedin"></i>
+                    <span>LinkedIn</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="footer-bottom mt-5">
-        <div class="container text-center">
-          <p class="mb-0">
-            © 2025
-            <strong>Pondok Pesantren Sirojan Muniro As-Salam Reborn</strong>.
-            All rights reserved.
-            <br />
-            Dibangun dengan <span style="color: #e25555">❤</span> oleh
-            <a
-              href="https://azkaindiesatu.id/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style="color: #ffd700; font-weight: 600; text-decoration: none"
-            >
-              AIS
-            </a>
-          </p>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="bottom-content">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <div class="copyright">
+                  <p>
+                    © <span class="sitename">MyWebsite</span>. All rights
+                    reserved.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="legal-links">
+                  <a href="#">Privacy Policy</a>
+                  <a href="#">Terms of Service</a>
+                  <a href="#">Cookie Policy</a>
+                  <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you've purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                    Designed by
+                    <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
+
+    <!-- Scroll Top -->
     <a
       href="#"
       id="scroll-top"
       class="scroll-top d-flex align-items-center justify-content-center"
       ><i class="bi bi-arrow-up-short"></i
     ></a>
+
+    <!-- Preloader -->
     <div id="preloader"></div>
+
+    <!-- Vendor JS Files (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- validate.js dihapus dari homepage untuk menghindari ERR_BLOCKED_BY_ORB; muat hanya di halaman yang butuh form -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.5.0/dist/purecounter_vanilla.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/purecounterjs@1.5.0/dist/purecounter_vanilla.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
-    <script src="<?= base_url('assets-web/js/main.js') ?>"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
