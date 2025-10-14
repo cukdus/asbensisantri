@@ -837,12 +837,7 @@
                   <a href="#">Terms of Service</a>
                   <a href="#">Cookie Policy</a>
                   <div class="credits">
-                    <!-- All the links in the footer should remain intact. -->
-                    <!-- You can delete the links only if you've purchased the pro version. -->
-                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                    <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                    Designed by
-                    <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    Dibangun dengan ❤️ oleh <a href="https://azkaindiesatu.id/">AIS</a>
                   </div>
                 </div>
               </div>
@@ -864,13 +859,36 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-    <script src="<?= base_url('/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url('/assets/vendor/php-email-form/validate.js'); ?>"></script>
-    <script src="<?= base_url('/assets/vendor/swiper/swiper-bundle.min.js'); ?>"></script>
-    <script src="<?= base_url('/assets/vendor/purecounter/purecounter_vanilla.js'); ?>"></script>
-    <script src="<?= base_url('/assets/vendor/glightbox/js/glightbox.min.js'); ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
 
     <!-- Main JS File -->
     <script src="<?= base_url('/assets/js/main.js'); ?>"></script>
+    
+    <!-- Initialize Swiper for partners-slider -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        new Swiper('.partners-slider', {
+          loop: true,
+          speed: 600,
+          autoplay: {
+            delay: 2500
+          },
+          slidesPerView: 2,
+          spaceBetween: 20,
+          breakpoints: {
+            768: {
+              slidesPerView: 3
+            },
+            1200: {
+              slidesPerView: 5
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>
