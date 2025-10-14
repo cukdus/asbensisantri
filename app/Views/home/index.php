@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Index - MySchool Bootstrap Template</title>
+    <title>Pondok Pesantren Sirojan Muniro As-Salam</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -47,7 +47,7 @@
             <div class="col-12 col-lg-6">
               <div class="header-brand d-flex align-items-center">
                 <img
-                  src="assets/img/ponpes.webp"
+                  src="<?= base_url('assets/img/ponpes.webp'); ?>"
                   alt="Logo Pondok Pesantren Sirojan Muniro As-Salam"
                   class="me-1"
                   decoding="async"
@@ -107,11 +107,11 @@
             class="navmenu d-flex align-items-center justify-content-between justify-content-xl-center"
           >
             <ul>
-              <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="nilai.html">Nilai</a></li>
-              <li><a href="quran.html">Al-Qur'an</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="<?= base_url(); ?>" class="active">Home</a></li>
+              <li><a href="<?= base_url('about'); ?>">About</a></li>
+              <li><a href="<?= base_url('nilai'); ?>">Nilai</a></li>
+              <li><a href="<?= base_url('quran'); ?>">Al-Qur'an</a></li>
+              <li><a href="<?= base_url('contact'); ?>">Contact</a></li>
             </ul>
             <button
               type="button"
@@ -243,7 +243,7 @@
             <div class="col-lg-6">
               <div class="image-wrapper">
                 <img
-                  src="assets/img/education/about.webp"
+                  src="<?= base_url('assets/img/education/about.webp'); ?>"
                   alt="Campus Overview"
                   class="img-fluid"
                 />
@@ -305,7 +305,7 @@
               <div class="visual-grid">
                 <div class="main-visual">
                   <img
-                    src="assets/img/education/program1.webp"
+                    src="<?= base_url('assets/img/education/program1.webp'); ?>"
                     alt="Campus Life"
                     class="img-fluid"
                   />
@@ -314,7 +314,7 @@
                 <div class="secondary-visuals">
                   <div class="small-visual">
                     <img
-                      src="assets/img/education/program2.webp"
+                      src="<?= base_url('assets/img/education/program2.webp'); ?>"
                       alt="Student Activities"
                       class="img-fluid"
                     />
@@ -325,7 +325,7 @@
 
                   <div class="small-visual">
                     <img
-                      src="assets/img/education/program3.webp"
+                      src="<?= base_url('assets/img/education/program3.webp'); ?>"
                       alt="Academic Excellence"
                       class="img-fluid"
                     />
@@ -344,7 +344,7 @@
                 <div class="highlight-card">
                   <div class="highlight-image">
                     <img
-                      src="assets/img/education/activities-7.webp"
+                      src="<?= base_url('assets/img/education/activities-7.webp'); ?>"
                       alt="Leadership Programs"
                       class="img-fluid"
                     />
@@ -363,7 +363,7 @@
                 <div class="highlight-card">
                   <div class="highlight-image">
                     <img
-                      src="assets/img/education/activities-9.webp"
+                      src="<?= base_url('assets/img/education/activities-9.webp'); ?>"
                       alt="Cultural Events"
                       class="img-fluid"
                     />
@@ -382,7 +382,7 @@
                 <div class="highlight-card">
                   <div class="highlight-image">
                     <img
-                      src="assets/img/education/activities-3.webp"
+                      src="<?= base_url('assets/img/education/activities-3.webp'); ?>"
                       alt="Innovation Hub"
                       class="img-fluid"
                     />
@@ -469,7 +469,7 @@
               <div class="visual-section">
                 <div class="main-image-container">
                   <img
-                    src="assets/img/education/students-1.webp"
+                    src="<?= base_url('assets/img/education/students-1.webp'); ?>"
                     alt="Students Learning"
                     class="main-image"
                   />
@@ -658,7 +658,7 @@
         </div>
 
         <div class="container">
-          <div class="partners-slider swiper init-swiper">
+          <div class="partners-slider swiper init-swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
             <script type="application/json" class="swiper-config">
               {
                 "loop": true,
@@ -679,56 +679,57 @@
               }
             </script>
 
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
+            <div class="swiper-wrapper" id="swiper-wrapper-85baab165fb49f85" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-1052.8px, 0px, 0px); transition-delay: 0ms;">
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+            <div class="swiper-slide" role="group" aria-label="8 / 9" data-swiper-slide-index="7" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="assets/img/supported/ais.webp" alt="AIS" class="partner-logo" />
+                  <img src="<?= base_url('assets/img/supported/pressolve.webp'); ?>" alt="Pressolve" class="partner-logo">
                 </div>
-              </div>
-              <div class="swiper-slide">
+              </div><div class="swiper-slide" role="group" aria-label="9 / 9" data-swiper-slide-index="8" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="assets/img/supported/atourwis.webp" alt="Atour Wisata" class="partner-logo" />
+                  <img src="<?= base_url('assets/img/supported/SEH.webp'); ?>" alt="SEH" class="partner-logo">
                 </div>
-              </div>
-              <div class="swiper-slide">
+              </div><div class="swiper-slide" role="group" aria-label="1 / 9" data-swiper-slide-index="0" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="assets/img/supported/bekasbaru.webp" alt="Bekas Baru" class="partner-logo" />
+                  <img src="<?= base_url('assets/img/supported/ais.webp'); ?>" alt="AIS" class="partner-logo">
                 </div>
-              </div>
-              <div class="swiper-slide">
+              </div><div class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 9" data-swiper-slide-index="1" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="assets/img/supported/eqiyu.webp" alt="Eqiyu" class="partner-logo" />
+                  <img src="<?= base_url('assets/img/supported/atourwis.webp'); ?>" alt="Atour Wisata" class="partner-logo">
                 </div>
-              </div>
-              <div class="swiper-slide">
+              </div><div class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 9" data-swiper-slide-index="2" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="assets/img/supported/mbowis.webp" alt="Mbowis" class="partner-logo" />
+                  <img src="<?= base_url('assets/img/supported/bekasbaru.webp'); ?>" alt="Bekas Baru" class="partner-logo">
                 </div>
-              </div>
-              <div class="swiper-slide">
+              </div><div class="swiper-slide swiper-slide-next" role="group" aria-label="4 / 9" data-swiper-slide-index="3" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="assets/img/supported/mlg.webp" alt="MLG" class="partner-logo" />
+                  <img src="<?= base_url('assets/img/supported/eqiyu.webp'); ?>" alt="Eqiyu" class="partner-logo">
                 </div>
-              </div>
-              <div class="swiper-slide">
+              </div><div class="swiper-slide" role="group" aria-label="5 / 9" data-swiper-slide-index="4" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="assets/img/supported/overhaul.webp" alt="Overhaul" class="partner-logo" />
+                  <img src="<?= base_url('assets/img/supported/mbowis.webp'); ?>" alt="Mbowis" class="partner-logo">
                 </div>
-              </div>
-              <div class="swiper-slide">
+              </div><div class="swiper-slide" role="group" aria-label="6 / 9" data-swiper-slide-index="5" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="assets/img/supported/pressolve.webp" alt="Pressolve" class="partner-logo" />
+                  <img src="<?= base_url('assets/img/supported/mlg.webp'); ?>" alt="MLG" class="partner-logo">
                 </div>
-              </div>
-              <div class="swiper-slide">
+              </div><div class="swiper-slide" role="group" aria-label="7 / 9" data-swiper-slide-index="6" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="assets/img/supported/SEH.webp" alt="SEH" class="partner-logo" />
+                  <img src="<?= base_url('assets/img/supported/overhaul.webp'); ?>" alt="Overhaul" class="partner-logo">
                 </div>
-              </div>
-            </div>
+              </div></div>
 
             <div class="swiper-pagination"></div>
-          </div>
+          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
         </div>
       </section>
       <!-- /Supported By Section -->
@@ -746,7 +747,7 @@
             >
               <div class="mb-3">
                 <img
-                  src="assets/img/ponpes.png"
+                  src="<?= base_url('assets/img/ponpes.png'); ?>"
                   alt="Logo Pondok Pesantren Sirojan Muniro As-Salam"
                   style="height: 120px"
                   class="mb-3"
