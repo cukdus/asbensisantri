@@ -35,6 +35,9 @@ $routes->set404Override();
 // Home - Landing Page
 $routes->get('/', 'Home::index');
 
+$routes->get('login', 'AuthPage::login');
+$routes->get('logout', 'AuthPage::logout');
+
 $routes->group('scan', function (RouteCollection $routes) {
     $routes->get('', 'Scan::index');
     $routes->get('masuk', 'Scan::index/Masuk');
