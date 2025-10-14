@@ -7,11 +7,9 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
-    <!-- Favicons -->
     <link href="<?= base_url('assets/img/favicon.png'); ?>" rel="icon" />
     <link href="<?= base_url('assets/img/apple-touch-icon.png'); ?>" rel="apple-touch-icon" />
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link
@@ -19,7 +17,6 @@
       rel="stylesheet"
     />
 
-    <!-- Vendor CSS Files (CDN) -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -39,16 +36,7 @@
       crossorigin="anonymous"
     />
 
-    <!-- Main CSS File -->
     <link href="<?= base_url('assets/css/main.css'); ?>" rel="stylesheet" />
-
-    <!-- =======================================================
-  * Template Name: MySchool
-  * Template URL: https://bootstrapmade.com/myschool-bootstrap-school-template/
-  * Updated: Jul 28 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
   </head>
 
   <body class="index-page">
@@ -148,7 +136,6 @@
     </a>
 
     <main class="main">
-      <!-- Hero Section -->
       <section id="hero" class="hero section" aria-labelledby="hero-heading">
         <div class="hero-container">
           <div class="hero-content">
@@ -273,7 +260,6 @@
 
       <!-- Students Life Block Section -->
       <section id="students-life-block" class="students-life-block section">
-        <!-- Section Title -->
         <div class="container section-title">
           <h2>Students Life</h2>
           <p>
@@ -281,8 +267,7 @@
             consectetur velit
           </p>
         </div>
-        <!-- End Section Title -->
-
+        
         <div class="container">
           <div class="row align-items-center g-5">
             <div class="col-lg-6">
