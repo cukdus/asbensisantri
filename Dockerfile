@@ -65,6 +65,7 @@ RUN mkdir -p \
     /var/www/html/public/uploads/siswa \
     /var/www/html/public/uploads/tmp \
     /var/www/html/public/uploads/logo \
+    /var/www/html/public/uploads/users \
   && chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads \
   && chmod -R 777 /var/www/html/writable \
   && chmod -R 775 /var/www/html/public/uploads
@@ -79,8 +80,12 @@ RUN set -eux; echo \
   "opcache.validate_timestamps=0\n" \
   > /usr/local/etc/php/conf.d/opcache.ini
 
+# Entrypoint untuk memastikan direktori uploads ada saat volume dipasang
+RUN printf '#!/bin/sh\nset -eu\nmkdir -p /var/www/html/public/uploads/siswa /var/www/html/public/uploads/tmp /var/www/html/public/uploads/logo /var/www/html/public/uploads/users\nchown -R www-data:www-data /var/www/html/public/uploads\nchmod -R 775 /var/www/html/public/uploads\nexec apache2-foreground\n' > /usr/local/bin/ci4-entrypoint.sh \
+  && chmod +x /usr/local/bin/ci4-entrypoint.sh
+
 # Expose port HTTP
 EXPOSE 80
 
-# Jalankan Apache
-CMD ["apache2-foreground"]
+# Jalankan Apache via entrypoint (membuat direktori uploads jika perlu)
+CMD ["ci4-entrypoint.sh"]
