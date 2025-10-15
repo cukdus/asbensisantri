@@ -1110,8 +1110,8 @@ h3 {
 --------------------------------------------------------------*/
 section,
 .section {
-  color: var(--default-color);
-  background-color: var(--background-color);
+  color: #212529;
+  background-color: #fff;
   padding: 60px 0;
   scroll-margin-top: 90px;
   overflow: clip;
