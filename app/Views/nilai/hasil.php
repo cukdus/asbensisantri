@@ -3,25 +3,12 @@
 <?= $this->include('templates/navbar_public') ?>
 
 <main id="main">
-    <section class="breadcrumbs">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <h2>Nilai Siswa</h2>
-                <ol>
-                    <li><a href="<?= base_url(); ?>">Home</a></li>
-                    <li><a href="<?= base_url('nilai'); ?>">Cek Nilai</a></li>
-                    <li>Hasil</li>
-                </ol>
-            </div>
-        </div>
-    </section>
-
     <section class="inner-page">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="card shadow-sm rounded-4">
-                        <div class="card-header bg-primary text-white">
+                        <div class="card-header bg-success text-white">
                             <h4 class="card-title mb-0"><b>Nilai Siswa</b></h4>
                             <p class="card-category mb-0">
                                 Siswa: <?= $siswa['nama_siswa']; ?> (<?= $siswa['nis']; ?>)
