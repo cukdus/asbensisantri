@@ -36,5 +36,5 @@
       crossorigin="anonymous"
     />
 
-    <link href="<?= base_url('assets/css/main.css'); ?>" rel="stylesheet" />
+    <link href="<?= base_url('assets/css/style.css?v=' . time()) ?>" rel="stylesheet" />
   </head>
