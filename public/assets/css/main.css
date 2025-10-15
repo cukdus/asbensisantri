@@ -1,17 +1,5 @@
-/**
-* Template Name: MySchool
-* Template URL: https://bootstrapmade.com/myschool-bootstrap-school-template/
-* Updated: Jul 28 2025 with Bootstrap v5.3.7
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 @charset "UTF-8";
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
