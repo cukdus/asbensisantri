@@ -57,6 +57,11 @@
                                           title="Tambah Nilai">
                                           <i class="material-icons">grade</i>
                                        </a>
+                                       <a href="<?= base_url('admin/nilai/edit-nilai-siswa/' . $siswa['id_siswa']); ?>" 
+                                          class="btn btn-warning btn-sm mr-2" 
+                                          title="Edit Nilai">
+                                          <i class="material-icons">edit</i>
+                                       </a>
                                        <a href="<?= base_url('admin/nilai/lihat-nilai-siswa/' . $siswa['id_siswa']); ?>" 
                                           class="btn btn-info btn-sm" 
                                           title="Lihat Nilai">

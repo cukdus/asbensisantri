@@ -25,7 +25,7 @@
 :root {
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #2e0a13; /* Color for headings, subheadings and title throughout the website */
+  --heading-color: #00563e; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #00563e; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
@@ -157,11 +157,8 @@ h3 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #16a34a;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  color: var(--default-color);
-  background-color: var(--background-color);
+  color: #ffffff;
+  background-color: #16a34a;
   padding: 0;
   transition: all 0.5s;
   z-index: 997;
@@ -234,19 +231,26 @@ h3 {
 }
 
 .header-socials a {
-  color: var(--default-color);
-  font-size: 22px;
-  line-height: 1;
-  transition: color 0.3s ease;
-  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
 }
 
 .header-socials a:hover {
-  color: rgba(255, 255, 255, 0.75);
+  color: #00563e;
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .header-brand img {
-  max-height: 60px;
+  max-height: 100px;
   width: auto;
 }
 
@@ -333,7 +337,7 @@ h3 {
   .navmenu a:focus {
     color: var(--nav-color);
     padding: 18px 15px;
-    font-size: 14px;
+    font-size: 16px;
     font-family: var(--nav-font);
     font-weight: 400;
     display: flex;
@@ -908,7 +912,7 @@ h3 {
 
 .footer-16 .footer-bottom .legal-links .credits {
   font-size: 12px;
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
+  color: color-mix(in srgb, var(--default-color));
   margin-left: 8px;
   padding-left: 24px;
   border-left: 1px solid
@@ -926,7 +930,8 @@ h3 {
 }
 
 .footer-16 .footer-bottom .legal-links .credits a {
-  color: var(--accent-color);
+  color: var(--heading-color);
+  font-weight: bold;
   font-size: 12px;
 }
 
@@ -1064,7 +1069,7 @@ h3 {
 }
 
 .page-title .heading {
-  padding: 80px 0;
+  padding: 80px 0 40px 0;
   border-top: 1px solid
     color-mix(in srgb, var(--default-color), transparent 90%);
 }
@@ -1131,6 +1136,7 @@ section,
 .section-title h2 {
   font-size: 36px;
   font-weight: 400;
+  text-align: center;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;

@@ -34,9 +34,19 @@ $routes->set404Override();
 
 // Home - Landing Page
 $routes->get('/', 'Home::index');
+$routes->get('about', 'Home::about');
+$routes->get('/about', 'Home::about');
+$routes->get('contact', 'Home::contact');
+$routes->get('/contact', 'Home::contact');
+$routes->get('quran', 'Home::quran');
+$routes->get('/quran', 'Home::quran');
 
 $routes->get('login', 'AuthPage::login');
 $routes->get('logout', 'AuthPage::logout');
+
+// Halaman Nilai Siswa
+$routes->get('nilai', 'Nilai::index');
+$routes->post('nilai/cek', 'Nilai::cekNilai');
 
 $routes->group('scan', function (RouteCollection $routes) {
     $routes->get('', 'Scan::index');
@@ -186,6 +196,8 @@ $routes->group('admin', function (RouteCollection $routes) {
     $routes->get('nilai/tambah-nilai-siswa/(:any)', 'Admin\DataNilai::formTambahNilaiSiswa/$1');
     // admin lihat nilai siswa
     $routes->get('nilai/lihat-nilai-siswa/(:any)', 'Admin\DataNilai::lihatNilaiSiswa/$1');
+    // admin edit nilai siswa
+    $routes->get('nilai/edit-nilai-siswa/(:any)', 'Admin\DataNilai::editNilaiSiswa/$1');
 
     // Settings
     $routes->group('general-settings', ['namespace' => 'App\Controllers\Admin'], function ($routes) {

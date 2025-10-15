@@ -110,10 +110,10 @@ class DataNilai extends BaseController
                 ]
             ],
             'semester' => [
-                'rules' => 'required|in_list[1,2]',
+                'rules' => 'required|in_list[Ganjil,Genap]',
                 'errors' => [
                     'required' => 'Semester harus dipilih',
-                    'in_list' => 'Semester harus 1 atau 2'
+                    'in_list' => 'Semester harus Ganjil atau Genap'
                 ]
             ],
             'tahun_ajaran' => [
@@ -327,10 +327,10 @@ class DataNilai extends BaseController
                 ]
             ],
             'semester' => [
-                'rules' => 'required|in_list[1,2]',
+                'rules' => 'required|in_list[Ganjil,Genap]',
                 'errors' => [
                     'required' => 'Semester harus dipilih',
-                    'in_list' => 'Semester harus 1 atau 2'
+                    'in_list' => 'Semester harus Ganjil atau Genap'
                 ]
             ],
             'tahun_ajaran' => [
@@ -366,6 +366,19 @@ class DataNilai extends BaseController
             return redirect()->back()->withInput();
         }
         $idKelas = $siswa['id_kelas'];
+        
+        // Cek apakah nilai dari tahun ajaran sebelumnya
+        $currentYear = date('Y');
+        $tahunAjaranParts = explode('/', $tahunAjaran);
+        $tahunAjaranNilai = intval($tahunAjaranParts[0]);
+        
+        if ($tahunAjaranNilai < intval($currentYear)) {
+            session()->setFlashdata([
+                'msg' => 'Nilai dari tahun ajaran sebelumnya tidak dapat diubah',
+                'error' => true
+            ]);
+            return redirect()->back();
+        }
 
         // Check if nilai already exists for this combination (excluding current record)
         if ($this->nilaiModel->isNilaiExists($idSiswa, $idMapel, $semester, $tahunAjaran, $id)) {
@@ -490,8 +503,15 @@ class DataNilai extends BaseController
             throw new PageNotFoundException('Siswa tidak ditemukan');
         }
 
-        // Get all grades for this student
-        $nilaiList = $this->nilaiModel->getNilaiBySiswaId($id_siswa);
+        // Get all grades for this student with kelas information
+        $nilaiList = $this->nilaiModel->select('tb_nilai.*, tb_mapel.nama_mapel, tb_kelas.kelas')
+                              ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
+                              ->join('tb_kelas', 'tb_kelas.id_kelas = tb_nilai.id_kelas')
+                              ->where('tb_nilai.id_siswa', $id_siswa)
+                              ->orderBy('tb_nilai.tahun_ajaran', 'DESC')
+                              ->orderBy('tb_nilai.semester', 'ASC')
+                              ->orderBy('tb_kelas.kelas', 'ASC')
+                              ->findAll();
 
         $data = [
             'title' => 'Lihat Nilai - ' . $siswa['nama_siswa'],
@@ -501,5 +521,33 @@ class DataNilai extends BaseController
         ];
 
         return view('admin/data/view/view-nilai-siswa', $data);
+    }
+
+    public function editNilaiSiswa($id_siswa)
+    {
+        // Get student information
+        $siswa = $this->siswaModel->getSiswaById($id_siswa);
+        if (empty($siswa)) {
+            throw new PageNotFoundException('Siswa tidak ditemukan');
+        }
+
+        // Get all grades for this student with kelas information
+        $nilaiList = $this->nilaiModel->select('tb_nilai.*, tb_mapel.nama_mapel, tb_kelas.kelas')
+                              ->join('tb_mapel', 'tb_mapel.id_mapel = tb_nilai.id_mapel')
+                              ->join('tb_kelas', 'tb_kelas.id_kelas = tb_nilai.id_kelas')
+                              ->where('tb_nilai.id_siswa', $id_siswa)
+                              ->orderBy('tb_nilai.tahun_ajaran', 'DESC')
+                              ->orderBy('tb_nilai.semester', 'ASC')
+                              ->orderBy('tb_kelas.kelas', 'ASC')
+                              ->findAll();
+
+        $data = [
+            'title' => 'Edit Nilai - ' . $siswa['nama_siswa'],
+            'ctx' => 'nilai',
+            'siswa' => $siswa,
+            'nilaiList' => $nilaiList
+        ];
+
+        return view('admin/data/edit/edit-nilai-siswa', $data);
     }
 }

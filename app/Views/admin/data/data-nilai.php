@@ -63,8 +63,8 @@
                                     <label for="filter_semester">Semester</label>
                                     <select id="filter_semester" class="form-control" name="semester">
                                        <option value="">-- Semua Semester --</option>
-                                       <option value="1">Semester 1</option>
-                                       <option value="2">Semester 2</option>
+                                       <option value="Ganjil">Semester Ganjil</option>
+                                       <option value="Genap">Semester Genap</option>
                                     </select>
                                  </div>
                               </div>

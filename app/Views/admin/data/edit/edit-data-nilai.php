@@ -82,8 +82,8 @@ $currentSemester = old('semester') ?? $nilai['semester'];
 // Debug: uncomment line below to see the actual value
 // echo "<!-- Debug: Current semester = '$currentSemester', Type: " . gettype($currentSemester) . " -->";
 ?>
-                                 <option value="1" <?= ($currentSemester == '1' || $currentSemester == 1 || $currentSemester === 1) ? 'selected' : ''; ?>>Semester 1</option>
-                                 <option value="2" <?= ($currentSemester == '2' || $currentSemester == 2 || $currentSemester === 2) ? 'selected' : ''; ?>>Semester 2</option>
+                                 <option value="Ganjil" <?= ($currentSemester == 'Ganjil' || $currentSemester === 'Ganjil') ? 'selected' : ''; ?>>Semester Ganjil</option>
+                                 <option value="Genap" <?= ($currentSemester == 'Genap' || $currentSemester === 'Genap') ? 'selected' : ''; ?>>Semester Genap</option>
                               </select>
                               <div class="invalid-feedback">
                                  <?= $validation->getError('semester'); ?>

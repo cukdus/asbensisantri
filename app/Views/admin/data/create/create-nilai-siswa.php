@@ -154,8 +154,8 @@
                                           <label class="bmd-label-floating">Semester</label>
                                           <select class="form-control" name="semester" required>
                                              <option value="">Pilih Semester</option>
-                                             <option value="1" <?= old('semester') == '1' ? 'selected' : ''; ?>>Semester 1</option>
-                                             <option value="2" <?= old('semester') == '2' ? 'selected' : ''; ?>>Semester 2</option>
+                                             <option value="Ganjil" <?= old('semester') == 'Ganjil' ? 'selected' : ''; ?>>Semester Ganjil</option>
+                                             <option value="Genap" <?= old('semester') == 'Genap' ? 'selected' : ''; ?>>Semester Genap</option>
                                           </select>
                                           <?php if ($validation->hasError('semester')): ?>
                                              <div class="text-danger">
