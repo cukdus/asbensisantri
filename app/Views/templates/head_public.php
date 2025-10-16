@@ -12,7 +12,7 @@
     $metaDescription = isset($metaDescription) && is_string($metaDescription) && trim($metaDescription) !== ''
       ? $metaDescription
       : $defaultDescription;
-    $defaultOgImage = base_url('https://sirojanmuniro.id/assets/img/ponpes.webp');
+    $defaultOgImage = base_url('assets/img/ponpes.webp');
     $ogImage = isset($ogImage) && is_string($ogImage) && trim($ogImage) !== ''
       ? $ogImage
       : $defaultOgImage;
