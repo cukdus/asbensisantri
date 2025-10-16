@@ -246,6 +246,7 @@ h3 {
   justify-content: center;
   text-align: center;
   gap: 16px;
+  flex-direction: column;
 }
 
 .header-brand .brand-text {
@@ -256,6 +257,7 @@ h3 {
   .header-brand {
     justify-content: flex-start;
     text-align: left;
+    flex-direction: row;
   }
 
   .header-brand .brand-text {
