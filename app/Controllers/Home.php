@@ -10,6 +10,14 @@ class Home extends BaseController
             'title' => 'Pondok Pesantren Sirojan Muniro As-Salam | Pendidikan Islam Terpadu'
         ];
 
+        // Load latest YouTube videos for homepage section
+        try {
+            $yt = new \App\Libraries\YouTubeService();
+            $data['youtubeVideos'] = $yt->getLatestVideos();
+        } catch (\Throwable $e) {
+            $data['youtubeVideos'] = [];
+        }
+
         return view('home/index', $data);
     }
 
@@ -38,5 +46,14 @@ class Home extends BaseController
         ];
 
         return view('home/quran', $data);
+    }
+
+    public function doa()
+    {
+        $data = [
+            'title' => 'Doa & Dzikir - Pondok Pesantren Sirojan Muniro As-Salam'
+        ];
+
+        return view('home/doa', $data);
     }
 }

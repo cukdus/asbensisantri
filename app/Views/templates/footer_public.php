@@ -89,9 +89,7 @@
                 <div class="copyright">
                   <p>
                     ©
-                    <span class="sitename"
-                      >Pondok Pesantren Sirojan Muniro As-Salam</span
-                    >. All rights reserved.
+                    <span class="sitename">Pondok Pesantren Sirojan Muniro As-Salam</span>
                   </p>
                 </div>
               </div>

@@ -10,9 +10,9 @@
                 <div class="col-lg-8">
                   <h1 class="heading-title">Tentang Kami</h1>
                   <p class="mb-0">
-                    Pondok Pesantren SIROJAN MUNIRO berkomitmen mencetak
-                    generasi berakhlakul karimah, cerdas, dan mandiri, dengan
-                    tetap menjaga tradisi keilmuan Islam yang mulia.
+                    Pondok Pesantren SIROJAN MUNIRO AS-SALAM berkomitmen mencetak generasi
+                berakhlakul karimah, cerdas, dan mandiri, dengan tetap menjaga
+                tradisi keilmuan Islam yang mulia.
                   </p>
                 </div>
               </div>
@@ -52,9 +52,7 @@
                     <div class="mb-4">
                       <h3 class="mb-3" id="visi-heading">Visi</h3>
                       <p class="ps-4">
-                        Menjadi Pondok Pesantren yang Rahmatan Lil ‘Alamin, yang
-                        membawa rahmat, kedamaian, dan manfaat bagi seluruh
-                        alam.
+                        Menjadi Pondok Pesantren yang Rahmatan lil 'Alamin, yang membawa rahmat, kedamaian, dan manfaat bagi seluruh alam.
                       </p>
                     </div>
                     <div>
@@ -169,9 +167,9 @@
                         />
                         <div class="card-body">
                           <h4 class="fw-bold text-success mb-1">
-                            KH. Ahmad Zainuddin
+                            Fahrudi Irmansah
                           </h4>
-                          <p class="text-muted mb-0">Pimpinan Pondok</p>
+                          <p class="text-muted mb-0">Pendiri & Pimpinan Pondok</p>
                         </div>
                       </div>
                     </div>

@@ -683,13 +683,13 @@ h3 {
   --default-color: #ffffff;
   --heading-color: #ffffff;
   font-size: 15px;
-  padding: 100px 0 0;
+  padding: 50px 0 0;
   border-top: 1px solid
     color-mix(in srgb, var(--contrast-color), transparent 80%);
 }
 
 .footer-16 .footer-main {
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
 
 .footer-16 .brand-section .logo {
@@ -1610,12 +1610,7 @@ section,
 # Featured Programs Section
 --------------------------------------------------------------*/
 .featured-programs {
-  padding: 80px 0;
-  background: linear-gradient(
-    45deg,
-    var(--surface-color),
-    color-mix(in srgb, var(--accent-color), transparent 98%)
-  );
+  padding: 0;
 }
 
 .featured-programs .featured-programs-wrapper {
@@ -1632,15 +1627,13 @@ section,
 }
 
 .featured-programs .programs-overview .overview-content h2 {
-  font-size: 2.5rem;
-  font-weight: 300;
+  font-weight: 700;
   margin-bottom: 24px;
   color: var(--accent-color);
   line-height: 1.2;
 }
 
 .featured-programs .programs-overview .overview-content p {
-  font-size: 1.1rem;
   line-height: 1.8;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 40px;
@@ -2239,7 +2232,7 @@ section,
 }
 
 .students-life-block .highlights-section {
-  margin-top: 6rem;
+  margin-top: 2rem;
 }
 
 .students-life-block .highlights-section .highlight-card {

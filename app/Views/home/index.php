@@ -23,10 +23,9 @@
                 <div class="icon">
                   <i class="bi bi-mortarboard-fill"></i>
                 </div>
-                <h3>98% Lulusan Berhasil</h3>
+                <h3>Ngaji Iqro'</h3>
                 <p>
-                  Santri kami berhasil melanjutkan ke perguruan tinggi dan
-                  berkarir dengan bekal ilmu agama yang kuat.
+                  Pembelajaran dasar huruf hijaiyah dengan metode bertahap agar santri lancar membaca Al-Qur'an dengan tartil.
                 </p>
               </div>
             </div>
@@ -35,10 +34,9 @@
                 <div class="icon">
                   <i class="bi bi-people-fill"></i>
                 </div>
-                <h3>Rasio Santri-Ustadz 16:1</h3>
+                <h3>Ngaji Al-Qur'an</h3>
                 <p>
-                  Pembelajaran personal dengan bimbingan intensif dari para
-                  ustadz berpengalaman.
+                  Bimbingan intensif memperbaiki bacaan dan tajwid, menumbuhkan kecintaan serta kedekatan santri dengan Al-Qur'an.
                 </p>
               </div>
             </div>
@@ -47,10 +45,9 @@
                 <div class="icon">
                   <i class="bi bi-globe-americas"></i>
                 </div>
-                <h3>Komunitas Alumni Global</h3>
+                <h3>Kajian Kitab Kuning</h3>
                 <p>
-                  Jaringan alumni yang tersebar di berbagai negara dan berperan
-                  aktif di masyarakat.
+                  Pendalaman ilmu agama melalui kitab Nahwu, Shorof, Aqidatu Awam, dan Ta'limul Muta'allim sebagai fondasi keilmuan dan akhlak santri.
                 </p>
               </div>
             </div>
@@ -65,43 +62,19 @@
           <div class="row gy-5">
             <div class="col-lg-6">
               <div class="content">
-                <h3>Empowering Minds, Shaping Futures</h3>
+                <h3>Memberdayakan Jiwa, Membentuk Masa Depan Islami</h3>
                 <p>
-                  For over three decades, we have been committed to providing
-                  exceptional education that prepares students for success in an
-                  ever-changing world. Our innovative approach combines
-                  traditional academic excellence with cutting-edge technology
-                  and personalized learning experiences.
+                  kami berkomitmen menghadirkan pendidikan Islam yang menanamkan nilai ilmu, adab, dan kecintaan kepada Al-Qur'an. Melalui program unggulan seperti ngaji Iqro', ngaji Al-Qur'an, kajian kitab Nahwu & Shorof, ngaji dan hafalan Aqidatu Awam, serta Ta'limul Muta'allim, santri dibimbing menjadi pribadi berilmu dan berakhlak. Dilengkapi dengan ekstrakurikuler Al-Banjari dan rutinan majlis ngaji serta sholawat setiap malam Jum'at, kami berupaya mencetak generasi yang beriman, beradab, dan berjiwa islami yang siap mengabdi untuk agama dan masyarakat.
                 </p>
-
-                <div class="stats-row">
-                  <div class="stat-item">
-                    <div class="number">15,000+</div>
-                    <div class="label">Students Enrolled</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="number">98%</div>
-                    <div class="label">Graduation Rate</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="number">250+</div>
-                    <div class="label">Expert Faculty</div>
-                  </div>
-                </div>
 
                 <div class="mission-statement">
                   <p>
-                    <em
-                      >"Our mission is to foster intellectual curiosity,
-                      critical thinking, and lifelong learning while nurturing
-                      compassionate leaders who will positively impact their
-                      communities and the world."</em
-                    >
+                    <em>"Misi kami adalah <b>menuntun santri menjadi pribadi beradab dan berakhlak mulia</b> berlandaskan Al-Qur’an dan hadits, serta <b>mendidik mereka menjadi insan yang bermanfaat bagi umat</b> melalui ilmu, amal, dan keterampilan. Kami berkomitmen untuk <b>memanusiakan manusia dengan menanamkan nilai kasih sayang universal</b>, tanpa membeda-bedakan suku, agama, ras, maupun golongan. Selain itu, kami berupaya <b>membumikan sholawat</b> dengan menumbuhkan cinta kepada Rasulullah ﷺ melalui majlis sholawat dan keteladanan akhlak Nabi yang mulia."</em>
                   </p>
                 </div>
 
                 <a href="about.html" class="btn-learn-more">
-                  Learn More About Us
+                  Pelajari Lebih Lanjut
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -114,24 +87,40 @@
                   alt="Campus Overview"
                   class="img-fluid"
                 />
-                <div class="experience-badge">
-                  <div class="years">32+</div>
-                  <div class="text">Years of Excellence</div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
       <!-- /About Section -->
+<!-- Featured Programs Section -->
+  <section id="featured-programs" class="featured-programs section">
+    <!-- Section Title -->
+    <div class="container section-title">
+      <h2>Program Unggulan</h2>
+      <p>Program-program pendidikan yang dirancang khusus untuk membentuk santri yang beriman, bertakwa, dan berilmu</p>
+    </div><!-- End Section Title -->
 
+    <div class="container">
+      <div class="featured-programs-wrapper">
+        <div class="programs-overview">
+          <div class="overview-content">
+            <h2>Keunggulan Pendidikan Islam</h2>
+            <p>Keunggulan Pendidikan Islam terletak pada keseimbangan antara ilmu, adab, dan spiritualitas. Melalui <b>ngaji Iqro’ dan Al-Qur’an</b>, santri dibimbing untuk membaca dan memahami kalam Allah dengan benar. <b>Ngaji Kitab Nahwu dan Shorof</b> memperkuat kemampuan bahasa Arab, sedangkan <b>ngaji serta hafalan Aqidatu Awam</b> menanamkan akidah yang kokoh. Nilai adab dan etika ditanamkan melalui <b>ngaji Ta’limul Muta’allim</b>, diiringi kegiatan <b>ekstrakurikuler Al-Banjari</b> yang menumbuhkan cinta sholawat dan kebersamaan. Semua itu dilengkapi dengan <b>rutinan majlis ngaji dan sholawat setiap malam Jum’at</b> sebagai pembiasaan ibadah dan penguatan iman santri.
+</p>
+          </div>
+          <div class="overview-image">
+            <img src="assets/img/education/edukasi1.webp" alt="Education" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
       <!-- Students Life Block Section -->
       <section id="students-life-block" class="students-life-block section">
         <div class="container section-title">
-          <h2>Students Life</h2>
+          <h2>Kehidupan Santri</h2>
           <p>
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
+            Kehidupan yang penuh berkah dengan keseimbangan antara ibadah, belajar, dan aktivitas positif lainnya.
           </p>
         </div>
         
@@ -139,32 +128,13 @@
           <div class="row align-items-center g-5">
             <div class="col-lg-6">
               <div class="content-wrapper">
-                <div class="section-tag">Student Life</div>
+                <div class="section-tag">Kehidupan Santri</div>
                 <h2>
-                  Excepteur sint occaecat cupidatat non proident sunt in culpa
+                  Lingkungan Islami yang Mendukung Pertumbuhan Rohani dan Jasmani
                 </h2>
                 <p class="description">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam eaque
-                  ipsa.
+                  Kehidupan di pondok pesantren memberikan pengalaman yang holistik dengan jadwal yang terstruktur, mulai dari shalat berjamaah, kajian kitab, ngaji, hingga kegiatan ekstrakurikuler yang menumbuhkan bakat dan minat santri.
                 </p>
-
-                <div class="stats-row">
-                  <div class="stat-item">
-                    <span class="stat-number">85+</span>
-                    <span class="stat-label">Student Organizations</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-number">150+</span>
-                    <span class="stat-label">Annual Events</span>
-                  </div>
-                </div>
-
-                <div class="action-links">
-                  <a href="student-life.html" class="primary-link"
-                    >Explore Student Life</a
-                  >
-                </div>
               </div>
             </div>
 
@@ -204,23 +174,27 @@
               </div>
             </div>
           </div>
-
+<div class="container section-title mt-5">
+          <h2>Kegiatan Mengaji Santri</h2>
+          <p>
+            Membangun generasi Qur'ani yang berakhlak mulia.
+          </p>
+        </div>
           <div class="highlights-section">
             <div class="row g-4">
               <div class="col-lg-4">
                 <div class="highlight-card">
                   <div class="highlight-image">
                     <img
-                      src="<?= base_url('assets/img/education/activities-7.webp'); ?>"
+                      src="<?= base_url('assets/img/education/kegiatan2.webp'); ?>"
                       alt="Leadership Programs"
                       class="img-fluid"
                     />
                   </div>
                   <div class="highlight-content">
-                    <h5>Leadership Development</h5>
+                    <h5>Ngaji Iqro'</h5>
                     <p>
-                      Nemo enim ipsam voluptatem quia voluptas sit aspernatur
-                      aut odit aut fugit sed
+                      Pembelajaran dasar membaca huruf hijaiyah untuk santri pemula agar fasih membaca Al-Qur'an.
                     </p>
                   </div>
                 </div>
@@ -236,10 +210,9 @@
                     />
                   </div>
                   <div class="highlight-content">
-                    <h5>Cultural Diversity</h5>
+                    <h5>Ngaji Al-Qur'an</h5>
                     <p>
-                      Ut enim ad minima veniam quis nostrum exercitationem ullam
-                      corporis suscipit
+                      Santri memperdalam bacaan Al-Qur'an dengan tajwid yang benar serta memahami makna ayat-ayat suci.
                     </p>
                   </div>
                 </div>
@@ -255,10 +228,83 @@
                     />
                   </div>
                   <div class="highlight-content">
-                    <h5>Innovation Hub</h5>
+                    <h5>Ngaji Kitab Nahwu & Shorof</h5>
                     <p>
-                      Quis autem vel eum iure reprehenderit qui in ea voluptate
-                      velit esse quam
+                      Pembelajaran tata bahasa Arab untuk memperkuat dasar pemahaman kitab kuning.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row g-4">
+              <div class="col-lg-4">
+                <div class="highlight-card">
+                  <div class="highlight-image">
+                    <img
+                      src="<?= base_url('assets/img/education/activities-7.webp'); ?>"
+                      alt="Leadership Programs"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="highlight-content">
+                    <h5>Ngaji & Hafalan Aqidatu Awam</h5>
+                    <p>
+                      Pembelajaran Aqidah dasar disertai hafalan untuk menanamkan keyakinan Islam sejak dini.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="highlight-card">
+                  <div class="highlight-image">
+                    <img
+                      src="<?= base_url('assets/img/education/activities-9.webp'); ?>"
+                      alt="Cultural Events"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="highlight-content">
+                    <h5>Ngaji Ta'limul Muta'alim</h5>
+                    <p>
+                      Kajian adab dan tata cara menuntut ilmu berdasarkan kitab Ta'limul Muta'alim.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="highlight-card">
+                  <div class="highlight-image">
+                    <img
+                      src="<?= base_url('assets/img/education/activities-3.webp'); ?>"
+                      alt="Innovation Hub"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="highlight-content">
+                    <h5>Ekstra Latihan Al-Banjari</h5>
+                    <p>
+                      Kegiatan seni musik islami dengan rebana untuk menumbuhkan semangat syiar dan cinta sholawat.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row g-4">
+              <div class="col-lg-4">
+                <div class="highlight-card">
+                  <div class="highlight-image">
+                    <img
+                      src="<?= base_url('assets/img/education/activities-7.webp'); ?>"
+                      alt="Leadership Programs"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="highlight-content">
+                    <h5>Rutinan Majlis Ngaji & Sholawat</h5>
+                    <p>
+                      Kegiatan rutin setiap malam Jum'at untuk memperkuat ukhuwah dan meningkatkan keimanan bersama.
                     </p>
                   </div>
                 </div>
@@ -268,118 +314,6 @@
         </div>
       </section>
       <!-- /Students Life Block Section -->
-
-      
-
-      <!-- Call To Action Section -->
-      <section
-        id="call-to-action"
-        class="call-to-action section light-background"
-      >
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-5">
-              <div class="content-wrapper">
-                <div class="badge">
-                  <i class="bi bi-mortarboard-fill"></i>
-                  <span>Premium Education</span>
-                </div>
-
-                <h2>
-                  Elevate Your Learning Journey with World-Class Education
-                </h2>
-
-                <p>
-                  Discover unlimited potential through our carefully curated
-                  learning experiences designed by industry leaders and
-                  educational experts.
-                </p>
-
-                <div class="highlight-stats">
-                  <div class="stat-group">
-                    <div class="stat-item">
-                      <span
-                        class="number purecounter"
-                        data-purecounter-start="0"
-                        data-purecounter-end="25000"
-                        data-purecounter-duration="2"
-                        >0</span
-                      >
-                      <span class="label">Active Learners</span>
-                    </div>
-                    <div class="stat-item">
-                      <span
-                        class="number purecounter"
-                        data-purecounter-start="0"
-                        data-purecounter-end="200"
-                        data-purecounter-duration="2"
-                        >0</span
-                      >
-                      <span class="label">Expert Courses</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="action-buttons">
-                  <a href="programs.html" class="btn-primary"
-                    >Explore Programs</a
-                  >
-                  <a href="trial.html" class="btn-secondary">
-                    <span>Start Free Trial</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-7">
-              <div class="visual-section">
-                <div class="main-image-container">
-                  <img
-                    src="<?= base_url('assets/img/education/students-1.webp'); ?>"
-                    alt="Students Learning"
-                    class="main-image"
-                  />
-                  <div class="overlay-gradient"></div>
-                </div>
-
-                <div class="feature-cards">
-                  <div class="feature-card achievement">
-                    <div class="icon">
-                      <i class="bi bi-trophy-fill"></i>
-                    </div>
-                    <div class="content">
-                      <h4>Certified Excellence</h4>
-                      <p>Industry-recognized certificates</p>
-                    </div>
-                  </div>
-
-                  <div class="feature-card flexibility">
-                    <div class="icon">
-                      <i class="bi bi-clock-fill"></i>
-                    </div>
-                    <div class="content">
-                      <h4>Learn at Your Pace</h4>
-                      <p>24/7 access to all materials</p>
-                    </div>
-                  </div>
-
-                  <div class="feature-card community">
-                    <div class="icon">
-                      <i class="bi bi-people-fill"></i>
-                    </div>
-                    <div class="content">
-                      <h4>Global Community</h4>
-                      <p>Connect with learners worldwide</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- /Call To Action Section -->
 
 
 
@@ -392,119 +326,44 @@
 
         <div class="container">
           <div class="row g-4">
-            <div class="col-lg-6">
-              <div class="event-card">
-                <div class="event-date">
-                  <span class="month">EP</span>
-                  <span class="day">42</span>
-                  <span class="year">Series</span>
-                </div>
-                <div class="event-content">
-                  <div class="video-thumb">
-                    <a
-                      href="https://www.youtube.com/watch?v=C7C_0dCnLMc"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Tonton Eps 42"
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/C7C_0dCnLMc/hqdefault.jpg"
-                        alt="Eps 42 : Ngaji Quran Surat Al Baqarah 111 - 113 Tafsir Kitab Al Jalalain"
-                        class="img-fluid"
-                      />
-                      <span class="play-icon"><i class="bi bi-play-circle-fill"></i></span>
-                    </a>
+            <?php if (!empty($youtubeVideos)): ?>
+              <?php foreach ($youtubeVideos as $video): ?>
+                <div class="col-lg-6">
+                  <div class="event-card">
+                    <div class="event-date">
+                      <span class="month"><?= esc(date('M', strtotime($video['publishedAt']))) ?></span>
+                      <span class="day"><?= esc(date('d', strtotime($video['publishedAt']))) ?></span>
+                      <span class="year"><?= esc(date('Y', strtotime($video['publishedAt']))) ?></span>
+                    </div>
+                    <div class="event-content">
+                      <div class="video-thumb">
+                        <a
+                          href="https://www.youtube.com/watch?v=<?= esc($video['videoId']) ?>"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="<?= esc($video['title']) ?>"
+                        >
+                          <img
+                            src="<?= esc($video['thumbnail']) ?>"
+                            alt="<?= esc($video['title']) ?>"
+                            class="img-fluid"
+                          />
+                          <span class="play-icon"><i class="bi bi-play-circle-fill"></i></span>
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  
+                </div>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <div class="col-12">
+                <div class="alert alert-warning mb-0" role="alert">
+                  Tidak dapat memuat video terbaru. Silakan kunjungi channel untuk melihat konten terkini.
                 </div>
               </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="event-card">
-                <div class="event-date">
-                  <span class="month">EP</span>
-                  <span class="day">41</span>
-                  <span class="year">Series</span>
-                </div>
-                <div class="event-content">
-                  <div class="video-thumb">
-                    <a
-                      href="https://www.youtube.com/watch?v=BGWz-1DT4Ao"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Tonton Eps 41"
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/BGWz-1DT4Ao/hqdefault.jpg"
-                        alt="Eps 41 : Kajian Quran Surat Al Baqarah 109 - 110 Tafsir Kitab Jalalain"
-                        class="img-fluid"
-                      />
-                      <span class="play-icon"><i class="bi bi-play-circle-fill"></i></span>
-                    </a>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="event-card">
-                <div class="event-date">
-                  <span class="month">EP</span>
-                  <span class="day">40</span>
-                  <span class="year">Series</span>
-                </div>
-                <div class="event-content">
-                  <div class="video-thumb">
-                    <a
-                      href="https://www.youtube.com/watch?v=jPbJ6Trsf1g"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Tonton Eps 40"
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/jPbJ6Trsf1g/hqdefault.jpg"
-                        alt="Eps 40 : Kajian Quran Surat Al Baqarah Ayat 106 - 108 dari Tafsir Kitab Jalalain"
-                        class="img-fluid"
-                      />
-                      <span class="play-icon"><i class="bi bi-play-circle-fill"></i></span>
-                    </a>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="event-card">
-                <div class="event-date">
-                  <span class="month">EP</span>
-                  <span class="day">39</span>
-                  <span class="year">Series</span>
-                </div>
-                <div class="event-content">
-                  <div class="video-thumb">
-                    <a
-                      href="https://www.youtube.com/watch?v=qqVTw93OGnI"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Tonton Eps 39"
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/qqVTw93OGnI/hqdefault.jpg"
-                        alt="Eps 39 : Ngaji Surat Al Baqarah Ayat 104 - 105 Tafsir Kitab Al Jalalain"
-                        class="img-fluid"
-                      />
-                      <span class="play-icon"><i class="bi bi-play-circle-fill"></i></span>
-                    </a>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
+            <?php endif; ?>
           </div>
-
+          
           <div class="text-center mt-5">
             <a
               href="https://www.youtube.com/@ustadmbois"

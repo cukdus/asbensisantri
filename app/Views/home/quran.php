@@ -182,6 +182,7 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         margin-top: 20px;
+        padding-bottom: 20px;
       }
       .surah-card {
         background: white;
@@ -229,7 +230,7 @@
         font-size: 15px;
       }
       .surah-arabic {
-        font-size: 1.3rem;
+        font-size: 3rem;
         color: #059669;
         font-weight: 700;
         font-family: "Amiri", serif;
@@ -349,7 +350,7 @@
         margin-bottom: 15px;
       }
       .ayah-arabic {
-        font-size: 1.6em;
+        font-size: 3em;
         line-height: 2;
         text-align: right;
         margin-bottom: 15px;
@@ -369,6 +370,7 @@
         gap: 10px;
         margin-top: 30px;
         flex-wrap: wrap;
+        padding-bottom: 20px;
       }
       .pagination button {
         background: white;
@@ -403,7 +405,7 @@
           font-size: 1.4rem;
         }
         .ayah-arabic {
-          font-size: 1.4em;
+          font-size: 3em;
         }
       }
       /* Align search to the right inside the main header on desktop, stack on mobile */
@@ -518,6 +520,21 @@
       </div>
 
       <div class="container">
+        <!-- Categories Bar -->
+        <div class="categories" id="categoriesBar">
+          <button id="cat-quran" class="category-btn active" onclick="navigateCategory('quran')">
+            <span class="cat-icon">📖</span>
+            <span class="cat-label">Al-Qur'an</span>
+          </button>
+          <button id="cat-yasin" class="category-btn" onclick="navigateCategory('yasin')">
+            <span class="cat-icon">📜</span>
+            <span class="cat-label">Yasin</span>
+          </button>
+          <button id="cat-doa" class="category-btn" onclick="navigateCategory('doa')">
+            <span class="cat-icon">🤲</span>
+            <span class="cat-label">Doa & Dzikir</span>
+          </button>
+        </div>
         <!-- Quick Access Buttons -->
         <div class="quick-access" id="quickAccess">
           <div class="quick-buttons">
@@ -553,6 +570,16 @@
 
         window.addEventListener("load", function () {
           loadSurahList();
+          // Support deep-link: /quran?surah=36
+          const params = new URLSearchParams(window.location.search);
+          const s = params.get("surah");
+          if (s) {
+            const n = Number(s);
+            if (!Number.isNaN(n)) {
+              // showSurah will set the appropriate active category
+              showSurah(n);
+            }
+          }
         });
 
         async function loadSurahList() {
@@ -585,6 +612,7 @@
         function displaySurahList() {
           currentView = "list";
           document.getElementById("quickAccess").classList.remove("hidden");
+          setActiveCategory('quran');
 
           const searchResults = document.getElementById("searchInput").value
             ? `<div class="search-results">Ditemukan ${filteredSurahs.length} surah</div>`
@@ -619,6 +647,12 @@
             showLoading();
             currentView = "surah";
             document.getElementById("quickAccess").classList.add("hidden");
+            // Set active category based on the surah number (36 = Yasin)
+            if (surahNumber === 36) {
+              setActiveCategory('yasin');
+            } else {
+              setActiveCategory('quran');
+            }
 
             const response = await fetch(
               `https://equran.id/api/v2/surat/${surahNumber}`
@@ -628,6 +662,7 @@
 
             currentSurah = surah;
             currentSurahAyat = surah.ayat;
+            currentPage = 1;
             displaySurah(surah);
           } catch (error) {
             showError(`Gagal memuat surah: ${error.message}`);
@@ -635,29 +670,28 @@
         }
 
         function displaySurah(surah) {
-          currentPage = 1;
           const ayatList = surah.ayat;
+          const startIndex = (currentPage - 1) * ayahsPerPage;
           const paginatedAyahs = paginateAyahs(ayatList);
           const ayahsHtml = paginatedAyahs
-            .map(
-              (ayah, index) => `
-          <div class="ayah-item" id="ayah-${index}">
+            .map((ayah, index) => {
+              const globalIndex = startIndex + index;
+              return `
+          <div class="ayah-item" id="ayah-${globalIndex}">
             <div class="ayah-header-item d-flex align-items-center justify-content-between">
               <div class="ayah-number-badge">${ayah.nomorAyat}</div>
-              <button class="audio-btn" onclick="playAudio(${index}, '${ayah.audio["05"]}')">
+              <button class="audio-btn" onclick="playAudio(${globalIndex})">
                 ▶️ Putar
               </button>
             </div>
             <div class="ayah-arabic">${ayah.teksArab}</div>
             <div class="ayah-latin">${ayah.teksLatin}</div>
             <div class="ayah-translation">${ayah.teksIndonesia}</div>
-          </div>`
-            )
+          </div>`;
+            })
             .join("");
 
-          const pagination = createPagination(ayatList.length, () =>
-            displaySurah(surah)
-          );
+          const pagination = createPagination(ayatList.length);
 
           document.getElementById("content").innerHTML = `
       <button class="back-btn" onclick="goBack()">← Kembali ke Daftar Surah</button>
@@ -711,15 +745,23 @@
           currentAudio = document.getElementById("quranAudio");
           currentAyahIndex = index;
 
-          // Auto next ayat tetap pakai Misyari Rasyid
+          // Auto next ayat dengan auto-paginasi (berpindah halaman bila perlu)
           currentAudio.onended = () => {
             const nextIndex = currentAyahIndex + 1;
             if (nextIndex < currentSurahAyat.length) {
-              playAudio(nextIndex); // tidak perlu url dari API lagi
-              document.getElementById(`ayah-${nextIndex}`).scrollIntoView({
-                behavior: "smooth",
-                block: "center",
-              });
+              const nextPage = Math.floor(nextIndex / ayahsPerPage) + 1;
+              if (nextPage !== currentPage) {
+                currentPage = nextPage;
+                renderCurrentSurah();
+              }
+              playAudio(nextIndex);
+              const nextElem = document.getElementById(`ayah-${nextIndex}`);
+              if (nextElem) {
+                nextElem.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+              }
             } else {
               closeAudio();
             }
@@ -760,13 +802,32 @@
           displaySurahList();
         }
 
+        function navigateCategory(cat) {
+          if (cat === 'quran') {
+            displaySurahList();
+            setActiveCategory('quran');
+          } else if (cat === 'yasin') {
+            setActiveCategory('yasin');
+            showSurah(36);
+          } else if (cat === 'doa') {
+            window.location.href = '/doa';
+          }
+        }
+
+        function setActiveCategory(cat) {
+          const map = { quran: 'cat-quran', yasin: 'cat-yasin', doa: 'cat-doa' };
+          document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+          const el = document.getElementById(map[cat]);
+          if (el) el.classList.add('active');
+        }
+
         function paginateAyahs(ayahs) {
           const startIndex = (currentPage - 1) * ayahsPerPage;
           const endIndex = startIndex + ayahsPerPage;
           return ayahs.slice(startIndex, endIndex);
         }
 
-        function createPagination(totalAyahs, callback) {
+        function createPagination(totalAyahs) {
           const totalPages = Math.ceil(totalAyahs / ayahsPerPage);
           if (totalPages <= 1) return "";
 
@@ -774,23 +835,29 @@
           if (currentPage > 1)
             html += `<button onclick="changePage(${
               currentPage - 1
-            }, callback)">‹ Prev</button>`;
+            })">‹ Prev</button>`;
           for (let i = 1; i <= totalPages; i++) {
             html += `<button class="${
               i === currentPage ? "active" : ""
-            }" onclick="changePage(${i}, callback)">${i}</button>`;
+            }" onclick="changePage(${i})">${i}</button>`;
           }
           if (currentPage < totalPages)
             html += `<button onclick="changePage(${
               currentPage + 1
-            }, callback)">Next ›</button>`;
+            })">Next ›</button>`;
           html += "</div>";
           return html;
         }
 
-        function changePage(page, callback) {
+        function changePage(page) {
           currentPage = page;
-          callback();
+          renderCurrentSurah();
+        }
+
+        function renderCurrentSurah() {
+          if (currentSurah) {
+            displaySurah(currentSurah);
+          }
         }
 
         function showLoading() {
@@ -809,9 +876,67 @@
         <button onclick="loadSurahList()" style="margin-top:15px;background:#dc2626;color:white;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;">Coba Lagi</button>
       </div>`;
         }
+
+        // Quick access: Ayat Kursi (Al-Baqarah ayat 255)
+        async function showAyahKursi() {
+          try {
+            // Muat Surah Al-Baqarah terlebih dahulu
+            await showSurah(2);
+            const targetAyah = 255;
+            // Set halaman ke ayat 255 sesuai paginasi 10 ayat per halaman
+            currentPage = Math.ceil(targetAyah / ayahsPerPage);
+            renderCurrentSurah();
+            // Scroll ke elemen ayat
+            const globalIndex = targetAyah - 1; // id ayah-N menggunakan indeks global 0-based
+            setTimeout(() => {
+              const el = document.getElementById(`ayah-${globalIndex}`);
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth", block: "center" });
+              }
+            }, 100);
+          } catch (e) {
+            showError(`Gagal membuka Ayat Kursi: ${e.message}`);
+          }
+        }
       </script>
 
       <style>
+      .main .categories {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(140px, 1fr));
+        gap: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+      }
+      .main .category-btn {
+        background: white;
+        color: #334155;
+        border: 2px solid #e2e8f0;
+        padding: 10px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        width: 100%;
+      }
+      .main .category-btn:hover { background: #f8fafc; }
+      .main .category-btn.active {
+        background: #10b981;
+        color: white;
+        border-color: #10b981;
+      }
+      .main .category-btn .cat-icon {
+        font-size: 1.4rem;
+        line-height: 1;
+      }
+      .main .category-btn .cat-label {
+        font-size: 0.95rem;
+      }
         .ayah-latin {
           font-size: 1rem;
           color: #64748b;

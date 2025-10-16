@@ -40,6 +40,8 @@ $routes->get('contact', 'Home::contact');
 $routes->get('/contact', 'Home::contact');
 $routes->get('quran', 'Home::quran');
 $routes->get('/quran', 'Home::quran');
+$routes->get('doa', 'Home::doa');
+$routes->get('/doa', 'Home::doa');
 
 $routes->get('login', 'AuthPage::login');
 $routes->get('logout', 'AuthPage::logout');
