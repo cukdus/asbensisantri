@@ -350,7 +350,7 @@
         margin-bottom: 15px;
       }
       .ayah-arabic {
-        font-size: 3em;
+        font-size: 2em;
         line-height: 2;
         text-align: right;
         margin-bottom: 15px;
@@ -405,7 +405,7 @@
           font-size: 1.4rem;
         }
         .ayah-arabic {
-          font-size: 3em;
+          font-size: 2em;
         }
       }
       /* Align search to the right inside the main header on desktop, stack on mobile */
@@ -496,7 +496,7 @@
         width: 100%;
         max-width: none;
         box-sizing: border-box;
-        margin: 18px 0 40px; /* align to container flow, not centered narrower box */
+        margin: 18px 0 0; /* align to container flow, not centered narrower box */
       }
     </style>
     <main class="main" id="main-content" role="main" style="background-color: #f8fafc;">

@@ -19,7 +19,7 @@
   .doa-card { border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 12px; background: #fff; }
   .doa-card h3 { margin: 0 0 8px 0;}
   .doa-group { font-size: 12px; color: #64748b; margin-bottom: 8px; }
-  .doa-ar { font-family: "Amiri", serif; font-size: 3rem; text-align: right; color: #1e293b; margin-bottom: 10px; }
+  .doa-ar { font-family: "Amiri", serif; font-size: 2rem; text-align: right; color: #1e293b; margin-bottom: 10px; }
   .doa-tr { font-style: italic; color: #475569; margin-bottom: 8px; }
   .doa-idn { color: #334155; }
   .doa-tentang { font-size: 12px; color: #64748b; margin-top: 10px; white-space: pre-wrap; }
