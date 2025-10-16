@@ -2,267 +2,194 @@
 <?= $this->include('templates/header_public') ?>
 <?= $this->include('templates/navbar_public') ?>
 
-    <main class="main" id="main-content" role="main">
-        <div class="page-title">
-          <div class="heading">
-            <div class="container">
-              <div class="row d-flex justify-content-center text-center">
-                <div class="col-lg-8">
-                  <h1 class="heading-title">Tentang Kami</h1>
-                  <p class="mb-0">
-                    Pondok Pesantren SIROJAN MUNIRO AS-SALAM berkomitmen mencetak generasi
-                berakhlakul karimah, cerdas, dan mandiri, dengan tetap menjaga
-                tradisi keilmuan Islam yang mulia.
-                  </p>
-                </div>
-              </div>
-            </div>
+<!-- ======= About Section ======= -->
+<section id="about" class="about section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Tentang Kami</h2>
+      <p>Yayasan Pondok Pesantren Sirojan Muniro As Salam</p>
+    </div>
+
+    <div class="row gy-4 align-items-center">
+      <div class="col-lg-6">
+        <div class="image-wrapper">
+          <img src="assets/img/education/aboutpage.webp" alt="Pondok Pesantren Sirojan Muniro As Salam" class="img-fluid rounded shadow">
+          <div class="experience-badge">
+            <div class="years">20+</div>
+            <div class="text">Tahun Berdakwah & Mendidik</div>
           </div>
         </div>
+      </div>
 
-        <article
-          class="page-article"
-          itemscope
-          itemtype="https://schema.org/Article"
-        >
-          <div class="article-body" itemprop="articleBody">
-            <section
-              id="history"
-              class="history section section-spacing light-background"
-              aria-labelledby="visi-misi-heading"
-            >
-              <div class="container">
-                <div class="row g-5 align-items-center">
-                  <div class="col-lg-6">
-                    <div class="image-effect-wrapper image-effect-380">
-                      <img
-                        src="assets/img/education/aboutpage.webp"
-                        alt="Santri belajar di Pondok Pesantren Sirojan Muniro As-Salam"
-                        class="img-fluid"
-                        decoding="async"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div
-                      class="section-title text-start text-lg-start text-center"
-                    >
-                      <h2 id="visi-misi-heading">Visi &amp; Misi</h2>
-                    </div>
-                    <div class="mb-4">
-                      <h3 class="mb-3" id="visi-heading">Visi</h3>
-                      <p class="ps-4">
-                        Menjadi Pondok Pesantren yang Rahmatan lil 'Alamin, yang membawa rahmat, kedamaian, dan manfaat bagi seluruh alam.
-                      </p>
-                    </div>
-                    <div>
-                      <h3 class="mb-3" id="misi-heading">Misi</h3>
-                      <ul class="ps-4" aria-labelledby="misi-heading">
-                        <li class="mb-2">
-                          Menuntun santri menjadi manusia yang beradab,
-                          berakhlak mulia, berdasarkan Al-Qur'an dan hadits.
-                        </li>
-                        <li class="mb-2">
-                          Mendidik santri menjadi manusia yang bermanfaat,
-                          melalui ilmu, amal, dan keterampilan yang membawa
-                          kebaikan bagi umat.
-                        </li>
-                        <li class="mb-2">
-                          Memanusiakan manusia, dengan menanamkan nilai kasih
-                          sayang, kepada semua manusia tanpa membedakan Suku,
-                          Agama, Ras dan Antar Golongan.
-                        </li>
-                        <li class="mb-2">
-                          Membumikan sholawat, dengan menumbuhkan cinta
-                          Rasulullah ﷺ melalui Majlis sholawat dan keteladanan
-                          akhlak Nabi.
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+      <div class="col-lg-6 content">
+        <h3>Rahmatan Lil Alamin</h3>
+        <p>
+          Yayasan Pondok Pesantren Sirojan Muniro As Salam adalah lembaga Islam yang berlokasi di 
+          <b>Dusun Jambu RT 23 RW 05, Desa Pandanmulyo, Kecamatan Tajinan, Kabupaten Malang, Jawa Timur</b>.
+          Berdiri sejak <b>19 Juni 2003</b> oleh <b>Ustadz Fahrudi Irmansah</b> dan resmi berbadan hukum berdasarkan 
+          <b>SK Kemenkumham RI No. AHU-0015045.AH.01.04.Tahun 2024</b>.
+        </p>
+        <p>
+          Bermula dari majelis pengajian kaum marjinal di Gadang, kini berkembang menjadi yayasan 
+          yang aktif dalam bidang pendidikan, dakwah, sosial kemasyarakatan, dan pemberdayaan ekonomi umat.
+        </p>
+        <a href="#visi-misi" class="btn-learn-more mt-2">
+          Pelajari Lebih Lanjut <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Section -->
 
-            <section
-              class="values-section section-spacing"
-              aria-labelledby="nilai-inti-heading"
-            >
-              <div class="container">
-                <div class="section-title">
-                  <h2 id="nilai-inti-heading">Nilai Inti Pesantren</h2>
-                </div>
-                <div class="row g-4">
-                  <div class="col-md-4">
-                    <div class="value-block text-center p-4 h-100">
-                      <div class="value-number">01</div>
-                      <h3>
-                        <i class="fas fa-heart me-2" aria-hidden="true"></i
-                        >Keikhlasan
-                      </h3>
-                      <p>
-                        Seluruh amal ibadah dan pembelajaran dilandasi niat
-                        karena Allah semata.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="value-block text-center p-4 h-100">
-                      <div class="value-number">02</div>
-                      <h3>
-                        <i class="fas fa-clock me-2" aria-hidden="true"></i
-                        >Kedisiplinan
-                      </h3>
-                      <p>
-                        Membentuk santri yang tertib, tekun, dan menghargai
-                        waktu.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="value-block text-center p-4 h-100">
-                      <div class="value-number">03</div>
-                      <h3>
-                        <i
-                          class="fas fa-user-graduate me-2"
-                          aria-hidden="true"
-                        ></i
-                        >Kemandirian
-                      </h3>
-                      <p>
-                        Menyiapkan santri agar mampu hidup mandiri dan
-                        bermanfaat bagi masyarakat.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+<!-- ======= Visi & Misi Section ======= -->
+<section id="visi-misi" class="section">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Visi & Misi</h2>
+    </div>
 
-              <section
-                class="content section-spacing light-background"
-                aria-labelledby="struktur-heading"
-              >
-                <div class="container">
-                  <div class="section-title">
-                    <h2 id="struktur-heading">Struktur Pondok Pesantren</h2>
-                  </div>
-                  <div class="row justify-content-center mb-5">
-                    <div class="col-md-6 col-lg-4 text-center">
-                      <div
-                        class="card border-0 shadow-lg rounded-4 p-3 bg-white"
-                      >
-                        <img
-                          src="assets/img/guru/gusrudi.webp"
-                          alt="Fahrudi Irmansah - Pendiri & Pimpinan Pondok"
-                          class="rounded-4 shadow-sm mb-3 mx-auto"
-                          loading="lazy"
-                          decoding="async"
-                          style="
-                            width: 220px;
-                            height: 260px;
-                            object-fit: cover;
-                            border: 4px solid #198754;
-                          "
-                        />
-                        <div class="card-body">
-                          <h4 class="fw-bold text-success mb-1">
-                            Fahrudi Irmansah
-                          </h4>
-                          <p class="text-muted mb-0">Pendiri & Pimpinan Pondok</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>Visi</h3>
+        <p>
+          Menjadi yayasan yang <b>Rahmatan Lil Alamin</b> dalam pengembangan dakwah Islam Ahlussunnah wal Jama’ah
+          melalui lembaga pendidikan yang mandiri, berdaya guna, dan bermanfaat bagi umat.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <h3>Misi</h3>
+        <ul>
+          <li>Mendirikan dan mengembangkan pondok pesantren serta madrasah.</li>
+          <li>Membentuk program wirausaha santri untuk memperkuat ekonomi umat.</li>
+          <li>Menyusun kurikulum Islam berbasis kewirausahaan.</li>
+          <li>Menyelenggarakan kegiatan sosial, kemanusiaan, dan pemberdayaan masyarakat.</li>
+          <li>Mendukung penelitian, pelatihan, dan studi banding keagamaan.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Visi Misi Section -->
 
-                  <hr
-                    class="my-5"
-                    style="
-                      border-top: 3px dashed #198754;
-                      width: 60%;
-                      margin: auto;
-                    "
-                  />
+<!-- ======= Struktur Pengurus Section ======= -->
+<section id="pengurus" class="section light-background">
+  <div class="container" data-aos="fade-up">
 
-                  <div class="section-title">
-                    <h2 id="pengajar-heading">Para Ustadz &amp; Pengajar</h2>
-                  </div>
+    <div class="section-title">
+      <h2>Struktur Pengurus</h2>
+      <p>Yayasan Pondok Pesantren Sirojan Muniro As Salam</p>
+    </div>
 
-                  <div class="row justify-content-center">
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                      <div
-                        class="card border-0 shadow-sm text-center h-100 rounded-4 p-3 bg-white hover-shadow"
-                      >
-                        <img
-                          src="assets/img/guru/buknyai.webp"
-                          alt="Fatmala Krisnawati - Buk Nyai"
-                          class="rounded-4 shadow-sm mb-3 mx-auto"
-                          loading="lazy"
-                          decoding="async"
-                          style="
-                            width: 140px;
-                            height: 180px;
-                            object-fit: cover;
-                            border: 3px solid #198754;
-                          "
-                        />
-                        <h6 class="fw-bold mb-1">Fatmala Krisnawati</h6>
-                        <p class="text-muted mb-0" style="font-size: 0.9rem">
-                          Buk Nyai
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                      <div
-                        class="card border-0 shadow-sm text-center h-100 rounded-4 p-3 bg-white hover-shadow"
-                      >
-                        <img
-                          src="assets/img/guru/kepala_madrasah.jpg"
-                          alt="Khoirul Ulum - Ketua Pengurus"
-                          class="rounded-4 shadow-sm mb-3 mx-auto"
-                          loading="lazy"
-                          decoding="async"
-                          style="
-                            width: 140px;
-                            height: 180px;
-                            object-fit: cover;
-                            border: 3px solid #198754;
-                          "
-                        />
-                        <h6 class="fw-bold mb-1">Khoirul Ulum</h6>
-                        <p class="text-muted mb-0" style="font-size: 0.9rem">
-                          Ketua Pengurus
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                      <div
-                        class="card border-0 shadow-sm text-center h-100 rounded-4 p-3 bg-white hover-shadow"
-                      >
-                        <img
-                          src="assets/img/guru/pembina_asrama.jpg"
-                          alt="Nanang Yulianto - Wakil Ketua Pengurus"
-                          class="rounded-4 shadow-sm mb-3 mx-auto"
-                          loading="lazy"
-                          decoding="async"
-                          style="
-                            width: 140px;
-                            height: 180px;
-                            object-fit: cover;
-                            border: 3px solid #198754;
-                          "
-                        />
-                        <h6 class="fw-bold mb-1">Nanang Yulianto</h6>
-                        <p class="text-muted mb-0" style="font-size: 0.9rem">
-                          Wakil Ketua Pengurus
-                        </p>
-                      </div>
-                    </div>
-                </div>
-              </section>
-            </div>
+    <div class="row gy-4 justify-content-center">
+
+      <!-- Pembina -->
+      <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in">
+        <div class="card border-0 shadow-sm hover-shadow">
+          <img src="assets/img/pengurus/faris.webp" class="card-img-top rounded-circle p-3" alt="Fariz Chamim Udien">
+          <div class="card-body">
+            <h5 class="card-title mb-1">Fariz Chamim Udien</h5>
+            <p class="card-text small text-muted mb-0">Pembina / Ketua Yayasan</p>
           </div>
-        </article>
-      </main>
+        </div>
+      </div>
+
+      <!-- Ketua Pengurus -->
+      <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="50">
+        <div class="card border-0 shadow-sm hover-shadow">
+          <img src="assets/img/pengurus/khoirul.jpg" class="card-img-top rounded-circle p-3" alt="Khoirul Ulum">
+          <div class="card-body">
+            <h5 class="card-title mb-1">Khoirul Ulum</h5>
+            <p class="card-text small text-muted mb-0">Ketua Pengurus</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wakil Ketua -->
+      <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card border-0 shadow-sm hover-shadow">
+          <img src="assets/img/pengurus/agus.jpg" class="card-img-top rounded-circle p-3" alt="Agus Santoso">
+          <div class="card-body">
+            <h5 class="card-title mb-1">Agus Santoso</h5>
+            <p class="card-text small text-muted mb-0">Wakil Ketua</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sekretaris -->
+      <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="150">
+        <div class="card border-0 shadow-sm hover-shadow">
+          <img src="assets/img/pengurus/buknyai.webp" class="card-img-top rounded-circle p-3" alt="Fatmala Krisnawati">
+          <div class="card-body">
+            <h5 class="card-title mb-1">Fatmala Krisnawati</h5>
+            <p class="card-text small text-muted mb-0">Sekretaris</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bendahara -->
+      <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card border-0 shadow-sm hover-shadow">
+          <img src="assets/img/pengurus/nanang.jpg" class="card-img-top rounded-circle p-3" alt="Nanang Yulianto">
+          <div class="card-body">
+            <h5 class="card-title mb-1">Nanang Yulianto</h5>
+            <p class="card-text small text-muted mb-0">Bendahara</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pengawas -->
+      <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="250">
+        <div class="card border-0 shadow-sm hover-shadow">
+          <img src="assets/img/pengurus/gusrudi.webp" class="card-img-top rounded-circle p-3" alt="Fahrudi Irmansah">
+          <div class="card-body">
+            <h5 class="card-title mb-1">Fahrudi Irmansah</h5>
+            <p class="card-text small text-muted mb-0">Pengawas / Pengasuh Ponpes</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End Struktur Pengurus Section -->
+
+<!-- ======= Quote Section ======= -->
+<section id="quote" class="section bg-light text-center py-5">
+  <div class="container" data-aos="fade-up">
+    <blockquote class="blockquote">
+      <p class="mb-3 fst-italic text-dark">
+        “Jazakumullahu Khairan Katsiran – Semoga Allah membalas dengan kebaikan yang berlimpah.”
+      </p>
+      <footer class="blockquote-footer">Yayasan Pondok Pesantren Sirojan Muniro As Salam</footer>
+    </blockquote>
+  </div>
+</section>
+<!-- End Quote Section -->
+
+<!-- ======= Kontak Section ======= -->
+<section id="kontak" class="section">
+  <div class="container text-center" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Kontak Kami</h2>
+    </div>
+
+    <p>
+      <strong>Alamat:</strong> Dusun Jambu RT 23 RW 05, Desa Pandanmulyo, Kec. Tajinan, Kab. Malang<br>
+      <strong>Telepon:</strong> 0823 0157 7420 (Gus Rudi) | 0858 5222 9494 (Fariz)<br>
+      <strong>Website:</strong> <a href="https://sirojanmuniro.id">sirojanmuniro.id</a>
+    </p>
+
+    <div class="social-links mt-4">
+      <a href="https://instagram.com/sirojanmuniroassalam" class="me-3"><i class="bi bi-instagram"></i></a>
+      <a href="https://tiktok.com/@sirojan.muniro.assalam" class="me-3"><i class="bi bi-tiktok"></i></a>
+      <a href="https://youtube.com/@sirojanmuniroassalam" class="me-3"><i class="bi bi-youtube"></i></a>
+      <a href="https://facebook.com/sirojanmuniro_assalam"><i class="bi bi-facebook"></i></a>
+    </div>
+  </div>
+</section>
+<!-- End Kontak Section -->
+
 
 <?= $this->include('templates/footer_public') ?>
