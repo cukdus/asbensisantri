@@ -21,7 +21,7 @@
             <div class="col-md-4">
               <div class="highlight-item">
                 <div class="icon">
-                  <i class="bi bi-mortarboard-fill"></i>
+                  <i class="bi bi-book-half"></i>
                 </div>
                 <h3>Ngaji Iqro'</h3>
                 <p>
@@ -32,7 +32,7 @@
             <div class="col-md-4">
               <div class="highlight-item">
                 <div class="icon">
-                  <i class="bi bi-people-fill"></i>
+                  <i class="bi bi-journal-text"></i>
                 </div>
                 <h3>Ngaji Al-Qur'an</h3>
                 <p>
@@ -43,7 +43,7 @@
             <div class="col-md-4">
               <div class="highlight-item">
                 <div class="icon">
-                  <i class="bi bi-globe-americas"></i>
+                  <i class="bi bi-journal-bookmark-fill"></i>
                 </div>
                 <h3>Kajian Kitab Kuning</h3>
                 <p>
