@@ -177,7 +177,7 @@
           <div class="highlights-section">
             <div class="row g-4">
               <div class="col-lg-4">
-                <div class="highlight-card">
+                <div class="highlight-card shadow-lg">
                   <div class="highlight-image">
                     <img
                       src="<?= base_url('assets/img/education/kegiatan2.webp'); ?>"
@@ -195,7 +195,7 @@
               </div>
 
               <div class="col-lg-4">
-                <div class="highlight-card">
+                <div class="highlight-card shadow-lg">
                   <div class="highlight-image">
                     <img
                       src="<?= base_url('assets/img/education/mengajiquran.png'); ?>"
@@ -213,7 +213,7 @@
               </div>
 
               <div class="col-lg-4">
-                <div class="highlight-card">
+                <div class="highlight-card shadow-lg">
                   <div class="highlight-image">
                     <img
                       src="<?= base_url('assets/img/education/program5.webp'); ?>"
@@ -232,7 +232,7 @@
             </div>
             <div class="row g-4">
               <div class="col-lg-4">
-                <div class="highlight-card">
+                <div class="highlight-card shadow-lg">
                   <div class="highlight-image">
                     <img
                       src="<?= base_url('assets/img/education/kegiatan3.webp'); ?>"
@@ -250,7 +250,7 @@
               </div>
 
               <div class="col-lg-4">
-                <div class="highlight-card">
+                <div class="highlight-card shadow-lg">
                   <div class="highlight-image">
                     <img
                       src="<?= base_url('assets/img/education/ngaji.webp'); ?>"
@@ -268,7 +268,7 @@
               </div>
 
               <div class="col-lg-4">
-                <div class="highlight-card">
+                <div class="highlight-card shadow-lg">
                   <div class="highlight-image">
                     <img
                       src="<?= base_url('assets/img/education/program3.webp'); ?>"
@@ -287,7 +287,7 @@
             </div>
             <div class="row g-4">
               <div class="col-lg-4">
-                <div class="highlight-card">
+                <div class="highlight-card shadow-lg">
                   <div class="highlight-image">
                     <img
                       src="<?= base_url('assets/img/education/majlisngaji.webp'); ?>"

@@ -40,7 +40,7 @@
           <div class="row gy-4 justify-content-center text-center">
             <!-- Instagram -->
             <div class="col-6 col-md-4 col-lg-2">
-              <div class="card border-0 shadow-sm py-4 position-relative h-100"
+              <div class="card border-0 shadow-lg py-4 position-relative h-100"
                 itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
                 <div class="card-body">
                   <i class="fab fa-instagram text-success display-6 mb-3" aria-hidden="true"></i>
@@ -55,7 +55,7 @@
 
             <!-- TikTok -->
             <div class="col-6 col-md-4 col-lg-2">
-              <div class="card border-0 shadow-sm py-4 position-relative h-100"
+              <div class="card border-0 shadow-lg py-4 position-relative h-100"
                 itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
                 <div class="card-body">
                   <i class="fab fa-tiktok text-success display-6 mb-3" aria-hidden="true"></i>
@@ -70,7 +70,7 @@
 
             <!-- Facebook -->
             <div class="col-6 col-md-4 col-lg-2">
-              <div class="card border-0 shadow-sm py-4 position-relative h-100"
+              <div class="card border-0 shadow-lg py-4 position-relative h-100"
                 itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
                 <div class="card-body">
                   <i class="fab fa-facebook-f text-success display-6 mb-3" aria-hidden="true"></i>
@@ -85,7 +85,7 @@
 
             <!-- YouTube -->
             <div class="col-6 col-md-4 col-lg-2">
-              <div class="card border-0 shadow-sm py-4 position-relative h-100"
+              <div class="card border-0 shadow-lg py-4 position-relative h-100"
                 itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
                 <div class="card-body">
                   <i class="fab fa-youtube text-success display-6 mb-3" aria-hidden="true"></i>
@@ -100,7 +100,7 @@
 
             <!-- WhatsApp -->
             <div class="col-6 col-md-4 col-lg-2">
-              <div class="card border-0 shadow-sm py-4 position-relative h-100"
+              <div class="card border-0 shadow-lg py-4 position-relative h-100"
                 itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
                 <div class="card-body">
                   <i class="fab fa-whatsapp text-success display-6 mb-3" aria-hidden="true"></i>

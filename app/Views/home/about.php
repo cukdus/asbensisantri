@@ -86,7 +86,7 @@
 
       <!-- Pembina -->
       <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in">
-        <div class="card border-0 shadow-sm hover-shadow">
+        <div class="card border-0 shadow-lg hover-shadow">
           <img src="assets/img/pengurus/faris.webp" class="card-img-top rounded-circle p-3" alt="Fariz Chamim Udien">
           <div class="card-body">
             <h5 class="card-title mb-1">Fariz Chamim Udien</h5>
@@ -97,7 +97,7 @@
 
       <!-- Ketua Pengurus -->
       <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="50">
-        <div class="card border-0 shadow-sm hover-shadow">
+        <div class="card border-0 shadow-lg hover-shadow">
           <img src="assets/img/pengurus/khoirul.jpg" class="card-img-top rounded-circle p-3" alt="Khoirul Ulum">
           <div class="card-body">
             <h5 class="card-title mb-1">Khoirul Ulum</h5>
@@ -108,7 +108,7 @@
 
       <!-- Wakil Ketua -->
       <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="100">
-        <div class="card border-0 shadow-sm hover-shadow">
+        <div class="card border-0 shadow-lg hover-shadow">
           <img src="assets/img/pengurus/agus.jpg" class="card-img-top rounded-circle p-3" alt="Agus Santoso">
           <div class="card-body">
             <h5 class="card-title mb-1">Agus Santoso</h5>
@@ -119,7 +119,7 @@
 
       <!-- Sekretaris -->
       <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="150">
-        <div class="card border-0 shadow-sm hover-shadow">
+        <div class="card border-0 shadow-lg hover-shadow">
           <img src="assets/img/pengurus/buknyai.webp" class="card-img-top rounded-circle p-3" alt="Fatmala Krisnawati">
           <div class="card-body">
             <h5 class="card-title mb-1">Fatmala Krisnawati</h5>
@@ -130,7 +130,7 @@
 
       <!-- Bendahara -->
       <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="200">
-        <div class="card border-0 shadow-sm hover-shadow">
+        <div class="card border-0 shadow-lg hover-shadow">
           <img src="assets/img/pengurus/nanang.jpg" class="card-img-top rounded-circle p-3" alt="Nanang Yulianto">
           <div class="card-body">
             <h5 class="card-title mb-1">Nanang Yulianto</h5>
@@ -141,7 +141,7 @@
 
       <!-- Pengawas -->
       <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="250">
-        <div class="card border-0 shadow-sm hover-shadow">
+        <div class="card border-0 shadow-lg hover-shadow">
           <img src="assets/img/pengurus/gusrudi.webp" class="card-img-top rounded-circle p-3" alt="Fahrudi Irmansah">
           <div class="card-body">
             <h5 class="card-title mb-1">Fahrudi Irmansah</h5>
