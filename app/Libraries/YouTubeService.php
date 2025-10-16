@@ -13,10 +13,6 @@ class YouTubeService
         $this->config = $config ?? config('YouTube');
     }
 
-    /**
-     * Get latest videos from YouTube channel via RSS feed (no API key).
-     * Returns an array of [videoId, title, publishedAt, thumbnail, url, channelTitle].
-     */
     public function getLatestVideos(): array
     {
         $channelId = trim($this->config->channelId ?? '');
