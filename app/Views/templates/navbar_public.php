@@ -14,11 +14,11 @@ $active_menu = ($active_menu ?? $autoActive);
       class="navmenu d-flex align-items-center justify-content-between justify-content-xl-center"
     >
       <ul>
-        <li><a href="<?= base_url(); ?>" class="<?= $active_menu === 'home' ? 'active' : ''; ?>">Home</a></li>
-        <li><a href="<?= base_url('about'); ?>" class="<?= $active_menu === 'about' ? 'active' : ''; ?>">About</a></li>
+        <li><a href="<?= base_url(); ?>" class="<?= $active_menu === 'home' ? 'active' : ''; ?>">Beranda</a></li>
+        <li><a href="<?= base_url('about'); ?>" class="<?= $active_menu === 'about' ? 'active' : ''; ?>">Tentang Kami</a></li>
         <li><a href="<?= base_url('quran'); ?>" class="<?= $active_menu === 'quran' ? 'active' : ''; ?>">Al-Qur'an</a></li>
         <li><a href="<?= base_url('nilai'); ?>" class="<?= $active_menu === 'nilai' ? 'active' : ''; ?>">Cek Nilai</a></li>
-        <li><a href="<?= base_url('contact'); ?>" class="<?= $active_menu === 'contact' ? 'active' : ''; ?>">Contact</a></li>
+        <li><a href="<?= base_url('contact'); ?>" class="<?= $active_menu === 'contact' ? 'active' : ''; ?>">Kontak Kami</a></li>
       </ul>
       <button
         type="button"
