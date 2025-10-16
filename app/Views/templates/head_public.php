@@ -12,7 +12,7 @@
     $metaDescription = isset($metaDescription) && is_string($metaDescription) && trim($metaDescription) !== ''
       ? $metaDescription
       : $defaultDescription;
-    $defaultOgImage = base_url('assets/img/education/kegiatan2.webp');
+    $defaultOgImage = base_url('https://sirojanmuniro.id/assets/img/ponpes.webp');
     $ogImage = isset($ogImage) && is_string($ogImage) && trim($ogImage) !== ''
       ? $ogImage
       : $defaultOgImage;
@@ -40,8 +40,8 @@
     <meta name="twitter:description" content="<?= esc($metaDescription) ?>" />
     <meta name="twitter:image" content="<?= esc($ogImage) ?>" />
 
-    <link href="<?= base_url('assets/img/favicon.png'); ?>" rel="icon" />
-    <link href="<?= base_url('assets/img/apple-touch-icon.png'); ?>" rel="apple-touch-icon" />
+    <link href="<?= base_url('assets/img/ponpes.ico'); ?>" rel="icon" />
+    <link href="<?= base_url('assets/img/apple.ico'); ?>" rel="apple-touch-icon" />
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
