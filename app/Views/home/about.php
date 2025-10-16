@@ -153,8 +153,8 @@
                         class="card border-0 shadow-lg rounded-4 p-3 bg-white"
                       >
                         <img
-                          src="assets/img/guru/pimpinan_pondok.jpg"
-                          alt="KH. Ahmad Zainuddin - Pimpinan Pondok Pesantren"
+                          src="assets/img/guru/gusrudi.webp"
+                          alt="Fahrudi Irmansah - Pendiri & Pimpinan Pondok"
                           class="rounded-4 shadow-sm mb-3 mx-auto"
                           loading="lazy"
                           decoding="async"
@@ -194,8 +194,8 @@
                         class="card border-0 shadow-sm text-center h-100 rounded-4 p-3 bg-white hover-shadow"
                       >
                         <img
-                          src="assets/img/guru/wakil_pimpinan.jpg"
-                          alt="Ustadz Ali Mustofa - Wakil Pimpinan"
+                          src="assets/img/guru/buknyai.webp"
+                          alt="Fatmala Krisnawati - Buk Nyai"
                           class="rounded-4 shadow-sm mb-3 mx-auto"
                           loading="lazy"
                           decoding="async"
@@ -206,9 +206,9 @@
                             border: 3px solid #198754;
                           "
                         />
-                        <h6 class="fw-bold mb-1">Ustadz Ali Mustofa</h6>
+                        <h6 class="fw-bold mb-1">Fatmala Krisnawati</h6>
                         <p class="text-muted mb-0" style="font-size: 0.9rem">
-                          Wakil Pimpinan
+                          Buk Nyai
                         </p>
                       </div>
                     </div>
@@ -218,7 +218,7 @@
                       >
                         <img
                           src="assets/img/guru/kepala_madrasah.jpg"
-                          alt="Ustadzah Siti Maryam - Kepala Madrasah"
+                          alt="Khoirul Ulum - Ketua Pengurus"
                           class="rounded-4 shadow-sm mb-3 mx-auto"
                           loading="lazy"
                           decoding="async"
@@ -229,9 +229,9 @@
                             border: 3px solid #198754;
                           "
                         />
-                        <h6 class="fw-bold mb-1">Ustadzah Siti Maryam</h6>
+                        <h6 class="fw-bold mb-1">Khoirul Ulum</h6>
                         <p class="text-muted mb-0" style="font-size: 0.9rem">
-                          Kepala Madrasah
+                          Ketua Pengurus
                         </p>
                       </div>
                     </div>
@@ -241,7 +241,7 @@
                       >
                         <img
                           src="assets/img/guru/pembina_asrama.jpg"
-                          alt="Ustadz Hasan Basri - Pembina Asrama"
+                          alt="Nanang Yulianto - Wakil Ketua Pengurus"
                           class="rounded-4 shadow-sm mb-3 mx-auto"
                           loading="lazy"
                           decoding="async"
@@ -252,9 +252,9 @@
                             border: 3px solid #198754;
                           "
                         />
-                        <h6 class="fw-bold mb-1">Ustadz Hasan Basri</h6>
+                        <h6 class="fw-bold mb-1">Nanang Yulianto</h6>
                         <p class="text-muted mb-0" style="font-size: 0.9rem">
-                          Pembina Asrama
+                          Wakil Ketua Pengurus
                         </p>
                       </div>
                     </div>

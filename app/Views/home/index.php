@@ -155,20 +155,14 @@
                       alt="Student Activities"
                       class="img-fluid"
                     />
-                    <div class="visual-caption">
-                      <span>Student Activities</span>
-                    </div>
                   </div>
 
                   <div class="small-visual">
                     <img
-                      src="<?= base_url('assets/img/education/program3.webp'); ?>"
+                      src="<?= base_url('assets/img/education/program4.webp'); ?>"
                       alt="Academic Excellence"
                       class="img-fluid"
                     />
-                    <div class="visual-caption">
-                      <span>Academic Excellence</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -204,7 +198,7 @@
                 <div class="highlight-card">
                   <div class="highlight-image">
                     <img
-                      src="<?= base_url('assets/img/education/activities-9.webp'); ?>"
+                      src="<?= base_url('assets/img/education/mengajiquran.png'); ?>"
                       alt="Cultural Events"
                       class="img-fluid"
                     />
@@ -222,7 +216,7 @@
                 <div class="highlight-card">
                   <div class="highlight-image">
                     <img
-                      src="<?= base_url('assets/img/education/activities-3.webp'); ?>"
+                      src="<?= base_url('assets/img/education/program5.webp'); ?>"
                       alt="Innovation Hub"
                       class="img-fluid"
                     />
@@ -241,7 +235,7 @@
                 <div class="highlight-card">
                   <div class="highlight-image">
                     <img
-                      src="<?= base_url('assets/img/education/activities-7.webp'); ?>"
+                      src="<?= base_url('assets/img/education/kegiatan3.webp'); ?>"
                       alt="Leadership Programs"
                       class="img-fluid"
                     />
@@ -259,7 +253,7 @@
                 <div class="highlight-card">
                   <div class="highlight-image">
                     <img
-                      src="<?= base_url('assets/img/education/activities-9.webp'); ?>"
+                      src="<?= base_url('assets/img/education/ngaji.webp'); ?>"
                       alt="Cultural Events"
                       class="img-fluid"
                     />
@@ -277,7 +271,7 @@
                 <div class="highlight-card">
                   <div class="highlight-image">
                     <img
-                      src="<?= base_url('assets/img/education/activities-3.webp'); ?>"
+                      src="<?= base_url('assets/img/education/program3.webp'); ?>"
                       alt="Innovation Hub"
                       class="img-fluid"
                     />
@@ -296,7 +290,7 @@
                 <div class="highlight-card">
                   <div class="highlight-image">
                     <img
-                      src="<?= base_url('assets/img/education/activities-7.webp'); ?>"
+                      src="<?= base_url('assets/img/education/majlisngaji.webp'); ?>"
                       alt="Leadership Programs"
                       class="img-fluid"
                     />
