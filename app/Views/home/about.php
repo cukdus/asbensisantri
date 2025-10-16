@@ -177,7 +177,7 @@
 
     <p>
       <strong>Alamat:</strong> Dusun Jambu RT 23 RW 05, Desa Pandanmulyo, Kec. Tajinan, Kab. Malang<br>
-      <strong>Telepon:</strong> 0823 0157 7420 (Gus Rudi) | 0858 5222 9494 (Fariz)<br>
+      <strong>Telepon:</strong> 0813 2903 9527 (Gus Rudi)<br>
       <strong>Website:</strong> <a href="https://sirojanmuniro.id">sirojanmuniro.id</a>
     </p>
 

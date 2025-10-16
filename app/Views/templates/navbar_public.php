@@ -32,7 +32,7 @@ $active_menu = ($active_menu ?? $autoActive);
 </div>
 
 <a
-  href="https://wa.me/6285731397860"
+  href="https://wa.me/6281329039527"
   target="_blank"
   rel="noopener noreferrer"
   class="wa-float"

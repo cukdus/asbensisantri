@@ -26,7 +26,7 @@
                   <div class="header-socials">
                     <a
                       class="instagram"
-                      href="https://www.instagram.com/sirojanmuniro_assalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                      href="https://www.instagram.com/sirojanmuniro_assalam"
                       aria-label="Instagram"
                     >
                       <i class="bi bi-instagram"></i>
