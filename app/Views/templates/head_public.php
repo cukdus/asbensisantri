@@ -3,9 +3,42 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title><?= $title ?? 'Pondok Pesantren Sirojan Muniro As-Salam'; ?></title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <?php
+    $siteName = 'Pondok Pesantren Sirojan Muniro As-Salam';
+    $pageTitle = $title ?? $siteName;
+    $uri = service('uri');
+    $canonical = base_url($uri?->getPath() ?? '');
+    $defaultDescription = 'Website resmi Pondok Pesantren Sirojan Muniro As-Salam. Pendidikan Islam terpadu, informasi kegiatan, kajian terbaru, dan layanan pendidikan di lingkungan pesantren.';
+    $metaDescription = isset($metaDescription) && is_string($metaDescription) && trim($metaDescription) !== ''
+      ? $metaDescription
+      : $defaultDescription;
+    $defaultOgImage = base_url('assets/img/education/kegiatan2.webp');
+    $ogImage = isset($ogImage) && is_string($ogImage) && trim($ogImage) !== ''
+      ? $ogImage
+      : $defaultOgImage;
+    $ogUrl = $canonical;
+    ?>
+    <title><?= esc($pageTitle) ?></title>
+    <link rel="canonical" href="<?= esc($canonical) ?>" />
+    <meta name="description" content="<?= esc($metaDescription) ?>" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="<?= esc($siteName) ?>" />
+    <meta name="theme-color" content="#0a7a31" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="<?= esc($pageTitle) ?>" />
+    <meta property="og:description" content="<?= esc($metaDescription) ?>" />
+    <meta property="og:image" content="<?= esc($ogImage) ?>" />
+    <meta property="og:url" content="<?= esc($ogUrl) ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="<?= esc($siteName) ?>" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<?= esc($pageTitle) ?>" />
+    <meta name="twitter:description" content="<?= esc($metaDescription) ?>" />
+    <meta name="twitter:image" content="<?= esc($ogImage) ?>" />
 
     <link href="<?= base_url('assets/img/favicon.png'); ?>" rel="icon" />
     <link href="<?= base_url('assets/img/apple-touch-icon.png'); ?>" rel="apple-touch-icon" />
@@ -37,4 +70,26 @@
     />
 
     <link href="<?= base_url('assets/css/main.css?v=' . time()) ?>" rel="stylesheet" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "<?= esc($siteName) ?>",
+        "url": "<?= esc(base_url()) ?>",
+        "logo": "<?= esc(base_url('assets/img/favicon.png')) ?>",
+        "sameAs": [
+          "https://www.youtube.com/@ustadmbois"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "<?= esc($siteName) ?>",
+        "url": "<?= esc(base_url()) ?>"
+      }
+    </script>
   </head>
