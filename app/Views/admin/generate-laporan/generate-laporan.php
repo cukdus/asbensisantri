@@ -4,9 +4,9 @@
    <div class="container-fluid">
       <div class="row">
          <div class="col-lg-12 col-md-12">
-            <?php if (session()->getFlashdata('msg')) : ?>
+            <?php if (session()->getFlashdata('msg')): ?>
                <div class="pb-2 px-3">
-                  <div class="alert alert-<?= session()->getFlashdata('error') == true ? 'danger' : 'success'  ?> ">
+                  <div class="alert alert-<?= session()->getFlashdata('error') == true ? 'danger' : 'success' ?> ">
                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <i class="material-icons">close</i>
                      </button>
@@ -41,7 +41,7 @@
                               </div>
                               <select name="kelas" class="custom-select mt-3">
                                  <option value="">--Pilih kelas--</option>
-                                 <?php foreach ($kelas as $key => $value) : ?>
+                                 <?php foreach ($kelas as $key => $value): ?>
                                     <?php
                                     $idKelas = $value['id_kelas'];
                                     $kelas = "{$value['kelas']} {$value['jurusan']}";

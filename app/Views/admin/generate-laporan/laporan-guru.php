@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 <table>
    <tr>
-      <td><img src="<?= getLogo(); ?>" width="100px" height="100px"></img></td>
+      <td><img src="<?= getLogo(); ?>" class="logo-img" style="width: 2.65cm; height: auto;" alt="Logo"></img></td>
       <td width="100%">
          <h2 align="center">DAFTAR HADIR GURU</h2>
          <h4 align="center"><?= $generalSettings->school_name; ?></h4>
@@ -15,7 +15,7 @@
    </tr>
 </table>
 <span>Bulan : <?= $bulan; ?></span>
-<table align="center" border="1">
+<table align="center" border="1" style="margin-top: 20px;">
    <thead>
       <td></td>
       <td></td>
@@ -24,7 +24,7 @@
    <thead>
       <td></td>
       <td></td>
-      <?php foreach ($tanggal as $value) : ?>
+      <?php foreach ($tanggal as $value): ?>
          <th align="center"><?= $value->toLocalizedString('E'); ?></th>
       <?php endforeach; ?>
       <td colspan="4" align="center">Total</td>
@@ -32,7 +32,7 @@
    <tr>
       <th align="center">No</th>
       <th width="1000px">Nama</th>
-      <?php foreach ($tanggal as $value) : ?>
+      <?php foreach ($tanggal as $value): ?>
          <th align="center"><?= $value->format('d'); ?></th>
       <?php endforeach; ?>
       <th align="center" style="background-color:lightgreen;">H</th>
@@ -43,30 +43,35 @@
 
    <?php $i = 0; ?>
 
-   <?php foreach ($listGuru as $guru) : ?>
+   <?php foreach ($listGuru as $guru): ?>
       <?php
-      $jumlahHadir = count(array_filter($listAbsen, function ($a) use ($i) {
-         if ($a['lewat'] || is_null($a[$i]['id_kehadiran'])) return false;
-         return $a[$i]['id_kehadiran'] == 1;
-      }));
-      $jumlahSakit = count(array_filter($listAbsen, function ($a) use ($i) {
-         if ($a['lewat'] || is_null($a[$i]['id_kehadiran'])) return false;
-         return $a[$i]['id_kehadiran'] == 2;
-      }));
-      $jumlahIzin = count(array_filter($listAbsen, function ($a) use ($i) {
-         if ($a['lewat'] || is_null($a[$i]['id_kehadiran'])) return false;
-         return $a[$i]['id_kehadiran'] == 3;
-      }));
-      $jumlahTidakHadir = count(array_filter($listAbsen, function ($a) use ($i) {
-         if ($a['lewat']) return false;
-         if (is_null($a[$i]['id_kehadiran']) || $a[$i]['id_kehadiran'] == 4) return true;
-         return false;
-      }));
-      ?>
+    $jumlahHadir = count(array_filter($listAbsen, function ($a) use ($i) {
+        if ($a['lewat'] || is_null($a[$i]['id_kehadiran']))
+            return false;
+        return $a[$i]['id_kehadiran'] == 1;
+    }));
+    $jumlahSakit = count(array_filter($listAbsen, function ($a) use ($i) {
+        if ($a['lewat'] || is_null($a[$i]['id_kehadiran']))
+            return false;
+        return $a[$i]['id_kehadiran'] == 2;
+    }));
+    $jumlahIzin = count(array_filter($listAbsen, function ($a) use ($i) {
+        if ($a['lewat'] || is_null($a[$i]['id_kehadiran']))
+            return false;
+        return $a[$i]['id_kehadiran'] == 3;
+    }));
+    $jumlahTidakHadir = count(array_filter($listAbsen, function ($a) use ($i) {
+        if ($a['lewat'])
+            return false;
+        if (is_null($a[$i]['id_kehadiran']) || $a[$i]['id_kehadiran'] == 4)
+            return true;
+        return false;
+    }));
+    ?>
       <tr>
          <td align="center"><?= $i + 1; ?></td>
          <td><?= $guru['nama_guru']; ?></td>
-         <?php foreach ($listAbsen as $absen) : ?>
+         <?php foreach ($listAbsen as $absen): ?>
             <?= kehadiran($absen[$i]['id_kehadiran'] ?? ($absen['lewat'] ? 5 : 4)); ?>
          <?php endforeach; ?>
          <td align="center">
@@ -83,8 +88,9 @@
          </td>
       </tr>
    <?php
-      $i++;
-   endforeach; ?>
+    $i++;
+endforeach;
+?>
 
 </table>
 <br></br>
@@ -105,27 +111,27 @@
 <?php
 function kehadiran($kehadiran)
 {
-   $text = '';
-   switch ($kehadiran) {
-      case 1:
-         $text = "<td align='center' style='background-color:lightgreen;'>H</td>";
-         break;
-      case 2:
-         $text = "<td align='center' style='background-color:yellow;'>S</td>";
-         break;
-      case 3:
-         $text = "<td align='center' style='background-color:yellow;'>I</td>";
-         break;
-      case 4:
-         $text = "<td align='center' style='background-color:red;'>A</td>";
-         break;
-      case 5:
-      default:
-         $text = "<td></td>";
-         break;
-   }
+    $text = '';
+    switch ($kehadiran) {
+        case 1:
+            $text = "<td align='center' style='background-color:lightgreen;'>H</td>";
+            break;
+        case 2:
+            $text = "<td align='center' style='background-color:yellow;'>S</td>";
+            break;
+        case 3:
+            $text = "<td align='center' style='background-color:yellow;'>I</td>";
+            break;
+        case 4:
+            $text = "<td align='center' style='background-color:red;'>A</td>";
+            break;
+        case 5:
+        default:
+            $text = '<td></td>';
+            break;
+    }
 
-   return $text;
+    return $text;
 }
 ?>
 <?= $this->endSection() ?>
