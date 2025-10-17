@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 <table>
    <tr>
-      <td><img src="<?= getLogo(); ?>" width="100" height="100" alt="Logo"></img></img></td>
+      <td><img src="<?= getLogo(); ?>" width="100" height="100" alt="Logo"></img></td>
       <td width="100%">
          <h2 align="center">DAFTAR HADIR GURU</h2>
          <h4 align="center"><?= $generalSettings->school_name; ?></h4>
@@ -16,19 +16,19 @@
 </table>
 <span>Bulan : <?= $bulan; ?></span>
 <table align="center" border="1" style="margin-top: 20px;">
-   <thead>
+   <tr>
       <td></td>
       <td></td>
       <th colspan="<?= count($tanggal); ?>">Hari/Tanggal</th>
-   </thead>
-   <thead>
+   </tr>
+   <tr>
       <td></td>
       <td></td>
       <?php foreach ($tanggal as $value): ?>
-         <th align="center"><?= $value->toLocalizedString('E'); ?></th>
+         <td align="center"><b><?= $value->toLocalizedString('E'); ?></b></td>
       <?php endforeach; ?>
       <td colspan="4" align="center">Total</td>
-   </thead>
+   </tr>
    <tr>
       <th align="center">No</th>
       <th width="1000px">Nama</th>
