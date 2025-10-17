@@ -12,12 +12,6 @@
          border-collapse: collapse;
       }
 
-      /* Konsistensi ukuran logo di PDF & DOC */
-      .logo-img {
-         width: 2.65cm; /* ~100px pada 96 DPI */
-         height: auto;
-      }
-
       /* Orientasi cetak: Landscape untuk PDF (browser print) */
       @page {
          size: A4 landscape;

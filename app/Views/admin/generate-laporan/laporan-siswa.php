@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 <table>
    <tr>
-      <td><img src="<?= getLogo(); ?>" class="logo-img" style="width: 2.65cm; height: auto;" alt="Logo"></img></td>
+      <td><img src="<?= getLogo(); ?>" width="100" height="100" alt="Logo"></img></td>
       <td width="100%">
          <h2 align="center">DAFTAR HADIR SISWA</h2>
          <h4 align="center"><?= $generalSettings->school_name; ?></h4>
