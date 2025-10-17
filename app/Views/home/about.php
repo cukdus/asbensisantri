@@ -98,7 +98,7 @@
       <!-- Ketua Pengurus -->
       <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="50">
         <div class="card border-0 shadow-lg hover-shadow">
-          <img src="assets/img/pengurus/khoirul.jpg" class="card-img-top rounded-circle p-3" alt="Khoirul Ulum">
+          <img src="assets/img/pengurus/ulum.webp" class="card-img-top rounded-circle p-3" alt="Khoirul Ulum">
           <div class="card-body">
             <h5 class="card-title mb-1">Khoirul Ulum</h5>
             <p class="card-text small text-muted mb-0">Ketua Pengurus</p>
@@ -109,14 +109,23 @@
       <!-- Wakil Ketua -->
       <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="100">
         <div class="card border-0 shadow-lg hover-shadow">
-          <img src="assets/img/pengurus/agus.jpg" class="card-img-top rounded-circle p-3" alt="Agus Santoso">
+          <img src="assets/img/pengurus/agus.webp" class="card-img-top rounded-circle p-3" alt="Agus Santoso">
           <div class="card-body">
             <h5 class="card-title mb-1">Agus Santoso</h5>
             <p class="card-text small text-muted mb-0">Wakil Ketua</p>
           </div>
         </div>
       </div>
-
+      <!-- Bendahara -->
+      <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card border-0 shadow-lg hover-shadow">
+          <img src="assets/img/pengurus/nanang.webp" class="card-img-top rounded-circle p-3" alt="Nanang Yulianto">
+          <div class="card-body">
+            <h5 class="card-title mb-1">Nanang Yulianto</h5>
+            <p class="card-text small text-muted mb-0">Bendahara</p>
+          </div>
+        </div>
+      </div>
       <!-- Sekretaris -->
       <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="150">
         <div class="card border-0 shadow-lg hover-shadow">
@@ -124,17 +133,6 @@
           <div class="card-body">
             <h5 class="card-title mb-1">Fatmala Krisnawati</h5>
             <p class="card-text small text-muted mb-0">Sekretaris</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bendahara -->
-      <div class="col-md-4 col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="200">
-        <div class="card border-0 shadow-lg hover-shadow">
-          <img src="assets/img/pengurus/nanang.jpg" class="card-img-top rounded-circle p-3" alt="Nanang Yulianto">
-          <div class="card-body">
-            <h5 class="card-title mb-1">Nanang Yulianto</h5>
-            <p class="card-text small text-muted mb-0">Bendahara</p>
           </div>
         </div>
       </div>
