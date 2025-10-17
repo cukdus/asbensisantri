@@ -351,39 +351,57 @@
               
             <div class="swiper-slide" role="group" aria-label="8 / 9" data-swiper-slide-index="7" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card ">
-                  <img src="<?= base_url('assets/img/supported/pressolve.webp'); ?>" alt="Pressolve" class="partner-logo">
+                  <a href="https://www.instagram.com/pressolve/" target="_blank" rel="noopener noreferrer">
+                    <img src="<?= base_url('assets/img/supported/pressolve.webp'); ?>" alt="Pressolve" class="partner-logo">
+                  </a>
                 </div>
               </div><div class="swiper-slide" role="group" aria-label="9 / 9" data-swiper-slide-index="8" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="<?= base_url('assets/img/supported/SEH.webp'); ?>" alt="SEH" class="partner-logo">
+                  <a href="https://supporterberdaya.id/" target="_blank" rel="noopener noreferrer">
+                    <img src="<?= base_url('assets/img/supported/SEH.webp'); ?>" alt="SEH" class="partner-logo">
+                  </a>
                 </div>
               </div><div class="swiper-slide" role="group" aria-label="1 / 9" data-swiper-slide-index="0" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="<?= base_url('assets/img/supported/ais.webp'); ?>" alt="AIS" class="partner-logo">
+                  <a href="https://azkaindiesatu.id/" target="_blank" rel="noopener noreferrer">
+                    <img src="<?= base_url('assets/img/supported/ais.webp'); ?>" alt="AIS" class="partner-logo">
+                  </a>
                 </div>
               </div><div class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 9" data-swiper-slide-index="1" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="<?= base_url('assets/img/supported/atourwis.webp'); ?>" alt="Atour Wisata" class="partner-logo">
+                  <a href="https://atourwis.id/" target="_blank" rel="noopener noreferrer">
+                    <img src="<?= base_url('assets/img/supported/atourwis.webp'); ?>" alt="Atour Wisata" class="partner-logo">
+                  </a>
                 </div>
               </div><div class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 9" data-swiper-slide-index="2" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="<?= base_url('assets/img/supported/bekasbaru.webp'); ?>" alt="Bekas Baru" class="partner-logo">
+                  <a href="https://bekasbaru.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="<?= base_url('assets/img/supported/bekasbaru.webp'); ?>" alt="Bekas Baru" class="partner-logo">
+                  </a>
                 </div>
               </div><div class="swiper-slide swiper-slide-next" role="group" aria-label="4 / 9" data-swiper-slide-index="3" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="<?= base_url('assets/img/supported/eqiyu.webp'); ?>" alt="Eqiyu" class="partner-logo">
+                  <a href="https://eqiyu.id/" target="_blank" rel="noopener noreferrer">
+                    <img src="<?= base_url('assets/img/supported/eqiyu.webp'); ?>" alt="Eqiyu" class="partner-logo">
+                  </a>
                 </div>
               </div><div class="swiper-slide" role="group" aria-label="5 / 9" data-swiper-slide-index="4" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="<?= base_url('assets/img/supported/mbowis.webp'); ?>" alt="Mbowis" class="partner-logo">
+                  <a href="https://mbowis.id/" target="_blank" rel="noopener noreferrer">
+                    <img src="<?= base_url('assets/img/supported/mbowis.webp'); ?>" alt="Mbowis" class="partner-logo">
+                  </a>
                 </div>
               </div><div class="swiper-slide" role="group" aria-label="6 / 9" data-swiper-slide-index="5" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="<?= base_url('assets/img/supported/mlg.webp'); ?>" alt="MLG" class="partner-logo">
+                  <a href="https://mlgcoffee.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="<?= base_url('assets/img/supported/mlg.webp'); ?>" alt="MLG" class="partner-logo">
+                  </a>
                 </div>
               </div><div class="swiper-slide" role="group" aria-label="7 / 9" data-swiper-slide-index="6" style="width: 243.2px; margin-right: 20px;">
                 <div class="partner-card">
-                  <img src="<?= base_url('assets/img/supported/overhaul.webp'); ?>" alt="Overhaul" class="partner-logo">
+                  <a href="https://overhaul.id/" target="_blank" rel="noopener noreferrer">
+                    <img src="<?= base_url('assets/img/supported/overhaul.webp'); ?>" alt="Overhaul" class="partner-logo">
+                  </a>
                 </div>
               </div></div>
 
