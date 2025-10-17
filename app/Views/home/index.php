@@ -73,7 +73,7 @@
               </p>
             </div>
 
-            <a href="about.html" class="btn-learn-more">
+            <a href="about" class="btn-learn-more">
               Pelajari Lebih Lanjut
               <i class="bi bi-arrow-right"></i>
             </a>
