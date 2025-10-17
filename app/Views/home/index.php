@@ -271,7 +271,7 @@
             <?php if (!empty($youtubeVideos)): ?>
               <?php foreach ($youtubeVideos as $video): ?>
                 <div class="col-lg-6">
-                  <div class="event-card">
+                  <div class="event-card shadow-lg">
                     <div class="event-date">
                       <span class="month"><?= esc(date('M', strtotime($video['publishedAt']))) ?></span>
                       <span class="day"><?= esc(date('d', strtotime($video['publishedAt']))) ?></span>
@@ -350,7 +350,7 @@
             <div class="swiper-wrapper" id="swiper-wrapper-85baab165fb49f85" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-1052.8px, 0px, 0px); transition-delay: 0ms;">
               
             <div class="swiper-slide" role="group" aria-label="8 / 9" data-swiper-slide-index="7" style="width: 243.2px; margin-right: 20px;">
-                <div class="partner-card">
+                <div class="partner-card ">
                   <img src="<?= base_url('assets/img/supported/pressolve.webp'); ?>" alt="Pressolve" class="partner-logo">
                 </div>
               </div><div class="swiper-slide" role="group" aria-label="9 / 9" data-swiper-slide-index="8" style="width: 243.2px; margin-right: 20px;">
