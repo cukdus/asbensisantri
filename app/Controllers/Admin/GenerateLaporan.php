@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\GuruModel;
 use App\Models\KelasModel;
 use App\Models\PresensiGuruModel;
 use App\Models\PresensiSiswaModel;
@@ -20,6 +21,7 @@ class GenerateLaporan extends BaseController
     protected UserModel $userModel;
     protected PresensiSiswaModel $presensiSiswaModel;
     protected PresensiGuruModel $presensiGuruModel;
+    protected GuruModel $guruModel;
 
     public function __construct()
     {
@@ -30,6 +32,7 @@ class GenerateLaporan extends BaseController
 
         $this->presensiSiswaModel = new PresensiSiswaModel();
         $this->presensiGuruModel = new PresensiGuruModel();
+        $this->guruModel = new GuruModel();
     }
 
     public function index()
