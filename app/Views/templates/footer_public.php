@@ -127,8 +127,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
-
-  <script src="<?= base_url('assets/js/validate.js'); ?>"></script>
-  <script src="<?= base_url('assets/js/main.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/main.js'); ?>"></script>
 </body>
 </html>
