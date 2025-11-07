@@ -267,7 +267,7 @@ class DataSiswa extends BaseController
             }
         }
 
-        // update (NIS tidak diubah karena auto-generated)
+        // update (NIS akan diregenerasi otomatis jika jk/tahun_masuk berubah)
         $result = $this->siswaModel->updateSiswa(
             id: $idSiswa,
             nama: $this->request->getVar('nama'),

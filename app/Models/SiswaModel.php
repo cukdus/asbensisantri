@@ -179,8 +179,18 @@ class SiswaModel extends Model
         // Year (last 2 digits)
         $year = substr($tahunMasuk, -2);
 
-        // Gender code
-        $genderCode = ($jenisKelamin === 'Laki-laki') ? '01' : '02';
+        // Gender code (robust mapping: supports numeric and string variants)
+        $jk = strtolower(trim((string) $jenisKelamin));
+        $maleValues = ['1', 'l', 'laki-laki', 'laki', 'pria', 'male', 'm'];
+        $femaleValues = ['2', 'p', 'perempuan', 'wanita', 'female', 'f'];
+        if (in_array($jk, $maleValues, true)) {
+            $genderCode = '01';
+        } elseif (in_array($jk, $femaleValues, true)) {
+            $genderCode = '02';
+        } else {
+            // Fallback: assume female if value unknown
+            $genderCode = '02';
+        }
 
         // Get the next sequential number for this year and gender
         $prefix = $schoolCode . $year . $genderCode;
@@ -235,6 +245,9 @@ class SiswaModel extends Model
 
     public function updateSiswa($id, $nama, $idKelas, $jenisKelamin, $noHp, $foto = null, $namaOrangTua = null, $alamat = null, $tahunMasuk = null)
     {
+        // Ambil data lama untuk membandingkan perubahan jk/tahun_masuk
+        $existing = $this->find($id) ?? [];
+
         $data = [
             $this->primaryKey => $id,
             'nama_siswa' => $nama,
@@ -255,6 +268,19 @@ class SiswaModel extends Model
         }
         if ($tahunMasuk !== null) {
             $data['tahun_masuk'] = $tahunMasuk;
+        }
+
+        // Regenerasi NIS jika jenis kelamin atau tahun masuk berubah (atau disediakan)
+        $effectiveYear = $tahunMasuk ?? ($existing['tahun_masuk'] ?? null);
+        if ($effectiveYear !== null) {
+            $oldJk = $existing['jenis_kelamin'] ?? null;
+            $oldYear = $existing['tahun_masuk'] ?? null;
+            $jkChanged = ($oldJk === null) ? true : (strval($oldJk) !== strval($jenisKelamin));
+            $yearChanged = ($oldYear === null) ? true : (strval($oldYear) !== strval($effectiveYear));
+
+            if ($jkChanged || $yearChanged) {
+                $data['nis'] = $this->generateNIS($jenisKelamin, $effectiveYear);
+            }
         }
 
         return $this->save($data);
