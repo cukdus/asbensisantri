@@ -129,3 +129,5 @@ nb-configuration.xml
 /.phpunit.*.cache
 
 *.zip
+armbian/.env.armbian
+armbian/docker-compose.yml

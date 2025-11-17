@@ -9,6 +9,7 @@ use App\Models\PresensiGuruModel;
 use App\Models\PresensiSiswaModel;
 use App\Models\SiswaModel;
 use App\Models\UserModel;
+use App\Models\WhatsappQueueModel;
 use CodeIgniter\I18n\Time;
 
 class Scan extends BaseController
@@ -124,15 +125,11 @@ class Scan extends BaseController
                         ];
                         $messageString = $this->whatsappService->getTemplateGuruMasuk($templateData);
 
-                        $message = [
-                            'destination' => $result['no_hp'],
-                            'message' => $messageString,
-                            'delay' => 0
-                        ];
+                        // Enqueue WAHA message (queue diproses terpisah, 1 pesan per menit)
                         try {
-                            $this->sendNotification($message);
-                        } catch (\Exception $e) {
-                            log_message('error', 'Error sending notification: ' . $e->getMessage());
+                            (new WhatsappQueueModel())->enqueue($result['no_hp'], $messageString);
+                        } catch (\Throwable $e) {
+                            log_message('error', 'Error enqueue WAHA message: ' . $e->getMessage());
                         }
                     }
                 } catch (\Exception $e) {
@@ -166,15 +163,11 @@ class Scan extends BaseController
                     ];
                     $messageString = $this->whatsappService->getTemplateMasuk($templateData);
 
-                    $message = [
-                        'destination' => $result['no_hp'],
-                        'message' => $messageString,
-                        'delay' => 0
-                    ];
+                    // Enqueue WAHA message (queue diproses terpisah, 1 pesan per menit)
                     try {
-                        $this->sendNotification($message);
-                    } catch (\Exception $e) {
-                        log_message('error', 'Error sending notification: ' . $e->getMessage());
+                        (new WhatsappQueueModel())->enqueue($result['no_hp'], $messageString);
+                    } catch (\Throwable $e) {
+                        log_message('error', 'Error enqueue WAHA message: ' . $e->getMessage());
                     }
                 }
 
@@ -232,15 +225,11 @@ class Scan extends BaseController
                         ];
                         $messageString = $this->whatsappService->getTemplateGuruPulang($templateData);
 
-                        $message = [
-                            'destination' => $result['no_hp'],
-                            'message' => $messageString,
-                            'delay' => 0
-                        ];
+                        // Enqueue WAHA message (queue diproses terpisah, 1 pesan per menit)
                         try {
-                            $this->sendNotification($message);
-                        } catch (\Exception $e) {
-                            log_message('error', 'Error sending notification: ' . $e->getMessage());
+                            (new WhatsappQueueModel())->enqueue($result['no_hp'], $messageString);
+                        } catch (\Throwable $e) {
+                            log_message('error', 'Error enqueue WAHA message: ' . $e->getMessage());
                         }
                     }
                 } catch (\Exception $e) {
@@ -279,15 +268,11 @@ class Scan extends BaseController
                     ];
                     $messageString = $this->whatsappService->getTemplatePulang($templateData);
 
-                    $message = [
-                        'destination' => $result['no_hp'],
-                        'message' => $messageString,
-                        'delay' => 0
-                    ];
+                    // Enqueue WAHA message (queue diproses terpisah, 1 pesan per menit)
                     try {
-                        $this->sendNotification($message);
-                    } catch (\Exception $e) {
-                        log_message('error', 'Error sending notification: ' . $e->getMessage());
+                        (new WhatsappQueueModel())->enqueue($result['no_hp'], $messageString);
+                    } catch (\Throwable $e) {
+                        log_message('error', 'Error enqueue WAHA message: ' . $e->getMessage());
                     }
                 }
 

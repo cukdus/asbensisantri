@@ -4,8 +4,8 @@
          <thead class="text-primary">
             <th><b>No</b></th>
             <th><b>NIS</b></th>
-            <th><b>Foto</b></th>
             <th><b>Nama</b></th>
+            <th><b>No HP</b></th>
             <th><b>Tahun Masuk</b></th>
             <th><b>Tahun Lulus</b></th>
             <th><b>Status</b></th>
@@ -17,7 +17,9 @@
                <tr>
                   <td><?= $i; ?></td>
                   <td><?= $value['nis']; ?></td>
-                  <td><?php if (!empty($value['foto']) && file_exists(FCPATH . 'uploads/siswa/' . $value['foto'])): ?>
+                  <td>
+                     <div class="d-flex align-items-center">
+                        <?php if (!empty($value['foto']) && file_exists(FCPATH . 'uploads/siswa/' . $value['foto'])): ?>
                            <img src="<?= base_url('uploads/siswa/' . $value['foto']); ?>" 
                                 alt="Foto <?= $value['nama_siswa']; ?>" 
                                 class="rounded-circle me-2" 
@@ -27,17 +29,16 @@
                                 style="width: 40px; height: 40px; margin-right: 10px;">
                               <i class="material-icons text-muted" style="font-size: 20px;">school</i>
                            </div>
-                        <?php endif; ?></td>
-                  <td>
-                     
+                        <?php endif; ?>
                         <b><?= $value['nama_siswa']; ?></b>
-
+                     </div>
                   </td>
+                  <td><?= $value['no_hp']; ?></td>
                   <td><?= $value['tahun_masuk'] ?? '-'; ?></td>
                   <td><?= $value['tahun_lulus'] ?? '-'; ?></td>
                   <td>
                      <span class="badge badge-success" id="status-badge-<?= $value['id_siswa']; ?>">
-                        Lulus
+                        Alumni
                      </span>
                   </td>
                   <td>

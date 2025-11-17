@@ -31,6 +31,47 @@ services:
     networks:
       - asbensi_net
 
+  queue:
+    container_name: asbensisantri_queue
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      CI_ENVIRONMENT: development
+      COMPOSER_ALLOW_SUPERUSER: 1
+      APP_KEY: ${APP_KEY}
+      WA_NOTIFICATION: ${WA_NOTIFICATION}
+      WHATSAPP_PROVIDER: ${WHATSAPP_PROVIDER}
+      WAHA_API_URL: ${WAHA_API_URL}
+      WHATSAPP_TOKEN: ${WHATSAPP_TOKEN}
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      TZ: ${APP_TIMEZONE}
+    volumes:
+      - ./:/var/www/html
+      - uploads:/var/www/html/public/uploads
+      - writable:/var/www/html/writable
+    entrypoint:
+      - sh
+      - -lc
+      - |
+        cd /var/www/html && \
+        echo 'Starting WAHA queue worker (1 msg/min)...' && \
+        while true; do \
+          php spark waha:send-queue || true; \
+          sleep 60; \
+        done
+    depends_on:
+      - app
+      - db
+    networks:
+      - asbensi_net
+
   db:
     image: mariadb:10.11
     container_name: asbensisantri_db
