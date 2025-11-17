@@ -131,3 +131,5 @@ nb-configuration.xml
 *.zip
 armbian/.env.armbian
 armbian/docker-compose.yml
+armbian/docker-compose copy.yml
+armbian/.env copy.armbian
