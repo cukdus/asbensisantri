@@ -18,6 +18,7 @@ $active_menu = ($active_menu ?? $autoActive);
         <li><a href="<?= base_url('about'); ?>" class="<?= $active_menu === 'about' ? 'active' : ''; ?>">Tentang Kami</a></li>
         <li><a href="<?= base_url('quran'); ?>" class="<?= $active_menu === 'quran' ? 'active' : ''; ?>">Al-Qur'an</a></li>
         <li><a href="<?= base_url('nilai'); ?>" class="<?= $active_menu === 'nilai' ? 'active' : ''; ?>">Cek Nilai</a></li>
+        <li><a href="<?= base_url('amal'); ?>" class="<?= $active_menu === 'amal' ? 'active' : ''; ?>">Amal</a></li>
         <li><a href="<?= base_url('contact'); ?>" class="<?= $active_menu === 'contact' ? 'active' : ''; ?>">Kontak Kami</a></li>
       </ul>
       <button

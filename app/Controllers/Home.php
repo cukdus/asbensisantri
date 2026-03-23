@@ -30,6 +30,16 @@ class Home extends BaseController
         return view('home/about', $data);
     }
 
+    public function amal()
+    {
+        $data = [
+            'title' => 'Amal - Pondok Pesantren Sirojan Muniro As-Salam',
+            'metaDescription' => 'Informasi amal dan donasi untuk Santunan Anak Yatim serta Pembangunan Pondok di Pondok Pesantren Sirojan Muniro As-Salam.'
+        ];
+
+        return view('home/amal', $data);
+    }
+
     public function contact()
     {
         $data = [

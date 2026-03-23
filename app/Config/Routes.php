@@ -36,6 +36,8 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('about', 'Home::about');
 $routes->get('/about', 'Home::about');
+$routes->get('amal', 'Home::amal');
+$routes->get('/amal', 'Home::amal');
 $routes->get('contact', 'Home::contact');
 $routes->get('/contact', 'Home::contact');
 $routes->get('quran', 'Home::quran');
