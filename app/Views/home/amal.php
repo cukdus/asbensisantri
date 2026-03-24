@@ -32,46 +32,6 @@
               <div class="card-body p-4">
                 <div class="d-flex align-items-start gap-3">
                   <div class="icon-box flex-shrink-0">
-                    <i class="bi bi-heart-fill text-success fs-2" aria-hidden="true"></i>
-                  </div>
-                  <div>
-                    <h3 class="h5 fw-bold mb-2">Santunan Anak Yatim</h3>
-                    <p class="text-muted mb-0">
-                      Program santunan untuk membantu kebutuhan pendidikan, kesehatan, dan keseharian anak yatim melalui
-                      dukungan rutin maupun insidental.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card border-0 shadow-sm h-100">
-              <div class="card-body p-4">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="icon-box flex-shrink-0">
-                    <i class="bi bi-building text-success fs-2" aria-hidden="true"></i>
-                  </div>
-                  <div>
-                    <h3 class="h5 fw-bold mb-2">Pembangunan Pondok</h3>
-                    <p class="text-muted mb-0">
-                      Program pembangunan sarana dan prasarana pondok untuk meningkatkan kenyamanan belajar, kegiatan
-                      ibadah, dan pembinaan santri.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row g-4 mt-1">
-          <div class="col-md-6">
-            <div class="card border-0 shadow-sm h-100">
-              <div class="card-body p-4">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="icon-box flex-shrink-0">
                     <i class="bi bi-book text-success fs-2" aria-hidden="true"></i>
                   </div>
                   <div>
@@ -90,12 +50,13 @@
               <div class="card-body p-4">
                 <div class="d-flex align-items-start gap-3">
                   <div class="icon-box flex-shrink-0">
-                    <i class="bi bi-award text-success fs-2" aria-hidden="true"></i>
+                    <i class="bi bi-heart-fill text-success fs-2" aria-hidden="true"></i>
                   </div>
                   <div>
-                    <h3 class="h5 fw-bold mb-2">Bea Siswa Pendidikan Santri</h3>
+                    <h3 class="h5 fw-bold mb-2">Santunan Anak Yatim</h3>
                     <p class="text-muted mb-0">
-                      Dukungan biaya pendidikan bagi santri berprestasi dan yang membutuhkan agar tetap bisa belajar dengan tenang.
+                      Program santunan untuk membantu kebutuhan pendidikan, kesehatan, dan keseharian anak yatim melalui
+                      dukungan rutin maupun insidental.
                     </p>
                   </div>
                 </div>
@@ -110,12 +71,51 @@
               <div class="card-body p-4">
                 <div class="d-flex align-items-start gap-3">
                   <div class="icon-box flex-shrink-0">
+                    <i class="bi bi-award text-success fs-2" aria-hidden="true"></i>
+                  </div>
+                  <div>
+                    <h3 class="h5 fw-bold mb-2">Bea Siswa Pendidikan Santri</h3>
+                    <p class="text-muted mb-0">
+                      Dukungan biaya pendidikan bagi santri berprestasi dan yang membutuhkan agar tetap bisa belajar dengan tenang.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-start gap-3">
+                  <div class="icon-box flex-shrink-0">
                     <i class="bi bi-basket text-success fs-2" aria-hidden="true"></i>
                   </div>
                   <div>
                     <h3 class="h5 fw-bold mb-2">Sembako Warga Pra Sejahtera</h3>
                     <p class="text-muted mb-0">
                       Penyaluran paket kebutuhan pokok kepada warga pra sejahtera untuk meringankan beban hidup sehari-hari.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-1">
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-start gap-3">
+                  <div class="icon-box flex-shrink-0">
+                    <i class="bi bi-building text-success fs-2" aria-hidden="true"></i>
+                  </div>
+                  <div>
+                    <h3 class="h5 fw-bold mb-2">Pembangunan Pondok Pesantren</h3>
+                    <p class="text-muted mb-0">
+                      Program pembangunan sarana dan prasarana pondok untuk meningkatkan kenyamanan belajar, kegiatan
+                      ibadah, dan pembinaan santri.
                     </p>
                   </div>
                 </div>
