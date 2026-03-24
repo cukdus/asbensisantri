@@ -167,23 +167,11 @@
           <div class="col-lg-4">
             <div class="highlight-card shadow-lg">
               <div class="highlight-image">
-                <img src="<?= base_url('assets/img/education/kegiatan2.webp'); ?>" alt="Ngaji Iqro'" class="img-fluid" />
+                <img src="<?= base_url('assets/img/education/mengajiquran.png'); ?>" alt="Ngaji Iqro' & Al-Qur'an" class="img-fluid" />
               </div>
               <div class="highlight-content">
-                <h5>Ngaji Iqro'</h5>
-                <p>Pembelajaran huruf hijaiyah dan dasar membaca Al-Qur'an secara bertahap dengan metode yang mudah dipahami santri pemula.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="highlight-card shadow-lg">
-              <div class="highlight-image">
-                <img src="<?= base_url('assets/img/education/mengajiquran.png'); ?>" alt="Ngaji Al-Qur'an" class="img-fluid" />
-              </div>
-              <div class="highlight-content">
-                <h5>Ngaji Al-Qur'an</h5>
-                <p>Pembinaan tahsin dan tahfidz agar santri membaca dan memahami Al-Qur'an dengan tartil dan benar.</p>
+                <h5>Ngaji Iqro' & Al-Qur'an</h5>
+                <p>Pondasi membaca Al-Qur'an dimulai dari pengenalan huruf hijaiyah (Iqro'), dilanjutkan pembinaan tahsin dan tahfidz agar santri membaca dengan tartil dan memahami tajwid.</p>
               </div>
             </div>
           </div>
@@ -199,9 +187,7 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="row g-4 mt-1">
           <div class="col-lg-4">
             <div class="highlight-card shadow-lg">
               <div class="highlight-image">
@@ -213,7 +199,9 @@
               </div>
             </div>
           </div>
+        </div>
 
+        <div class="row g-4 mt-1">
           <div class="col-lg-4">
             <div class="highlight-card shadow-lg">
               <div class="highlight-image">
@@ -237,9 +225,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="row g-4 mt-1">
           <div class="col-lg-4">
             <div class="highlight-card shadow-lg">
               <div class="highlight-image">
