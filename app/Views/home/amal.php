@@ -27,6 +27,40 @@ $transferAccounts = [
 ];
 ?>
 
+<style>
+  #amalPaymentTabs {
+    border-bottom: 0;
+    gap: 0.5rem;
+  }
+
+  #amalPaymentTabs .nav-link {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.9rem 1.75rem;
+    border: 1px solid rgba(var(--bs-success-rgb), 0.35);
+    border-bottom: 0;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    color: var(--bs-success);
+    background: #fff;
+  }
+
+  #amalPaymentTabs .nav-link:hover {
+    background: rgba(var(--bs-success-rgb), 0.08);
+  }
+
+  #amalPaymentTabs .nav-link.active {
+    background: var(--bs-success);
+    border-color: var(--bs-success);
+    color: #fff;
+  }
+
+  #amalPaymentTabs .nav-link i {
+    font-size: 1.15em;
+    line-height: 1;
+  }
+</style>
+
 <main class="main" id="main-content" role="main">
   <article class="page-article" itemscope itemtype="https://schema.org/WebPage">
     <div class="page-title">
@@ -179,7 +213,7 @@ $transferAccounts = [
         <ul class="nav nav-tabs justify-content-center" id="amalPaymentTabs" role="tablist">
           <li class="nav-item" role="presentation">
             <button
-              class="nav-link active"
+              class="nav-link active d-flex align-items-center justify-content-center gap-2"
               id="amal-qris-tab"
               data-bs-toggle="tab"
               data-bs-target="#amal-qris"
@@ -188,12 +222,13 @@ $transferAccounts = [
               aria-controls="amal-qris"
               aria-selected="true"
             >
-              QRIS
+              <i class="bi bi-qr-code" aria-hidden="true"></i>
+              <span>QRIS</span>
             </button>
           </li>
           <li class="nav-item" role="presentation">
             <button
-              class="nav-link"
+              class="nav-link d-flex align-items-center justify-content-center gap-2"
               id="amal-transfer-tab"
               data-bs-toggle="tab"
               data-bs-target="#amal-transfer"
@@ -202,7 +237,8 @@ $transferAccounts = [
               aria-controls="amal-transfer"
               aria-selected="false"
             >
-              Transfer
+              <i class="bi bi-bank" aria-hidden="true"></i>
+              <span>Transfer</span>
             </button>
           </li>
         </ul>
