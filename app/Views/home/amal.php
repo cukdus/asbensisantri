@@ -243,7 +243,7 @@ $transferAccounts = [
           </li>
         </ul>
 
-        <div class="tab-content border border-top-0 rounded-bottom p-4 shadow-sm" id="amalPaymentTabsContent">
+        <div class="tab-content border border-top-1 rounded p-4 shadow-sm" id="amalPaymentTabsContent">
           <div class="tab-pane fade show active" id="amal-qris" role="tabpanel" aria-labelledby="amal-qris-tab" tabindex="0">
             <div class="row g-4 align-items-start">
               <div class="col-lg-6">
