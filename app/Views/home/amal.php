@@ -15,14 +15,9 @@ $donationTargets = [
 $qrisImageUrl = base_url('assets/img/qris.png');
 $transferAccounts = [
   [
-    'bank' => 'BCA',
-    'number' => '1234567890',
-    'name' => 'Pondok Pesantren Sirojan Muniro As-Salam',
-  ],
-  [
     'bank' => 'BRI',
-    'number' => '0987654321',
-    'name' => 'Pondok Pesantren Sirojan Muniro As-Salam',
+    'number' => '0551-0100-1041-567',
+    'name' => 'Yayasan Pondok Pesantren Sirojan Muniro',
   ],
 ];
 ?>
